@@ -1,0 +1,19 @@
+project:
+  type: manuscript
+
+manuscript:
+  article: perfect-wikipedia.qmd
+
+format:
+  html: default
+  docx:
+    papersize: A4
+  pdf:
+    papersize: A4
+  jats: default
+
+execute:
+  freeze: true
+
+
+

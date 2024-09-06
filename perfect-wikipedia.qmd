@@ -1,0 +1,86 @@
+---
+title: Wikilambda the Ultimate
+subtitle: The Wikimedia foundation's  search for the perfect language, part 1
+authors:
+  - name: Michael Falk
+    affiliation: The University of Melbourne
+    roles: writing
+    corresponding: true
+    orcid: 0000-0001-9261-8390
+    email: michael.falk@unimelb.edu.au
+    url: https://michaelfalk.io
+bibliography: references.bib
+keywords:
+  - Wikipedia
+  - Wikifunctions
+  - Abstract Wikipedia
+  - Critical Code Studies
+  - functional programming
+  - perfect language
+  - polygraphias
+abstract: >
+  In 2020, the Wikimedia foundation launched its first new project in nearly a decade. The new project consists of two main parts: (1) Wikifunctions, a library of programming functions; and (2) Abstract Wikipedia, a language-agnostic Wikipedia that will be dynamically translated into the reader’s native tongue. Lying beneath both Wikifunctions and Abstract Wikipedia is a new system called Wikilambda, which can execute code in potentially any programming language, providing a massively flexible computing service drawing on Wikifunctions and powering Abstract Wikipedia. The entire system is designed to address a fundamental bias in Wikipedia, namely its bias towards majority languages like English and Spanish. In this paper, I present Wikilambda as an audacious attempt to realise a ‘perfect language’, as theorised by Umberto @eco_search_1995. Wikilambda provides a way of specifying functions that is supposed to transcend any particular 'native' language. In this way, it provides editors of Wikifunctions and Abstract Wikipedia with a way of contributing to the overall system no matter which 'native' programming languages they know. More broadly, Wikilambda aims to achieve the 'democratization of programming', by enabling any person to use any function without needing to know English or a particular programming language [@vrandecic_building_2021]. I present the 'perfect language' provided by Wikilambda. I situate it in the general history of 'perfect' languages, and in the more specific history of functional languages including LISP and the Lambda calculus. Wikilambda's perfect language embodies certain ideals of fairness and universality which it is our duty to understand and critique.
+---
+
+> The story of the search for the perfect language is the story of a dream and of a series of failures. [@eco_search_1995, p. 19]
+
+> If there was a TLDR of the project it would probably be “something like LISP in JSON”. [@noauthor_wikifunctionsfunction_2024]
+
+> To summarize, creating a good programming language is hard, and having a good clear initial design is crucial. The Wikifunctions model ignores decades of programming language research and existing technology. Instead, it invents a completely new ad-hoc system, but that unfortunately does not seem to have good properties, and it is questionable whether it will be able to support a large, complex software system, [such] as Abstract Wikipedia. [@livneh_abstract_2022]
+
+## Introduction
+
+**TODO: Signpost article**
+
+In 2020, the Wikimedia foundation launched its first new project in nearly a decade. The new project consists of two main parts: (1) Wikifunctions, a library of programming functions; and (2) Abstract Wikipedia, a language-agnostic Wikipedia that will be dynamically translated into the reader’s native tongue. Lying beneath both Wikifunctions and Abstract Wikipedia is a new system called Wikilambda, which can execute code in potentially any programming language, providing a massively flexible computing service drawing on Wikifunctions and powering Abstract Wikipedia.
+
+This is an astonishingly ambitious project, as its leader, Denny @vrandecic_building_2021, reluctantly admits. It requires not one, but *two* brand-new languages. Abstract Wikipedia will provide a new language for writing Wikipedia articles. Contributors will compose articles in a formal language that represents ordinary sentences. These abstract articles will then be translated into natural languages using Wikifunctions. Contributors will also describe and implement all these functions: functions for pluralising Swahili nouns, resolving Hindi kinship terms, or for exploding German seperable verbs. To combine these many functions, a new language is needed, which the Abstract Wikipedia project call "The Function Model" [@noauthor_wikifunctionsfunction_2024].
+
+Abstract Wikipedia and Wikifunctions form two halves of a "polygraphia." As Umberto @eco_search_1995 explains, a polygraphia is a universal translation system. Dozens of polygraphies have been attempted. None has ever succeeded. Why does the idea remain seductive today, despite centuries of failure? **TODO: Expand**
+
+As I write, the two halves of the project are in different states. An early version of Wikifunctions is operational. Anyone can contribute functions to the database. Two implementation languages are supported (Python and Javascript). The user interface is basic but functional. Abstract Wikipedia is merely a plan. Accordingly I focus on Wikifunctions, and the Wikilambda software that underlies it. In @sec-ideology, I examine the published writings of Vrandečić and his collaborators, to reveal the project's underlying ideology. In @sec-semantics, I describe the functional programming language the team has devised so that Wikifunctions can support the development of larger software systems. Finally, in @sec-code, I closely analyse a portion of the "orchestrator," the software that makes Wikifunctions' new programming language a reality. I examine the orchestrator using the techniques of critical code studies [@marino_critical_2020]. The code incarnates its designers' ideals and aspirations. Reading it closely, we can understand in richer detail the "structures of feeling" that guide the project **TODO: cite willliams**.
+
+Wikifunctions is aspirational. It espouses ideals of democracy, decolonisation, openness and the communism of knowledge.[^1] It is a unique experiment in coding literacy. It revives an old dream for a perfect language. It makes a bold claim for functional programming at a time when imperative and object-oriented programming predominate. It does all these things in an extreme, ambitious and apparently totally naive way. What kind of thing *is* Wikifunctions? What can it tell us about its ideals? Does it provide another model for democratic deliberation on the web? In some ways, Wikifunctions is the ultimate hack. Will it be the last?
+
+[^1]: Nathaniel @tkacz_wikipedia_2015 has skillfully criticised the "openness" of Wikipedia. Abstract Wikipedia/Wikifunctions embodies "openness" differently, and provides a useful opportunity to revisit Tkacz's arguments.
+
+## Functions for all! {#sec-ideology}
+
+*Why the blank slate? Concrete example: rejection of Lua as the programming language. This despite the uptake in the Wikipedia community, and also compelling examples from gamer culture (e.g. Roblox, WoW)*
+
+*Wikifunctions aims to give people access to "functions" even if they do not code. The project is systematically ambiguous about whether the system they provide is a "programming language."*
+
+*Denny V et al motivate their design decisions several interlinked arguments: (1) decolonisation; (2) the power of crowdsourcing; (3) democracy/accountability, e.g. as opposed to ML.*
+
+*decolonisation: cf. Marino*
+
+*Also secondary arguments, e.g. it needs to be purely functional so that results can be 'aggressively cached'.*
+
+*Computer literacy: blank slate somehow improves this. Blank slate = no assumptions (?). But of course there are many assumptions!*
+
+Key sources:
+
+- @livneh_abstract_2022
+- @blanton_abstract_2022
+- @vrandecic_building_2021
+- @vrandecic_capturing_2018 <-- interesting that in this first paper, DV doesn't mention Wikifunctions. At what point did that become part of the plan?
+- @noauthor_wikifunctionswhat_2024
+
+## The Function Model {#sec-semantics}
+
+*Compare to other visions for programming languages, e.g. Paul Graham's "hundred year language."*
+
+*Description of the language with an example. Perhaps I should contribute a function to demonstrate the system...?*
+
+*Is it a 'pure' functional language? Where are they headed?*
+
+*Try to get to the bottom of this issue about function calls, variables and argument values as types rather than syntactic constructs.*
+
+## The orchestrator {#sec-code}
+
+*Close reading of the orchestrator code*
+
+
+
+## References
+

@@ -1,83 +1,172 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="generator" content="quarto-1.5.57">
 
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="keywords" content="Wikipedia, Wikifunctions, Abstract Wikipedia, Critical Code Studies, functional programming, perfect languages, polygraphies">
 
-<meta name="keywords" content="Wikipedia, Wikifunctions, Abstract Wikipedia, Critical Code Studies, functional programming, perfect languages, polygraphies">
+    <title>Wikilambda the Ultimate</title>
+    <style>
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      div.columns{display: flex; gap: min(4vw, 1.5em);}
+      div.column{flex: auto; overflow-x: auto;}
+      div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+      ul.task-list{list-style: none;}
+      ul.task-list li input[type="checkbox"] {
+        width: 0.8em;
+        margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+        vertical-align: middle;
+      }
+      /* CSS for syntax highlighting */
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+        }
+      pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+      div.sourceCode
+        {   }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+      /* CSS for citations */
+      div.csl-bib-body { }
+      div.csl-entry {
+        clear: both;
+        margin-bottom: 0em;
+      }
+      .hanging-indent div.csl-entry {
+        margin-left:2em;
+        text-indent:-2em;
+      }
+      div.csl-left-margin {
+        min-width:2em;
+        float:left;
+      }
+      div.csl-right-inline {
+        margin-left:2em;
+        padding-left:1em;
+      }
+      div.csl-indent {
+        margin-left: 2em;
+      }    </style>
 
-<title>Wikilambda the Ultimate</title>
-<style>
-code{white-space: pre-wrap;}
-span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
-div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-ul.task-list{list-style: none;}
-ul.task-list li input[type="checkbox"] {
-  width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
-  vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+    <style>
+      body.hypothesis-enabled #quarto-embed-header {
+        padding-right: 36px;
+      }
 
+      #quarto-embed-header {
+        height: 3em;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: solid 1px;
+      }
 
+      #quarto-embed-header h6 {
+        font-size: 1.1em;
+        padding-top: 0.6em;
+        margin-left: 1em;
+        margin-right: 1em;
+        font-weight: 400;
+      }
+
+      #quarto-embed-header a.quarto-back-link,
+      #quarto-embed-header a.quarto-download-embed {
+        font-size: 0.8em;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        margin-left: 1em;
+        margin-right: 1em;
+      }
+
+      .quarto-back-container {
+        padding-left: 0.5em;
+        display: flex;
+      }
+
+      .headroom {
+          will-change: transform;
+          transition: transform 200ms linear;
+      }
+
+      .headroom--pinned {
+          transform: translateY(0%);
+      }
+
+      .headroom--unpinned {
+          transform: translateY(-100%);
+      }      
+    </style>
+
+    <script>
+    window.document.addEventListener("DOMContentLoaded", function () {
+
+      var header = window.document.querySelector("#quarto-embed-header");
+      const titleBannerEl = window.document.querySelector("body > #title-block-header");
+      if (titleBannerEl) {
+        titleBannerEl.style.paddingTop = header.clientHeight + "px";
+      }
+      const contentEl = window.document.getElementById('quarto-content');
+      for (const child of contentEl.children) {
+        child.style.paddingTop = header.clientHeight + "px";
+        child.style.marginTop = "1em";
+      }
+
+      // Use the article root if the `back` call doesn't work. This isn't perfect
+      // but should typically work
+      window.quartoBackToArticle = () => {
+        var currentUrl = window.location.href;
+        window.history.back();
+        setTimeout(() => {
+            // if location was not changed in 100 ms, then there is no history back
+            if(currentUrl === window.location.href){              
+                // redirect to site root
+                window.location.href = "index.html";
+            }
+        }, 100);
+      }
+
+      const headroom = new window.Headroom(header, {
+        tolerance: 5,
+        onPin: function () {
+        },
+        onUnpin: function () {
+        },
+      });
+      headroom.init();
+    });
+    </script>
+
+    
+<script src="site_libs/manuscript-notebook/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -91,38 +180,8 @@ div.csl-indent {
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<meta name="citation_title" content="Wikilambda the Ultimate">
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script> 
+      <meta name="citation_title" content="Wikilambda the Ultimate">
 <meta name="citation_abstract" content="In 2020, the Wikimedia foundation launched its first new project in nearly a decade. The new project consists of two main parts: (1) Wikifunctions, a library of programming functions; and (2) Abstract Wikipedia, a language-agnostic Wikipedia that will be dynamically translated into the reader’s native tongue. Lying beneath both Wikifunctions and Abstract Wikipedia is a new system called Wikilambda, which can execute code in potentially any programming language, providing a massively flexible computing service drawing on Wikifunctions and powering Abstract Wikipedia. The entire system is designed to address a fundamental bias in Wikipedia, namely its bias towards majority languages like English and Spanish. In this paper, I present Wikilambda as an audacious attempt to realise a ‘perfect language’, as theorised by Umberto @eco_search_1995. Wikilambda provides a way of specifying functions that is supposed to transcend any particular &amp;amp;#039;native' language. In this way, it provides editors of Wikifunctions and Abstract Wikipedia with a way of contributing to the overall system no matter which 'native' programming languages they know. More broadly, Wikilambda aims to achieve the 'democratization of programming', by enabling any person to use any function without needing to know English or a particular programming language [@vrandecic_building_2021]. To analyse the technical and ideological aspects of Wikilambda, I apply the techniques of Critical Code Studies [@marino_critical_2020] to 'the orchestrator', the JavaScript application that instantiates Wikilambda's new functional programming language. In the absence of a formal specification of the language, the Abstract Wikipedia team have gradually hacked Wikilambda out of JavaScript, leaving a fascinating public record of their attempt to realise their vision for a universal programming system.
 ">
 <meta name="citation_keywords" content="Wikipedia,Wikifunctions,Abstract Wikipedia,Critical Code Studies,functional programming,perfect languages,polygraphies">
@@ -198,9 +257,16 @@ window.Quarto = {
 <meta name="citation_reference" content="citation_title=Special Forms;,citation_publication_date=1997;,citation_cover_date=1997;,citation_year=1997;,citation_fulltext_html_url=https://docs.scheme.org/schintro/schintro_17.html;,citation_journal_title=An Introduction to Scheme and its Implementation;">
 </head>
 
-<body>
+  <body class="quarto-notebook">
+    <div id="quarto-embed-header" class="headroom fixed-top bg-primary">
+      
+      <a onclick="window.quartoBackToArticle(); return false;" class="btn btn-primary quarto-back-link" href=""><i class="bi bi-caret-left"></i> Back to Article</a>
+      <h6><i class="bi bi-journal-code"></i> Article Notebook</h6>
 
-<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
+            <a href="./perfect-wikipedia.qmd" class="btn btn-primary quarto-download-embed" download="perfect-wikipedia.qmd">Download Source</a>
+          </div>
+
+     <header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">Wikilambda the Ultimate</h1>
@@ -232,7 +298,7 @@ window.Quarto = {
               </div>
       </div>
       <div class="quarto-title-meta-column-end quarto-other-formats-target">
-      <div class="quarto-alternate-formats"><div class="quarto-title-meta-heading">Other Formats</div><div class="quarto-title-meta-contents"><p><a href="perfect-wikipedia.docx"><i class="bi bi-file-word"></i>MS Word</a></p></div><div class="quarto-title-meta-contents"><p><a href="perfect-wikipedia.pdf"><i class="bi bi-file-pdf"></i>PDF</a></p></div><div class="quarto-title-meta-contents"><p><a href="perfect-wikipedia-meca.zip" data-meca-link="true"><i class="bi bi-archive"></i>MECA Bundle</a></p></div></div></div>
+      </div>
     </div>
 
     <div>
@@ -276,14 +342,9 @@ window.Quarto = {
 </div>
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
 </div>
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">      
 
-
-
-  
-
-
-<blockquote class="blockquote">
+       <blockquote class="blockquote">
 <p>The story of the search for the perfect language is the story of a dream and of a series of failures. <span class="citation" data-cites="eco_search_1995">(<a href="#ref-eco_search_1995" role="doc-biblioref">Eco 1995, 19</a>)</span></p>
 </blockquote>
 <section id="introduction-the-risk" class="level2">
@@ -411,6 +472,25 @@ Listing&nbsp;1: A recursive implementation of factorial in Scheme
 </div>
 <p>On line 1, we <code>define</code> a new function called <code>factorial</code>, which takes one input, called <code>n</code>. On line 2, we decide which rule to apply. If <code>n</code> is equal to zero, then the first option will be chosen (the “consequent”), and the function will simply output the value <code>1</code>. If <code>n</code> is equal to any other number, then the second option will be chosen (the “alternative”). In this case, <code>n</code> will be multiplied by the output of the factorial function applied to <code>n - 1</code>. In Scheme, as in many programming languages, <code>*</code> is the multiplication symbol. Thus the expression <code>(* n (factorial (- n 1)))</code> is exactly equivalent to <span class="math inline">\(n \times (n - 1)!\)</span>.</p>
 <p><a href="#lst-wikilambda-factorial" class="quarto-xref">Listing&nbsp;2</a> is the current Wikilambda implementation of the factorial function in the Wikifunctions database <span class="citation" data-cites="noauthor_factorial_2024">(<a href="#ref-noauthor_factorial_2024" role="doc-biblioref"><span>“Factorial, Composition (<span>Z13863</span>)”</span> 2024</a>)</span>. This is its representation in “canonical form,” which is the format used within the system to represent Wikilambda code. Users are not exposed to the code directly. Instead, they see a visual representation of the code, with the various <code>Z</code>-codes translated into their preferred language (<a href="#fig-wikilambda-factorial" class="quarto-xref">Figure&nbsp;2</a>).</p>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>factorial_zid <span class="ot">&lt;-</span> <span class="st">"Z13863"</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>revision_id <span class="ot">&lt;-</span> <span class="st">"101571"</span> <span class="co"># Revision at time of writing</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>wikilambda_factorial <span class="ot">&lt;-</span> httr2<span class="sc">::</span><span class="fu">request</span>(<span class="st">"https://www.wikifunctions.org/w/api.php"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  httr2<span class="sc">::</span><span class="fu">req_url_query</span>(</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">action =</span> <span class="st">"wikilambda_fetch"</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">zids =</span> factorial_zid,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">language =</span> <span class="st">"en"</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">revid =</span> revision_id,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">format =</span> <span class="st">"json"</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  httr2<span class="sc">::</span><span class="fu">req_perform</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  httr2<span class="sc">::</span><span class="fu">resp_body_json</span>() <span class="sc">|&gt;</span>  </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  purrr<span class="sc">::</span><span class="fu">pluck</span>(factorial_zid, <span class="st">"wikilambda_fetch"</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the code block. Using `results: asis` inserts the output as raw text</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># into the markdown document, allowing us to use quarto's formatting features.</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="st">"```{#lst-wikilambda-factorial .json lst-cap='A recursive implementation of factorial in Wikilambda'}</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  wikilambda_factorial[[<span class="dv">1</span>]],</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="st">"</span><span class="sc">\n</span><span class="st">```"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div id="lst-wikilambda-factorial" class="json listing quarto-float quarto-figure quarto-figure-left anchored">
 <figure class="quarto-float quarto-float-lst figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst" id="lst-wikilambda-factorial-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -542,7 +622,7 @@ Figure&nbsp;2: The Wikilambda factorial function in the user interface
 </dd>
 </dl>
 <p>This excerpt is far more verbose than the equivalent section of <a href="#lst-scheme-factorial" class="quarto-xref">Listing&nbsp;1</a>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode scheme code-with-copy"><code class="sourceCode scheme"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>(<span class="op">*</span> <span class="op">...</span> <span class="op">...</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode scheme code-with-copy"><code class="sourceCode scheme"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>(<span class="op">*</span> <span class="op">...</span> <span class="op">...</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The verbosity is due to Wikilambda’s extreme simplicity. Scheme has some rudimentary syntactical rules that are absent from Wikilamda. For example, in Wikilambda, the multiplication is explicitly labelled as a <a href="https://www.wikifunctions.org/wiki/Z7">Z7:Function Call</a>, so that the system knows that the user intends to call a function. In Scheme, there is no need to label the expression as a function call: it is simply assumed that the first symbol in the parentheses is a function, which will be applied to whatever symbols come after it. In Wikilambda, each part of the expression is explicitly labelled. We can see from the labels which is the first input (“K1”) and which is the second input (“K2”) to the function. In Scheme, this labelling is handled by the programming system. The writer of code can simply write the two inputs to the function, and the Scheme interpreter will do the work of labelling them as “input 1” and “input 2.”</p>
 <p>This explicit labelling does justify the idea that programming Wikilambda allows users to directly manipulate the “abstract syntax tree.” Work that is usually done by the program interpreting the code is instead being done by the human programmer. The labelling also means that the order of parts of the program is strictly speaking irrelevant. Although the code is presented in prefix notation, with the function first and it inputs in their proper order second, the function orchestrator actually uses the provided labels to determine what the function and its inputs are. It would still evaluate the code correctly if the lines were jumbled up. In Scheme, however, the interpreter relies on the symbols being in their proper order.</p>
 <p>There are many other differences between Scheme and Wikilambda, but one further contrast will serve to illustrate the tricky problems of language design faced by the Wikilambda programmers. The crucial contrast lies in the <code>if</code> function, which enables the factorial function to be recursive. Recall that <code>if</code> is necessary in order to select which rule to apply: <code>if</code> <span class="math inline">\(n = 0\)</span>, one rule applies, else the other applies.</p>
@@ -574,17 +654,17 @@ Figure&nbsp;2: The Wikilambda factorial function in the user interface
 <p>To understand the need for “lazy evaluation” in Wikilambda, we can again contrast it with Scheme. In Scheme, <code>if</code> is not a normal function, but rather a “special form” which behaves differently to an ordinary function. When an ordinary function is called in Scheme, all its inputs are evaluated before the function is then applied to them. This is called “applicative order” evaluation. For example, imagine we wanted to calculate</p>
 <p><span class="math display">\[(3 + 1) \times (4 \div 2)\]</span></p>
 <p>In Scheme, that is written:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode scheme code-with-copy"><code class="sourceCode scheme"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>(<span class="op">*</span> (<span class="op">+</span> <span class="dv">3</span> <span class="dv">1</span>) (<span class="op">/</span> <span class="dv">4</span> <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode scheme code-with-copy"><code class="sourceCode scheme"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>(<span class="op">*</span> (<span class="op">+</span> <span class="dv">3</span> <span class="dv">1</span>) (<span class="op">/</span> <span class="dv">4</span> <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>We start at <code>*</code>, the multiplication operator. Before we apply this operator, we first evaluate the inputs:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode scheme code-with-copy"><code class="sourceCode scheme"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>(<span class="op">*</span> <span class="dv">4</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode scheme code-with-copy"><code class="sourceCode scheme"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>(<span class="op">*</span> <span class="dv">4</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Once the values of the inputs are known, we perform the multiplication:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode scheme code-with-copy"><code class="sourceCode scheme"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dv">8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode scheme code-with-copy"><code class="sourceCode scheme"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dv">8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Now imagine that we wanted to calculate <span class="math inline">\(1!\)</span>. Let us evaluate the code in <a href="#lst-scheme-factorial" class="quarto-xref">Listing&nbsp;1</a>:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode scheme code-with-copy"><code class="sourceCode scheme"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>(factorial <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode scheme code-with-copy"><code class="sourceCode scheme"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>(factorial <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This becomes</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode scheme code-with-copy"><code class="sourceCode scheme"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>(<span class="kw">if</span> (<span class="op">=</span> <span class="dv">1</span> <span class="dv">0</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    (<span class="op">*</span> <span class="dv">1</span> (factorial (<span class="op">-</span> <span class="dv">1</span> <span class="dv">1</span>))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode scheme code-with-copy"><code class="sourceCode scheme"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>(<span class="kw">if</span> (<span class="op">=</span> <span class="dv">1</span> <span class="dv">0</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    (<span class="op">*</span> <span class="dv">1</span> (factorial (<span class="op">-</span> <span class="dv">1</span> <span class="dv">1</span>))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Now, if we follow the usual rule of applicative order evaluation, before we can apply the <code>if</code> function, we need to evaluate all its inputs. The function has three inputs, namely the <em>condition</em>, the <em>consequent</em> and the <em>alternative</em>. Let us evaluate them.</p>
 <div class="sourceCode" id="annotated-cell-9"><pre class="sourceCode scheme code-annotation-code code-with-copy code-annotated"><code class="sourceCode scheme"><a class="code-annotation-anchor" data-target-cell="annotated-cell-9" data-target-annotation="1" onclick="event.preventDefault();" href="">1</a><span id="annotated-cell-9-1" class="code-annotation-target"><a href="#annotated-cell-9-1" aria-hidden="true" tabindex="-1"></a>(<span class="kw">if</span> <span class="dv">#f</span></span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-9" data-target-annotation="2" onclick="event.preventDefault();" href="">2</a><span id="annotated-cell-9-2" class="code-annotation-target"><a href="#annotated-cell-9-2" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span></span>
@@ -604,9 +684,9 @@ Figure&nbsp;2: The Wikilambda factorial function in the user interface
 </dd>
 </dl>
 <p>We still haven’t fully evaluated the inputs to <code>if</code>, so now we need to evaluate <code>(factorial 0)</code>. Then we will be able to multiply it by <code>1</code> to finish evaluating that last line of the code. <code>(factorial 0)</code> becomes:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode scheme code-with-copy"><code class="sourceCode scheme"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>(<span class="kw">if</span> (<span class="op">=</span> <span class="dv">0</span> <span class="dv">0</span>) <span class="co">; evaluates to #t</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span>       <span class="co">; evaluates to 1</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    (<span class="op">*</span> <span class="dv">0</span> (factorial (<span class="op">-</span> <span class="dv">0</span> <span class="dv">1</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode scheme code-with-copy"><code class="sourceCode scheme"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>(<span class="kw">if</span> (<span class="op">=</span> <span class="dv">0</span> <span class="dv">0</span>) <span class="co">; evaluates to #t</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span>       <span class="co">; evaluates to 1</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    (<span class="op">*</span> <span class="dv">0</span> (factorial (<span class="op">-</span> <span class="dv">0</span> <span class="dv">1</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Ah, we have another complex expression, <code>(factorial (- 0 1))</code>. Before we can evaluate the <code>if</code>, we need to work out the value of <code>(factorial (- 0 1))</code>, which is of course <code>(factorial -1)</code>. Before we can evaluate that, we need to work out the value of <code>(factorial (- -1 1))</code>, which is of course <code>(factorial -2)</code>, and so on. Our code is broken. It will never stop subtracting <span class="math inline">\(1\)</span> from <span class="math inline">\(n\)</span>, and will never return us an answer.</p>
 <p>The solution in Scheme is to treat <code>if</code> as a “special form.” When we call an ordinary function in Scheme, all the inputs are evaluated straight away. But when we use <code>if</code>, only the <em>condition</em> is evaluated. Then, depending on the outcome of that, <em>either</em> the consequent <em>or</em> the alternative are evaluated. Thus in fact the Scheme code does work. Thus in fact, when we reach <code>(factorial 0)</code>, the following will happen:</p>
 <div class="sourceCode" id="annotated-cell-11"><pre class="sourceCode scheme code-annotation-code code-with-copy code-annotated"><code class="sourceCode scheme"><a class="code-annotation-anchor" data-target-cell="annotated-cell-11" data-target-annotation="1" onclick="event.preventDefault();" href="">1</a><span id="annotated-cell-11-1" class="code-annotation-target"><a href="#annotated-cell-11-1" aria-hidden="true" tabindex="-1"></a>(<span class="kw">if</span> (<span class="op">=</span> <span class="dv">0</span> <span class="dv">0</span>)</span>
@@ -669,12 +749,8 @@ Figure&nbsp;2: The Wikilambda factorial function in the user interface
 <p>What does this mean? …</p>
 </section>
 <section id="references" class="level2 unnumbered">
-
-
-</section>
-
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-noauthor_abstract_2024" class="csl-entry" role="listitem">
 <span>“Abstract <span>Wikipedia</span>/<span>Semantics</span> of <span>Wikifunctions</span>.”</span> 2024. <em>Wikimedia Meta-Wiki</em>. <a href="https://meta.wikimedia.org/w/index.php?title=Abstract_Wikipedia/Semantics_of_Wikifunctions&amp;oldid=26035186">https://meta.wikimedia.org/w/index.php?title=Abstract_Wikipedia/Semantics_of_Wikifunctions&amp;oldid=26035186</a>.
 </div>
@@ -792,16 +868,18 @@ Vrandečić, Denny. 2018. <span>“Capturing Meaning: <span>Toward</span> an Abs
 <div id="ref-noauthor_wikifunctionswhat_2024" class="csl-entry" role="listitem">
 <span>“Wikifunctions:<span>What</span> <span>Wikifunctions</span> Is Not.”</span> 2024. <em>Wikifunctions</em>. <a href="https://www.wikifunctions.org/w/index.php?title=Wikifunctions:What_Wikifunctions_is_not&amp;oldid=71136">https://www.wikifunctions.org/w/index.php?title=Wikifunctions:What_Wikifunctions_is_not&amp;oldid=71136</a>.
 </div>
-</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
 <ol>
 <li id="fn1"><p>In what follows, I use “Wikifunctions” and “Wikilambda” interchangeably, as my sources dictate. There is no risk of confusion, because Wikifunctions is currently the only database running the Wikilambda software.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>For a brilliant and readable introduction to recursive functions, I would recommend <span class="citation" data-cites="friedman_little_2007">Friedman, Felleisen, and Bibby (<a href="#ref-friedman_little_2007" role="doc-biblioref">2007</a>)</span>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3"><p>Also known as “Cambridge Polish” syntax: <span class="citation" data-cites="steele_jr_art_1978">Steele Jr. and Sussman (<a href="#ref-steele_jr_art_1978" role="doc-biblioref">1978, 2</a>)</span>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</section></div></main>
-<!-- /main column -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section>
+     </main>
+<!-- /main column -->  <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1220,9 +1298,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-</div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"loop":false,"openEffect":"zoom","selector":".lightbox","descPosition":"bottom","closeEffect":"zoom"});
+</script>  </div> <!-- /content -->  <script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","descPosition":"bottom","openEffect":"zoom","loop":false});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
@@ -1253,9 +1329,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   };
   
 })();
-          </script>
-
-
-
-
+          </script> 
+  
 </body></html>

@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="quarto-1.6.42" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+<meta name="keywords" content="Wikipedia, Wikifunctions, Abstract Wikipedia, Critical Code Studies, functional programming, perfect languages, polygraphies" />
+
+<title>Wikilambda the Ultimate</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+<!-- htmldependencies:E3FAD763 -->
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <div id="quarto-toc-target"></div>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default toc-left">
+  <div class="quarto-title-banner">
+    <div class="quarto-title column-body">
+      <h1 class="title">Wikilambda the Ultimate</h1>
+            <p class="subtitle lead">The Wikimedia foundation’s search for the perfect language</p>
+          </div>
+
+    
+    <div class="quarto-title-meta-container">
+      <div class="quarto-title-meta-column-start">
+            <div class="quarto-title-meta-author">
+          <div class="quarto-title-meta-heading">Author</div>
+          <div class="quarto-title-meta-heading">Affiliation</div>
+          
+                <div class="quarto-title-meta-contents">
+            <p class="author"><a href="https://michaelfalk.io">Michael Falk</a> <a href="mailto:michael.falk@unimelb.edu.au" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0000-0001-9261-8390" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+          </div>
+                <div class="quarto-title-meta-contents">
+                    <p class="affiliation">
+                        The University of Melbourne
+                      </p>
+                  </div>
+                    </div>
+        
+        <div class="quarto-title-meta">
+
+                      
+          
+                
+              </div>
+      </div>
+      <div class="quarto-title-meta-column-end quarto-other-formats-target">
+      </div>
+    </div>
+
+    <div>
+      <div class="abstract">
+        <div class="block-title">Abstract</div>
+        <p>In 2020, the Wikimedia foundation launched its first new project in nearly a decade. The new project consists of two main parts: (1) Wikifunctions, a library of programming functions; and (2) Abstract Wikipedia, a language-agnostic Wikipedia that will be dynamically translated into the reader’s native tongue. Lying beneath both Wikifunctions and Abstract Wikipedia is a new system called Wikilambda, which can execute code in potentially any programming language, providing a massively flexible computing service drawing on Wikifunctions and powering Abstract Wikipedia. The entire system is designed to address a fundamental bias in Wikipedia, namely its bias towards majority languages like English and Spanish. In this paper, I present Wikilambda as an audacious attempt to realise a ‘perfect language’, as theorised by Umberto <span class="citation" data-cites="eco_search_1995">Eco (<a href="#ref-eco_search_1995" role="doc-biblioref">1995</a>)</span>. Wikilambda provides a way of specifying functions that is supposed to transcend any particular ‘native’ language. In this way, it provides editors of Wikifunctions and Abstract Wikipedia with a way of contributing to the overall system no matter which ‘native’ programming languages they know. More broadly, Wikilambda aims to achieve the ‘democratization of programming’, by enabling any person to use any function without needing to know English or a particular programming language <span class="citation" data-cites="vrandecic_building_2021">(<a href="#ref-vrandecic_building_2021" role="doc-biblioref">Vrandečić 2021</a>)</span>. To analyse the technical and ideological aspects of Wikilambda, I apply the techniques of Critical Code Studies <span class="citation" data-cites="marino_critical_2020">(<a href="#ref-marino_critical_2020" role="doc-biblioref">Marino 2020</a>)</span> to ‘the orchestrator’, the JavaScript application that instantiates Wikilambda’s new functional programming language. In the absence of a formal specification of the language, the Abstract Wikipedia team have gradually hacked Wikilambda out of JavaScript, leaving a fascinating public record of their attempt to realise their vision for a universal programming system.</p>
+      </div>
+    </div>
+
+    <div>
+      <div class="keywords">
+        <div class="block-title">Keywords</div>
+        <p>Wikipedia, Wikifunctions, Abstract Wikipedia, Critical Code Studies, functional programming, perfect languages, polygraphies</p>
+      </div>
+    </div>
+
+    <div class="quarto-other-links-text-target">
+    </div>  </div>
+</header>
+
+  
+
+<nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#sec-architecture" id="toc-sec-architecture"><span class="header-section-number">2</span> Architecture of Abstract Wikipedia/Wikifunctions</a></li>
+  <li><a href="#sec-perfection" id="toc-sec-perfection"><span class="header-section-number">3</span> Wikilambda the Perfect</a></li>
+  <li><a href="#sec-code" id="toc-sec-code"><span class="header-section-number">4</span> Abstraction and Metaphor in the Orchestrator</a></li>
+  <li><a href="#conclusion" id="toc-conclusion"><span class="header-section-number">5</span> Conclusion</a></li>
+  <li><a href="#references" id="toc-references"><span class="header-section-number">6</span> References</a></li>
+  </ul>
+</nav>
+<blockquote>
+<p>The story of the search for the perfect language is the story of a dream and of a series of failures. <span class="citation" data-cites="eco_search_1995">(<a href="#ref-eco_search_1995" role="doc-biblioref">Eco 1995, 19</a>)</span></p>
+</blockquote>
+<section id="introduction" class="level2" data-number="1">
+<h2 data-number="1"><span class="header-section-number">1</span> Introduction</h2>
+<p>On New Year’s Day, 2023, an alarming headline appeared in <em>The Signpost</em>, Wikipedia’s community newsletter:</p>
+<blockquote>
+<p>Wikimedia Foundation’s Abstract Wikipedia project “at substantial risk of failure” <span class="citation" data-cites="bayer_wikimedia_2023">(<a href="#ref-bayer_wikimedia_2023" role="doc-biblioref">Bayer 2023</a>)</span></p>
+</blockquote>
+<p>Such a “risk of failure” is in fact hardly surprising, because Abstract Wikipedia is a project of quite astonishing ambition. Abstract Wikipedia aims to transform Wikipedia from a <em>multi</em>lingual encyclopaeida to a <em>meta</em>lingual one. It will provide a way for contributors to write articles in a universal “template language,” which will then be automatically translated into all the world’s human languages. Abstract Wikipedia thus combines two equally extreme ambitions: (1) the ambition to devise a single language in which all the world’s knowledge can be easily expressed; and (2) the ambition to provide 300-6,000 “renderers” that can translate this “abstract content” into readable text. As the leader of the Abstract Wikipedia project admits, the project’s “ambitious goal” is not new, and “such ambitions have repeatedly failed” <span class="citation" data-cites="vrandecic_collaborating_2020 vrandecic_building_2021">(<a href="#ref-vrandecic_collaborating_2020" role="doc-biblioref">Vrandečić 2020, 180</a>; <a href="#ref-vrandecic_building_2021" role="doc-biblioref">2021, 41</a>)</span>. Abstract Wikipedia is the latest in a long line of attempts to create a “perfect” or “universal” language—to be more precise, it is the latest in a long line of “polygraphies,” or universal writing systems <span class="citation" data-cites="eco_search_1995">(<a href="#ref-eco_search_1995" role="doc-biblioref">Eco 1995, chap. 9</a>)</span>. Since every prior attempt at polygraphy has failed, it is hardly surprising that Abstract Wikipedia risks failing also!</p>
+<p>Why, then, was it <em>news</em> in 2023 that Abstract Wikipedia was “at substantial risk of failure”? The project was an audacious gamble from the start. What had changed?</p>
+<p>Three years in to the Abstract Wikipedia project, it had become apparent that the project aimed to create not <em>one</em> perfect language, but <em>two</em>. Work on the template language that would enable people to contribute articles to Abstract Wikipedia had barely begun. Instead, the project had devoted nearly all its effort to the creation of a brand new programming language in which the 300-6,000 “renderers” for Abstract Wikipedia would be written. This programming language would make Abstract Wikipedia possible, by allowing universal access to programming:</p>
+<blockquote>
+<p>Imagine a programming system that truly is <strong>accessible</strong>, one that is open not only to speakers of English but to billions of people more who will not have to learn English first in order to learn how to program. <span class="citation" data-cites="noauthor_wikifunctionsvision_2023">(<a href="#ref-noauthor_wikifunctionsvision_2023" role="doc-biblioref"><span>“Wikifunctions:<span>Vision</span>”</span> 2023</a>)</span></p>
+</blockquote>
+<p>The new language that underlies this universally accessible programming system remains nameless to this day. I will refer to the language as “Wikilambda”, because that is the name of the software that implements it, but it has other names, including “composition,” “the Function Model,” and “Wikifunctions” (the name of the database where the language is hosted).</p>
+<p>As <em>The Signpost</em> reported, all was not well with Wikilambda. Ten days prior to the article, a group of Google employees seconded to Abstract Wikipedia had released a damning report on Meta-Wiki, the site where projects of the Wikimedia Foundation are documented:</p>
+<blockquote>
+<p>To summarize, creating a good programming language is hard, and having a good clear initial design is crucial. The Wikifunctions model ignores decades of programming language research and existing technology. Instead, it invents a completely new ad-hoc system, but that unfortunately does not seem to have good properties, and it is questionable whether it will be able to support [such] a large, complex software system, as Abstract Wikipedia. <span class="citation" data-cites="livneh_abstract_2022">(<a href="#ref-livneh_abstract_2022" role="doc-biblioref">Livneh et al. 2022</a>)</span></p>
+</blockquote>
+<p>This is a significant crisis for the Wikimedia Foundation. Abstract Wikipedia was the first new project sponsored by the Foundation in 10 years. In 2022-23, the project was awarded US$1 million from the Wikimedia Endowment <span class="citation" data-cites="noauthor_annual_2023 foundation_first_2023">(<a href="#ref-noauthor_annual_2023" role="doc-biblioref"><span>“Annual <span>Report</span> 2022-23”</span> 2023</a>; <a href="#ref-foundation_first_2023" role="doc-biblioref">Foundation 2023</a>)</span>. A prototype of the project’s “ad-hoc” and “questionable” programming system is already available at <a href="https://wikifunctions.org">wikifunctions.org</a>. What does it all mean?</p>
+<p>In this article, I examine the documentation and source code of Wikilambda to critique both its ideals and its implementation. There is in fact an intimate link between the project’s ideals and its blithe ignorance of “decades of programming language research.” The project expresses, in a typically extreme way, a certain kind of hacker utopianism. It is relentlessly future-oriented. The present arrangement of things is an historical accident. Through a simple hack, the project will bring into being a <em>new</em> arrangment of things, in which information is freer, the world is smaller, the mind is larger. MacKenzie <span class="citation" data-cites="wark_hacker_2004">Wark (<a href="#ref-wark_hacker_2004" role="doc-biblioref">2004, para. 098</a>)</span> poetically summarises this attitude to history: “The past weighs like insomnia upon the consciousness of the present.” The past can be brushed aside, because it has already been achieved. What matters is what comes next, and what comes next can <em>only</em> come about through the ingenuity and creativity of the hacker. The only <em>faits</em> worth caring about are <em>faits accomplis</em>.</p>
+<p>To make this case, I analyse the project on three levels. In <a href="#sec-architecture" class="quarto-xref">Section 2</a>, I describe the overall architecture of the Abstract Wikipedia project, and explain how the new programming language Wikilambda fits into the structure. In <a href="#sec-perfection" class="quarto-xref">Section 3</a>, I examine the Wikilambda’s documentation, critiquing the arguments used by the project to defend both the perfection and the universality of its new programming language. Finally in <a href="#sec-code" class="quarto-xref">Section 4</a>, I closely read the source code for the “function orchestrator,” the JavaScript application whose job is to evaluate expressions in the Wikilambda language. Not only does the code <em>implement</em> the project’s ideals, it <em>expresses</em> them. In the code itself, we can perceive the struggle of Vrandečić and his team to realise their ideals in practice.</p>
+<p>My aim in this research is partly hermeneutic and partly methodological. On the hermeneutic level, I wish to understand what the project means to its creators, and to set their hacker utopianism in a broader context. On the methodological level, I wish to fashion new tools for the burgeoning community of Critical Code Studies (CCS). Thus in <a href="#sec-code" class="quarto-xref">Section 4</a> I present a theory of <em>abstraction</em> and <em>metaphor</em> in source code. Programmers create software by developing abstractions to describe the behaviour of their programs. These abstractions begin life as metaphors. The classic theory of abstraction in programming holds that abstraction is a form of “information hiding” <span class="citation" data-cites="colburn_abstraction_2007">(<a href="#ref-colburn_abstraction_2007" role="doc-biblioref">Colburn and Shute 2007</a>)</span>. This theory has had noticeable impact on early research in CCS [<span class="citation" data-cites="hua_how_2023">Hua and Raley (<a href="#ref-hua_how_2023" role="doc-biblioref">2023</a>)</span>, paragraph 14; rountree_nonsense_2023, paragraphs 8-10]. I argue that the “information hiding” theory is one-sided and ignores the metaphoricity of abstractions. I suggest a theory, <em>abstraction as the virtualisation of metaphor</em>, and use this theory to elucidate the “extrafunctional significance” of the Wikilambda code <span class="citation" data-cites="marino_critical_2020">(<a href="#ref-marino_critical_2020" role="doc-biblioref">Marino 2020</a>)</span>.</p>
+</section>
+<section id="sec-architecture" class="level2" data-number="2">
+<h2 data-number="2"><span class="header-section-number">2</span> Architecture of Abstract Wikipedia/Wikifunctions</h2>
+<blockquote>
+<p>The conclusion is that the Wikimedia movement does not believe that language is the right dimension to split knowledge—it is a historical decision, driven by convenience. <span class="citation" data-cites="vrandecic_collaborating_2020">(<a href="#ref-vrandecic_collaborating_2020" role="doc-biblioref">Vrandečić 2020, 182</a>)</span></p>
+</blockquote>
+<p>The Wikimedia Foundation already provides Wikipedias in more than 300 languages. Each language edition of Wikipedia has its own editorial culture, though it is also common for editors to contribute to multiple language editions <span class="citation" data-cites="ford_writing_2022">(see e.g. <a href="#ref-ford_writing_2022" role="doc-biblioref">Ford 2022, 30, 72</a>)</span>. The language editions vary greatly in number and quality of articles. It has been common for editors of smaller language editions, such as Cebuano, Swedish, Waray, Egyptian Arabic and Romanian Wikipedias, to rely on machine translation and bots to generate articles <span class="citation" data-cites="gnatiuk_uneven_2021 avieson_two_2022 ford_how_2024">(<a href="#ref-gnatiuk_uneven_2021" role="doc-biblioref">Gnatiuk and Glybovets 2021</a>; <a href="#ref-avieson_two_2022" role="doc-biblioref">Avieson 2022</a>; <a href="#ref-ford_how_2024" role="doc-biblioref">Ford et al. 2024</a>)</span>.</p>
+<p>Denny Vrandečić, the leader of the Abstract Wikipedia project, objects to inconsistencies between the language editions. His previous project for the Wikimedia Foundation, Wikidata, automated the synchronisation of “language links” between Wikipedia articles, and provides a source of structured data about the entities described in Wikipedia pages. For example, Joseph Furphy’s novel <em>Such is Life</em> has the Wikidata ID <a href="https://www.wikidata.org/wiki/Q7632777">Q7632777</a>. At the time of writing, Wikidata records two “language links” for this classic of Australian literature: to <a href="https://en.wikipedia.org/wiki/Such_Is_Life_(novel)">English</a> and <a href="https://sh.wikipedia.org/wiki/Such_Is_Life_(roman)">Serbo-Croatian</a> Wikipedias. The Wikidata item for the novel contains some structured data, such as the author and publication date, which could be used to generate an Infobox about the novel to include in other Wikipedia language editions. If more Wikipedia articles relied on Wikidata in this way, argues <span class="citation" data-cites="vrandecic_collaborating_2020">Vrandečić (<a href="#ref-vrandecic_collaborating_2020" role="doc-biblioref">2020, 178</a>)</span>, then the more “comprehensive, current, and accessible” the many Wikipedias would become.</p>
+<p>Abstract Wikipedia extends Vrandečić’s ideal of “comprehensive, current, and accessible” knowledge. In his view, knowledge is a collection of atomistic facts. Knowledge is “comprehensive” if it includes all the facts, “current” if none of them are out of date, and “accessible” if you can read a statement of each fact in a language you understand. Vrandečić illustrates these ideas using the example of San Francisco. Ideally, it shouldn’t matter what languages you read, you should be able to access San Francisco’s current ranking by population among Californian cities <span class="citation" data-cites="noauthor_abstract_2024-2">(<a href="#ref-noauthor_abstract_2024-2" role="doc-biblioref"><span>“Abstract <span>Wikipedia</span>/<span>Architecture</span>”</span> 2024</a>)</span>, the name of its current Mayor <span class="citation" data-cites="vrandecic_collaborating_2020">(<a href="#ref-vrandecic_collaborating_2020" role="doc-biblioref">Vrandečić 2020, 176–77</a>)</span>, and the fact that it is currently the cultural, commercial and financial centre of Northern California <span class="citation" data-cites="vrandecic_capturing_2018 vrandecic_building_2021">(<a href="#ref-vrandecic_capturing_2018" role="doc-biblioref">Vrandečić 2018</a>, <a href="#ref-vrandecic_building_2021" role="doc-biblioref">2021</a>)</span>. Since these facts are not currently available to readers of all languages on Wikipedia, argues <span class="citation" data-cites="vrandecic_collaborating_2020">Vrandečić (<a href="#ref-vrandecic_collaborating_2020" role="doc-biblioref">2020, 182</a>)</span>, the Wikipedia project has thus far failed to allow “access to the sum of all knowledge to every single reader, no matter what their language.”</p>
+<p>The central aim of Abstract Wikipedia is to complete the “sum” of human knowledge. Abstract Wikipedia will not be a new Wikipedia language edition, but rather an extension to the Wikidata database, complemented by a brand-new Wikimedia project, Wikifunctions. Wikidata will be extended, so that contributors can write “abstract content” about Wikidata items in a new template language. The Wikifunctions database will store the “renderers” that will translate this abstract content into readable content in natural languages. Editors of individual language editions will have control over how abstract content is imported into their encyclopaedia: they can choose to sync their language edition with Wikidata, automatically including all abstract pages, or they can import them piecemeal, or import the abstract content as the starting point for a manually-written article <span class="citation" data-cites="noauthor_abstract_2024-2 noauthor_abstract_2024-3">(<a href="#ref-noauthor_abstract_2024-2" role="doc-biblioref"><span>“Abstract <span>Wikipedia</span>/<span>Architecture</span>”</span> 2024</a>; <a href="#ref-noauthor_abstract_2024-3" role="doc-biblioref"><span>“Abstract <span>Wikipedia</span>/<span>Components</span>”</span> 2024</a>)</span>.</p>
+<p>The intended architecture of the system is shown in <a href="#fig-wikilambda-architecture" class="quarto-xref">Figure 1</a>. The part that implements a new programming language is the “function orchestrator,” whose source code I analyse in <a href="#sec-code" class="quarto-xref">Section 4</a>. The orchestrator not only implements a new programming language, but serves as the main entry point for the Wikilamdba software. When an editor of a particular language edition, such as Croatian Wikipedia, imports an abstract article, a “parser function request” will be sent from the “MediaWiki App Server” for Croatian Wikipedia. The function orchestrator will receive the request. It will “orchestrate” the generation of the new Croatian article, by sending a “data fetch” to Wikidata for the abstract content, and passing this data to the “function evaluators” that do all the work of transforming the abstract content into readable Croatian text. The reason there are multiple “function evaluators” we will see in <a href="#sec-perfection" class="quarto-xref">Section 3</a>—the programming language implemented by the “function orchestrator” is a meta-language that allows code in many programming languages to be combined. Each supported programming language will require a separate “evaluator.”</p>
+<div id="fig-wikilambda-architecture" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-wikilambda-architecture-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="img/wikilambda-architecture.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure 1: High-level model of the Wikilambda Extension. Source: @noauthor_extensionwikilambda_2024. By jdforrester (Wikimedia Foundation) CC BY-SA 4.0."><img src="img/wikilambda-architecture.png" class="img-fluid" /></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wikilambda-architecture-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 1: High-level model of the Wikilambda Extension. Source: <span class="citation" data-cites="noauthor_extensionwikilambda_2024"><span>“Extension:<span>WikiLambda</span>”</span> (<a href="#ref-noauthor_extensionwikilambda_2024" role="doc-biblioref">2024</a>)</span>. By jdforrester (Wikimedia Foundation) <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">CC BY-SA 4.0</a>.
+</figcaption>
+</figure>
+</div>
+<p>Abstract Wikipedia is thus a machine for broadcasting facts to Wikipedia editions. Vrandečić takes the metaphor of the “sum” of knowledge very seriously. As far as Wikipedia is concerned, there is one, universal set of facts, and language is merely a device for encoding these facts in sentences.</p>
+<p><span class="citation" data-cites="vrandecic_collaborating_2020">Vrandečić (<a href="#ref-vrandecic_collaborating_2020" role="doc-biblioref">2020</a>)</span> expounds this linguistic theory of knowledge in a chapter justifying the project. He argues that “Language Does Not Align With Culture,” and denies that linguistic diversity is a structuring principle of the Wikipedia project <span class="citation" data-cites="vrandecic_collaborating_2020">(<a href="#ref-vrandecic_collaborating_2020" role="doc-biblioref">2020, 181</a>)</span>. To justify this argument, he provides a perplexing example: perplexing, because it contradicts his main point. He observes that there are three Wikipedia editions for readers of Serbian and Croatian: Serbian Wikipedia, Croation Wikipedia, and Serbo-Croatian Wikipedia. First he complains that the distinction between these three languages is arbitrary: “Linguistically, the differences among the dialects of Croation are often larger than the differences between standard Croation and standard Serbian” <span class="citation" data-cites="vrandecic_collaborating_2020">(<a href="#ref-vrandecic_collaborating_2020" role="doc-biblioref">2020, 183</a>)</span>. Then in the next sentence, he complains that Croatian Wikipedia has fascist leanings. There is a subtle contradiction between these arguments, which defeats Vrandečić’s point. He uses the term “language” in two senses. When he argues that there is very little “linguistic” difference between standard Serbian and standard Croation, he is referring to what linguists call language<sub>1</sub>, or language defined in terms of its vocabulary and syntax. When he complains that Croation Wikipedia is fascist, he is referring to what linguists call language<sub>2</sub>, or language as a social institution, recognised and cherished by its speakers. It is not surprising that editors with fascist leanings would prefer to edit Croatian Wikipedia: for them, Croatian would be a language<sub>2</sub> that symbolises the Croatian nation. More liberal or cosmopolitan editors would presumably prefer to edit the Serbo-Croatian Wikipedia: for them, Serbo-Croatian would be a language<sub>2</sub> that symbolises a transnational, Slavic community. Such linguistic politics are common. In India and Pakistan, for example, liberal intellectuals have often promoted the “Hindustani” language, as a non-sectarian alternative to Urdu and Hindi <span class="citation" data-cites="hakala_negotiating_2016 dubrow_cosmopolitan_2018">(<a href="#ref-hakala_negotiating_2016" role="doc-biblioref">Hakala 2016</a>; <a href="#ref-dubrow_cosmopolitan_2018" role="doc-biblioref">Dubrow 2018</a>)</span>. Although Hindi and Urdu are “linguistically” very similar, as Vrandečić might say, they are socially, politically, and religiously distinct—sometimes bloodily so. Vrandečić needs to prove that “Language Does Not Align With Culture,” so he can establish that it doesn’t matter what language is used to express a fact. But in trying to prove his point, he presents a powerful example that language<sub>2</sub> <em>does</em> strongly align with culture.</p>
+<p>Perhaps Vrandečić could repair his argument, and remove the contradiction. Yes, it is true that people place a <em>subjective value</em> on their language<sub>2</sub>, but Wikipedia is an encyclopaedia, its aim is to communicate knowledge, and in this context all that matters is that <em>objective facts</em> can be expressed in some intelligible language<sub>1</sub>. If you want to state the fact that “San Francisco is the cultural centre of Northern California,” it doesn’t matter whether you state this in English, Serbo-Croation, Hindustani or Jaminjung.</p>
+<p>Except that it does. There are at least three concepts in the statement that are metaphorical: “cultural,” “centre” and “Northern.” In Jaminjung there is no concept of “North,” for instance. Speakers of Jaminjung do not orient themselves according to compass points, but rather according to the flow of the Victoria River <span class="citation" data-cites="hoffmann_restrictions_2019">(<a href="#ref-hoffmann_restrictions_2019" role="doc-biblioref">Hoffmann 2019</a>)</span>. Is Northern California <em>buya</em> (downstream) or <em>manamba</em> (upstream)? The word “Northern” relies on the metaphor: <span class="smallcaps">the world is a map</span>. The word “centre” also relies on <span class="smallcaps">the world is a map</span>—otherwise why should an important place be located in the middle? Would a Jaminjung speaker who sees <span class="smallcaps">the world as a watercourse</span> also talk about “cultural <em>centres</em>”? The word “culture” itself relies on a different metaphor: <span class="smallcaps">human manners are a garden</span> (or perhaps <span class="smallcaps">human manners are a farm</span>). Thus the apparently bland statement, “San Francisco is the cultural centre of Northern California,” relies on at least two metaphors that are baked into the English language. This is not merely a matter of language<sub>2</sub>, of a speaker’s self-conscious identification with a speech-community; it is also a matter of language<sub>1</sub>, of persistent structures of vocabulary and syntax. Persistent metaphorical structures such as <span class="smallcaps">the world is a map</span> and <span class="smallcaps">human manners are a garden</span> imply a certain perspective on or framing of experience. “San Francisco is the cultural centre of Northern California” is not a neutral fact, but implies claims about the structure of the world and the importance of particular places within it.</p>
+<p>I am making a familiar argument, that languages are “carriers of culture” <span class="citation" data-cites="wa_thiongo_decolonising_1986">(<a href="#ref-wa_thiongo_decolonising_1986" role="doc-biblioref">Thiong’o 1986</a>)</span>. They carry culture mainly in the form of metaphors, which “partially” but “coherently” structure our experience <span class="citation" data-cites="lakoff_metaphors_1980">(<a href="#ref-lakoff_metaphors_1980" role="doc-biblioref">Lakoff and Johnson 1980</a>)</span>. Vrandečić himself, and the Abstract Wikipedia project as a whole, embody one of the most powerful metaphors in the English language, the well-known “conduit metaphor” <span class="citation" data-cites="reddy_conduit_1993">(<a href="#ref-reddy_conduit_1993" role="doc-biblioref">Reddy 1993</a>)</span>. According to this metaphor, <span class="smallcaps">language is a conduit</span>. When we speak or write, we pack “content” into a sentence, which is then delivered to a speaker or reader who unpacks the content at the other end. This metaphor is virtualised<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> in the architecture of the Abstract Wikipedia/Wikifunctions project:</p>
+<blockquote>
+<p>The main components of the project are the following three:</p>
+<ol type="1">
+<li><strong>Constructors</strong> – definitions of Constructors and their slots, including what they mean and restrictions on the types for the slots and the return type of the Constructor […]</li>
+<li><strong>Content</strong> – abstract calls to Constructors including fillers for the slots […]</li>
+<li><strong>Renderers</strong> – functions that take Content and a language and return a text, resulting in the natural language representing the meaning of the Content […] <span class="citation" data-cites="noauthor_abstract_2024-2">(<a href="#ref-noauthor_abstract_2024-2" role="doc-biblioref"><span>“Abstract <span>Wikipedia</span>/<span>Architecture</span>”</span> 2024</a>)</span></li>
+</ol>
+</blockquote>
+<p>A “constructor” is a container, with “slots” that get “filled” by “content”. This “content” is then delivered to a “renderer,” which extracts the “meaning.” This “meaning,” of course, is unchanged by the processes of “construction” and “rendering,” as the <span class="smallcaps">language is a conduit</span> metaphor requires. Within the overall project, Wikilambda’s purpose is to provide the constructors that package the content, and the renderers that unpack it at the other end of the conduit. In their attempt to escape language and universalise knowledge, Vrandečić and his team have plunged into English, the very language they have been most concerned to escape.</p>
+<p>The Abstract Wikipedia/Wikifunctions project attempts not one, but two escapes from language. Ultimately, the Wikilambda developers want to escape from spoken languages, into the “abstract content” of Abstract Wikipedia’s template language. But before attempting this, they have attempted another escape, an escape from ordinary programming languages into the “abstract syntax tree” of a new programming language—a language which they deny is a language at all.</p>
+</section>
+<section id="sec-perfection" class="level2" data-number="3">
+<h2 data-number="3"><span class="header-section-number">3</span> Wikilambda the Perfect</h2>
+<blockquote>
+<p><strong>Wikifunctions is not a programming language, nor is trying to evangelise a particular language</strong> <span class="citation" data-cites="noauthor_wikifunctionswhat_2024">(<a href="#ref-noauthor_wikifunctionswhat_2024" role="doc-biblioref"><span>“Wikifunctions:<span>What</span> <span>Wikifunctions</span> Is Not”</span> 2024</a>)</span></p>
+</blockquote>
+<blockquote>
+<p>Imagine a programming system that truly is <strong>accessible</strong>, one that is open not only to speakers of English but to billions of people more who will not have to learn English first in order to learn how to program. <span class="citation" data-cites="noauthor_wikifunctionsvision_2023">(<a href="#ref-noauthor_wikifunctionsvision_2023" role="doc-biblioref"><span>“Wikifunctions:<span>Vision</span>”</span> 2023</a>)</span></p>
+</blockquote>
+<p>Umberto <span class="citation" data-cites="eco_search_1995">Eco (<a href="#ref-eco_search_1995" role="doc-biblioref">1995, 73</a>)</span> distinguishes two kinds of ideal language: the “perfect” and the “universal.” A “perfect” language is one that is “capable of mirroring the true nature of objects.” Such a language must analyse the world into its constituent parts, and provide means to build it back up again. Each word must correspond to a real component of nature, and each syntactic rule must correspond to a way that nature combines primitive elements into complex entities. Jonathan <span class="citation" data-cites="swift_gullivers_2005">Swift (<a href="#ref-swift_gullivers_2005" role="doc-biblioref">2005</a>)</span> parodies the ideal of a “perfect” language in <em>Gulliver’s Travels</em>. On the floating island of Laputa, the enlightened inhabitants have attempted to do away with the imperfections of words, and communicate with <em>things</em>. As a result, they need to cart around enormous loads of objects to provide their vocabulary. A “universal” language is ideal in a different way: it is a language “which everyone might, or ought to, speak.” Esperanto is an example among the spoken languages. Among programming languages, BASIC, Logo, Python and Scratch are examples of languages that are intended to be universally accessible <span class="citation" data-cites="vee_coding_2017">(<a href="#ref-vee_coding_2017" role="doc-biblioref">Vee 2017, 43–46</a>)</span>.</p>
+<p>The proposed “template language” for Abstract Wikipedia is intended to be both perfect and universal: it will be perfectly able to express any fact, and universally accessible by writers all over the world. To implement this “template language,” the Abstract Wikipedia team have gone about developing another perfect and universal language: Wikilambda. This programming language will enable the people of the world to collaborate to build the “renderers” that will translate Abstract Wikipedia into all the world’s languages. According to the Wikilambda developers, this language is <em>universal</em> because it breaks the hegemony of English; it is <em>perfect</em> because it is no language at all.</p>
+<p>The main argument for Wikilambda’s <em>universality</em> is that it will break the hegemony of English. Most programming languages, observe Wikilambda’s creators, use English as a source of vocabulary. JavaScript has <em>objects</em>, <em>functions</em> and <em>if</em>-statements, rather than <em>Objekte</em>, <em>Funktionen</em> and <em>wenn</em>-statements. If you want to program, they argue, you need to “learn English first,” which puts the world’s billions of non-English speakers at a disadvantage <span class="citation" data-cites="noauthor_wikifunctionsvision_2023">(<a href="#ref-noauthor_wikifunctionsvision_2023" role="doc-biblioref"><span>“Wikifunctions:<span>Vision</span>”</span> 2023</a>)</span>. Wikilambda does not use words to denote parts of a computation. Instead, each part of the computation is assigned a <code>Z</code>-number or <code>Z</code>-key in the Wikifunctions database. When a person visits a function in the Wikifunctions interface, they are presented with a translation of these <code>Z</code>-numbers and <code>Z</code>-keys into their preferred language. If English is the preferred language in your browser, then when you visit function <a href="https://www.wikifunctions.org/wiki/Z802?uselang=bn&amp;oldid=132257"><code>Z802</code></a> you will see a function called <code>if</code>, with three parameters: the <code>condition</code>, <code>consequent</code> and <code>alternative</code>. If Bengali is your preferred language, you will instead see a function called <code>যদি</code> with the parameters <code>শর্ত</code>, <code>যদি সত্য তাহলে</code> and <code>যদি সত্য না তাহলে</code> (<a href="#fig-bangla-if" class="quarto-xref">Figure 2</a>).</p>
+<div id="fig-bangla-if" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-bangla-if-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="img/fig-bangla-if.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure 2: Function Z802 in Wikifunctions in Bangla. Visitors can run the function by filling in the three inputs in the large box in the right of the figure, then pressing the blue button. Source: https://www.wikifunctions.org/wiki/Z802?uselang=bn&amp;oldid=132257"><img src="img/fig-bangla-if.png" class="img-fluid" /></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bangla-if-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 2: Function <code>Z802</code> in Wikifunctions in Bangla. Visitors can run the function by filling in the three inputs in the large box in the right of the figure, then pressing the blue button. Source: https://www.wikifunctions.org/wiki/Z802?uselang=bn&amp;oldid=132257
+</figcaption>
+</figure>
+</div>
+<p>Accessibility is essential to the aims of the Abstract Wikipedia project. To write “renderers” for all the world’s languages, Wikifunctions must pool the expertise of all the world’s programmers and all the world’s native speakers. A reader of Swahili or Motu must be able to scrutinise the “renderers” for their language so they can check that they implement the correct linguistic rules. Even more importantly, this is a project of astonishing ambition, and will require significant innovation. This will require all the world’s minds, not just those minds that are trapped in the English language:</p>
+<blockquote>
+<p>A solution designed by a small group of Westerners is likely to produce a system that replicates the trends of an imperialist English-focused Western-thinking industry. Existing tools tell a one-voice story […] <span class="citation" data-cites="blanton_abstract_2022">(<a href="#ref-blanton_abstract_2022" role="doc-biblioref">Blanton et al. 2022</a>)</span></p>
+</blockquote>
+<p>Is English an “imperialist” language with a single “voice” that embodies “Western thinking”? Or is it an arbitrary information-encoding system that can dispatch content to people who know how to decode it? The <span class="smallcaps">conduit</span> metaphor once again imposes a contradiction on the Abstract Wikipedia project. How can the “small group of Westerners” who are building Wikilambda design a programming language that does not “replicate” their own biases?</p>
+<p>Their solution is not to build a language at all: “Wikifunctions is not a programming language” <span class="citation" data-cites="noauthor_wikifunctionswhat_2024">(<a href="#ref-noauthor_wikifunctionswhat_2024" role="doc-biblioref"><span>“Wikifunctions:<span>What</span> <span>Wikifunctions</span> Is Not”</span> 2024</a>)</span>. This is the sense in which Wikilambda is a “perfect” language. If a perfect language mirrors the true nature of objects, then Wikilambda mirrors the true nature of computation. What is the true nature of computation? Wikilambda’s answer is implicit in the name of the software (Wikilambda) and the name of the online database where it runs (Wikifunctions). Computation can be boiled down to a single kind of primitive element, the <em>function</em>. Due to the influence of computer science pioneer Alonzo <span class="citation" data-cites="church_set_1932">Church (<a href="#ref-church_set_1932" role="doc-biblioref">1932</a>)</span>, a common synonym for “function” is <em>lambda</em> <a href="#fig-wikifunctions-logo" class="quarto-xref">Figure 3</a>.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Complex computations can be created by <em>composing</em> functions together. Wikilambda allows users to define <em>functions</em> and <em>compose</em> them together “and that’s it” <span class="citation" data-cites="noauthor_wikifunctionswhat_2024">(<a href="#ref-noauthor_wikifunctionswhat_2024" role="doc-biblioref"><span>“Wikifunctions:<span>What</span> <span>Wikifunctions</span> Is Not”</span> 2024</a>)</span>. Wikilambda is not a “language,” belaboured with English vocabulary, which comes between the user and the computation; it is simply “an abstract syntax tree,” which allows the user to modify the structure of the computation directly <span class="citation" data-cites="blanton_abstract_2022">(<a href="#ref-blanton_abstract_2022" role="doc-biblioref">Blanton et al. 2022</a>)</span>.</p>
+<div id="fig-wikifunctions-logo" class="quarto-float quarto-figure quarto-figure-center" style="max-width:500px;">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-wikifunctions-logo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="img/Wikifunctions-logo.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure 3: The Wikifunctions logo, incorporating lambda. Based upon the submissions of NGC 54, Jon Harald Søby and Stevenliuyi. CC BY-SA 4.0."><img src="img/Wikifunctions-logo.svg" class="img-fluid" style="max-width:500px;" /></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wikifunctions-logo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 3: The Wikifunctions logo, incorporating lambda. Based upon the submissions of NGC 54, Jon Harald Søby and Stevenliuyi. <a href="https://commons.wikimedia.org/w/index.php?curid=112952316">CC BY-SA 4.0.</a>
+</figcaption>
+</figure>
+</div>
+<p>There are two key problems with Wikilambda’s claim to perfection. The first is that it <em>is</em> a language, as its creators uneasily admit in the “README” file for the “function orchestrator”: “<a href="https://gitlab.wikimedia.org/repos/abstract-wiki/wikifunctions/function-orchestrator/-/tree/86514fdaa663a75c9ebbda232c35e3248adbec5d#the-code">the orchestrator kind of implements a functional programming language</a>” <span class="citation" data-cites="massaro_function-orchestrator_2024">(<a href="#ref-massaro_function-orchestrator_2024" role="doc-biblioref">Massaro et al. 2024b</a>)</span>. As a result, the team have become involved in tricky choices, about evaluation order, recursion depth and error handling. They joke that the Wikilambda language is “something like LISP in JSON” <span class="citation" data-cites="noauthor_wikifunctionsfunction_2024">(<a href="#ref-noauthor_wikifunctionsfunction_2024" role="doc-biblioref"><span>“Wikifunctions:<span>Function</span> Model”</span> 2024</a>)</span>. Wikilambda is indeed very much like LISP, but in their drive for extreme simplicity, the Wikilambda developers have overlooked key elements that make LISP usable in practice, such as tail recursion, the REPL, partial compilation, garbage collection, specialised data structures, special forms and quasiquotation <span class="citation" data-cites="sussman_scheme_1975 steele_jr_debunking_1977 steele_jr_art_1978 abelson_structure_1996">(see generally <a href="#ref-sussman_scheme_1975" role="doc-biblioref">Sussman and Steele Jr. 1975</a>; <a href="#ref-steele_jr_debunking_1977" role="doc-biblioref">Steele Jr. 1977</a>; <a href="#ref-steele_jr_art_1978" role="doc-biblioref">Steele Jr. and Sussman 1978</a>; <a href="#ref-abelson_structure_1996" role="doc-biblioref">Abelson, Sussman, and Sussman 1996</a>)</span>. Simply put, even just to provide direct access to the “abstract syntax tree,” Wikilambda will need to become a lot more powerful; to become useable enough to support the complex software for Abstract Wikipedia, it will need to become more powerful still. And through all this, the English-speaking Wikilambda developers will be telling their own “one-voice story” in the code they write for the orchestrator.</p>
+<p>There is an alternative future, which however reveals the second problem with Wikilambda’s claim to perfection. The Wikilambda language could remain extremely simple (and therefore basically unusable), and all the real programming could be done by providing “implementations” of the various “renderers” in existing programming languages. Instead of programming the Cantonese renderer in Wikilambda, for example, a programmer could simply enter a single function into the database called “render article into Cantonese,” and then write an implementation of this “render” function in Python, JavaScript, or some other language supported by the Wikifunctions system. In this case, Wikilambda’s claim not to be a programming language will be literally realised—it will not be used to do any programming! And all the supposed problems with “English” programming languages such as Python and JavaScript will remain.</p>
+<p>The Wikilambda team envisage a middle course between these extremes: implementation languages such as Python and JavaScript will be used to implement particular functions in the Wikifunctions database, and the Wikilambda language will be used to compose these functions into larger wholes. Perhaps they will be able to steer this middle course, but it seems impossible that Wikilambda will be able to remain such a minimal and under-specified language. As the Google Fellows put it: “it is questionable whether it will be able to support [such] a large, complex software system, as Abstract Wikipedia” <span class="citation" data-cites="livneh_abstract_2022">(<a href="#ref-livneh_abstract_2022" role="doc-biblioref">Livneh et al. 2022</a>)</span>.</p>
+<p>Assuming they find this middle course, will the Wikilambda team achieve their central goal, of escaping from the hegemony of English, and opening programming to the non-English-speaking world? The example of Wikidata would suggest not. Wikidata also has a language-neutral interface, which is automatically translated into the reader’s preferred language. But all discussion and decision on the platform is conducted in English, because this is the world’s <em>lingua franca</em> <span class="citation" data-cites="ford_wikidata_2023">(<a href="#ref-ford_wikidata_2023" role="doc-biblioref">Ford and Iliadis 2023</a>)</span>. It is possible that Wikifunctions will avoid this fate, because parts of the platform will be language-specific. For example, functions intended to render abstract content into Ndebele might be discussed and debated in Ndebele—but then any programmers who don’t already read and write Ndebele would be hampered from contributing code.</p>
+<p>More deeply, the notion that budding programmers must “learn English first” is probably misconceived. The fact is that “words in code simply do not behave the way they do in spoken or written language” <span class="citation" data-cites="marino_critical_2020">(<a href="#ref-marino_critical_2020" role="doc-biblioref">Marino 2020, 145–47</a>)</span>. For example, the function <code>mapcar</code> in the Scheme programming language might look like English, but it has nothing to do with either maps or cars. The <code>mapcar</code> function in fact <em>applies the passed operator to the first item of each list in a list of lists</em>. More subtly, Python’s <code>if</code> keyword has precisely three distinct meanings, depending on whether it is used to create a <code>statement</code>, an <code>expression</code> or a <code>guard</code>. Needless to say, the English word “if” does not divide into these three distinct meanings. The fact is that programming languages are themselves human languages <span class="citation" data-cites="blackwell_6000_2017">(<a href="#ref-blackwell_6000_2017" role="doc-biblioref">Blackwell 2017, 37</a>)</span>. If a programming language contains an English word, then it is a loan-word, which becomes part of the programming language, loses some or all of its English meaning, and may well be a false friend to beginning programmers.</p>
+<p>The Wikilambda team try to skirt this issue by creating an extremely minimal, abstract language, which exposes the raw structure of computation to the programmer, and will therefore be empty of linguistic borrowings. This strategy seems to me impossible. If users do flock to the platform, then Wikilambda will develop its own culture: idioms, metaphors, styles, ideals. It doesn’t much matter if <a href="https://www.wikifunctions.org/wiki/Z802?uselang=bn&amp;oldid=132257"><code>Z802</code></a> is transliterated into <code>if</code> or <code>যদি</code>: this transliteration does not change the fact that <code>Z802</code> is a single word in the Wikilambda language, and acquires meaning in the context of that programming community. The process of acculturation has already begun. Wikilambda is already idiomatic, metaphorical, stylish and idealistic. Its culture is expressed in the (English) documentation I have been analysing in this section. Its culture is expressed even more vividly in the source code for the “function orchestrator,” which implements the Wikilambda language, and which is replete with powerful (English) metaphors.</p>
+</section>
+<section id="sec-code" class="level2" data-number="4">
+<h2 data-number="4"><span class="header-section-number">4</span> Abstraction and Metaphor in the Orchestrator</h2>
+<blockquote>
+<p>Through the production of new forms of abstraction, the hacker class produces the possibility of the future. <span class="citation" data-cites="wark_hacker_2004">(<a href="#ref-wark_hacker_2004" role="doc-biblioref">Wark 2004, sec. 077</a>)</span></p>
+</blockquote>
+<p>A programming language, argue <span class="citation" data-cites="abelson_structure_1996">Abelson, Sussman, and Sussman (<a href="#ref-abelson_structure_1996" role="doc-biblioref">1996, 607</a>)</span>, is “a coherent family of abstractions erected on the machine language.” The language itself provides a family of abstractions to the programmer: using JavaScript, I can create an <code>object</code> or interact with a <code>document</code> without worrying about the particular sequence of CPU instructions that makes an <code>object</code> or a <code>document</code> behave as it does. The language does not merely <em>provide</em> abstractions, however—it is <em>made</em> of abstractions. Someone has to write the code that defines what a JavaScript <em>object</em> or <em>document</em> is. The code that implements a programming language will contain many abstractions, such as <em>expression</em>, <em>symbol</em> or <em>token</em>, which are used to describe the language being implemented. Perplexingly, many programming languages are implemented <em>in themselves</em>. The C compiler, for example, is itself written in C. C provides a “coherent family of abstractions” which is then used to describe and implement C, which provides “a coherent family of abstractions” which is then …</p>
+<p>Wikilambda is not as dizzying as C. It is a new language, which is not yet powerful enough to implement itself. It is implemented in JavaScript. In this section, I conduct a close analysis of the “function orchestrator” <span class="citation" data-cites="massaro_function-orchestrator_2024">(<a href="#ref-massaro_function-orchestrator_2024" role="doc-biblioref">Massaro et al. 2024b</a>)</span> the piece of JavaScript code that implements the Wikilambda language. What abstractions have the Wikilambda developers invented to describe their new language? What can these abstractions tell us about the nature and intent of their project?<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<p>One answer to these questions is: not much. According to a popular view, programming “abstractions” exist merely to “hide information” <span class="citation" data-cites="colburn_abstraction_2007">(<a href="#ref-colburn_abstraction_2007" role="doc-biblioref">Colburn and Shute 2007</a>)</span>. Abstractions exist to conceal the complexity of the underlying machine code from the programmer. As a JavaScript programmer, I know that eventually all the code I write will be translated into machine code that the CPU can understand. But this is all too much to think about, so I invent fictitious entities such as <em>objects</em> and <em>documents</em> to work with, allowing me to focus on the bigger picture. This idea has had a powerful effect in humanistic critiques of technology. Media theorists such as Friedrich <span class="citation" data-cites="kittler_there_2014">Kittler (<a href="#ref-kittler_there_2014" role="doc-biblioref">2014, 223</a>)</span>, Alexander <span class="citation" data-cites="galloway_interface_2012">Galloway (<a href="#ref-galloway_interface_2012" role="doc-biblioref">2012, 64</a>)</span> and Denis <span class="citation" data-cites="tenen_plain_2017">Tenen (<a href="#ref-tenen_plain_2017" role="doc-biblioref">2017, 32</a>)</span> have argued that code is illusory. In reality, software is made up of “varying electric potentials” or “electromagnetic charges” in the computer hardware. The code supervenes on these electrical realities: at best, code “signifies” or “substitutes for” the electrons in the CPU; at worst, it “obfuscates” them. If this is so, then there is little reason to interpret the abstractions in source code. Why should we concern ourselves with the code, rather than with the material reality it signifies, substitutes or obfuscates?</p>
+<p>I do not have space here to refute this view. Instead, I simply wish to establish the plausibility of an alternative. Such an alternative is a requirement for CCS. Though some CCS scholars have attempted to ground their practice on the “information hiding” view <span class="citation" data-cites="hua_how_2023 rountree_nonsense_2023">(<a href="#ref-hua_how_2023" role="doc-biblioref">Hua and Raley 2023</a>; <a href="#ref-rountree_nonsense_2023" role="doc-biblioref">Rountree and Condee 2023</a>)</span>, such attempts are in my view doomed to fail, because the “information hiding” view denies the ultimate reality of code.</p>
+<p>As an alternative, I suggest that source code abstractions are <em>virtualisations</em> of <em>metaphors</em>. The nub of truth in the “information hiding” view is that programming abstractions are metaphorical. Abstractions provide a concrete framework for thinking about or conceptualising the behaviour of the machine. Some of these abstractions are so familiar that we have forgotten they are metaphorical.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> It may seem that computers literally have a “memory,” but this is only because we rely on an underlying metaphor: <span class="smallcaps">the computer is a brain</span>. The Victorian computer pioneer Charles Babbage used a different metaphor: <span class="smallcaps">the computer is a factory</span>. He called the place where the data is stored the “storehouse,” and the place where it is processed the “mill” <span class="citation" data-cites="lovelace_sketch_2021">(<a href="#ref-lovelace_sketch_2021" role="doc-biblioref">Lovelace and Menabrea 2021</a>)</span>. As this example demonstrates, even the <em>hardware</em> of the computer is abstract and metaphorical. Even the “varying electrical charges” of Kittler and his followers are abstractions over underlying quantum effects, which are themselves abstractions developed by human mathematicans. At no depth does the metaphorical tower of abstraction descend to a literal foundation.</p>
+<p>Thus programming abstractions are <em>metaphors</em>. In what sense are they <em>virtualisations</em>? Programming abstractions <em>do things</em>. You can write some functions in JavaScript, deploy them to a server, and then those functions will make the Wikifunctions database appear in a visitor’s web browser. The “information hiding” view sees this as a process of actualisation. The vaporous abstractions in the source code are made real only when converted into machine instructions actually executed by a computer. But this is only part of the story. The abstractions in source code certainly have the virtue of executability, but they also have other virtues, and therefore, other effects. In the future, for example, Wikilambda may be ported into another language. In this case, developers might read the Wikilambda code (written in JavaScript), and translate its abstractions into another language (such as C or Java). In this case, the abstractions <em>frame an implementation</em>. In the future, Wikilambda may be codified in an IEEE Standard. In this case, whichever abstractions are deemed essential to the Wikilambda language will be codified in a document. If someone wants to write their own implementation of Wikilambda, it may be compulsory for them to include certain abstractions, such as the <code>ZWrapper</code> or <code>ArgumentState</code> abstractions. If they fail to implement the right abstractions, then their purported implementation of Wikilambda will fail to be an implementation of Wikilambda. In this case, the abstractions <em>provide criteria of correctness</em>. In the future, most crucially, Wikilambda will continue to be debugged and extended by its core developers. They will need to understand the structure and intent of the software, and their understanding will affect the future course of the project. They will understand Wikilambda’s structure and intent by using abstractions. They will encounter these abstractions in the source code, in the documentation, in the conversation of their workmates, in textbooks, in blogs, at conferences, or abed on sleepless nights puzzling over fiendish bugs. In this case, the abstractions <em>impose a “path of abstraction”</em> on the software, partially determining its future development <span class="citation" data-cites="carrillo_scientific_2023">(<a href="#ref-carrillo_scientific_2023" role="doc-biblioref">Carrillo and Martínez 2023</a>)</span>.</p>
+<p>Wikilambda’s source code is a privileged medium for symbolising the software’s structure and intent, because the source code is executable and can be deployed to actualise the software on the Wikimedia Foundation’s servers. But, like the Pope, the code is merely <em>primus inter pares</em>, and the abstractions it expresses lead an itinerant lifestyle, travelling between documents, diagrams and discussions as the software evolves. This is why I say programming abstractions are <em>virtualisations</em>. They exist “by virtue of” their ability to shape computations. In the same manner that alcohol has the virtue of intoxication, programming abstractions have the virtue of functional specification. They are metaphors that say <em>what the machine is supposed to do</em>. If the machine does what it is supposed to, we say the abstraction is “correct.” If the machine misbehaves, we say the abstraction has a “bug.” If the machine does what it is supposed to, but we realise we want it to do something different, we say that we need a “better model,” or indeed, a “new abstraction.” The electrical charges in the hardware are not the same thing as the software, because the electrical charges can be wrong.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> This wrongness may be the software’s fault—or not, if the wrongness is caused by electronic interference or quantum fluctuations in the circuitry. The abstractions in source code are virtually the real thing, and scholars of CCS should treat them as such.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></p>
+<p>With the help of this account, I reframe the central questions for this section: What are the key metaphors in the Wikilambda source code? What abstractions do they attempt to virtualise?</p>
+<p>Although the main focus of this section is the “function orchestrator,” I begin with a brief quotation from the “function evaluator,” another piece of software whose task is to locate and execute “implementations” of functions in the Wikifunctions database <span class="citation" data-cites="massaro_function-evaluator_2024">(<a href="#ref-massaro_function-evaluator_2024" role="doc-biblioref">Massaro et al. 2024a</a>)</span>. <a href="#lst-immaHeadOut" class="quarto-xref">Listing 1</a> vividly demonstrates the vivid, hacky, intermediate state of the Wikilambda source code. The code is so metaphorical that its symbols are only barely “abstractions.” This code snippet shuts down “executors” on the server when they are no longer needed. If the evaluator has recently executed some functions implemented in Python, it may have some Python “executors” active on the server. These executors need to be shut down in order to free up server capacity for future work.</p>
+<div id="lst-immaHeadOut" class="JavaScript listing quarto-float quarto-figure quarto-figure-left">
+<figure class="quarto-float quarto-float-lst">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst" id="lst-immaHeadOut-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Listing 1: The method that ‘kills’ an unneeded executor on the ‘hitList’ after a call to ‘drainTheSwamp’. Source: src/Executor.js, in <span class="citation" data-cites="massaro_function-evaluator_2024">Massaro et al. (<a href="#ref-massaro_function-evaluator_2024" role="doc-biblioref">2024a</a>)</span>
+</figcaption>
+<div aria-describedby="lst-immaHeadOut-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="sourceCode" id="lst-immaHeadOut"><pre class="sourceCode JavaScript"><code class="sourceCode javascript"><span id="lst-immaHeadOut-1"><a href="#lst-immaHeadOut-1" aria-hidden="true" tabindex="-1"></a><span class="kw">async</span> <span class="fu">immaHeadOut</span>() {</span>
+<span id="lst-immaHeadOut-2"><a href="#lst-immaHeadOut-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Kill the executor child process if it has survived.</span></span>
+<span id="lst-immaHeadOut-3"><a href="#lst-immaHeadOut-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> ( <span class="kw">this</span><span class="op">.</span><span class="at">childProcess_</span> <span class="op">!==</span> <span class="kw">null</span> <span class="op">&amp;&amp;</span> <span class="op">!</span><span class="kw">this</span><span class="op">.</span><span class="at">childProcess_</span><span class="op">.</span><span class="at">killed</span> ) {</span>
+<span id="lst-immaHeadOut-4"><a href="#lst-immaHeadOut-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">await</span> <span class="fu">killProcessFamily</span>( <span class="kw">this</span><span class="op">.</span><span class="at">childProcess_</span><span class="op">.</span><span class="at">pid</span> )<span class="op">;</span></span>
+<span id="lst-immaHeadOut-5"><a href="#lst-immaHeadOut-5" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="lst-immaHeadOut-6"><a href="#lst-immaHeadOut-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="lst-immaHeadOut-7"><a href="#lst-immaHeadOut-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Announce the death of the child.</span></span>
+<span id="lst-immaHeadOut-8"><a href="#lst-immaHeadOut-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">this</span><span class="op">.</span><span class="fu">obituary_</span>()<span class="op">;</span></span>
+<span id="lst-immaHeadOut-9"><a href="#lst-immaHeadOut-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+</div>
+</figure>
+</div>
+<p>To keep track of executors it has opened, the program maintains an <code>ExecutorPool</code>. At the end of a session, the program runs the <code>drainTheSwamp</code> method to empty the <code>ExecutorPool</code> and shut down the unneeded executors. When it drains the swamp, the program creates a <code>hitList</code> of executors in the pool, and then uses <code>killExecutors</code> to delete them all. The metaphor becomes gentler in the next phase of the process. To “kill” an individual executor, the program calls on the executor to use its own <code>immaHeadOut</code> method, which offers the suicidal executor a dignified exit (<a href="#lst-immaHeadOut" class="quarto-xref">Listing 1</a>). The executor destroys the <code>childProcess</code> it has been using to execute code, and then posts an <code>obituary_</code> so the rest of the program knows it has done so. It knows whether an executor is still active on the server, because if the executor has been shut down already, it will will be either <code>null</code> or <code>killed</code>.</p>
+<p>Pool, swamp, hitman, netspeak, funeral—the Wikilambda software is written with a mixture of bruality and tenderness that bespeaks the passion of its programmers. There is nothing clinical or professional about code that riffs on Trumpian rhetoric and mourns the euthanasia of children. This is vivid code, full of metaphors that the Wikilambda developers use to communicate with one another. Wikilambda’s “function evaluator” is a simple program, which performs tasks familiar to any web developer. The “function orchestrator” is a much more complex and unusual piece of software, which the Wikilambda developers admit they do not fully understand themselves. Its metaphors are accordingly more vital to the project, and less confident in their application, than those of the gleeful “evaluator.”</p>
+<p>The first key abstraction in the “function orchestrator” is in the name. The “orchestrator” and its central <code>orchestrate</code> function virtualise the metaphor: <span class="smallcaps">A program is a symphony</span>. In this metaphor, a program is made up of many musicians, who each play their own role in the computation. The orchestrator’s role is to select the right mixture of instruments to achieve the composition. The <code>orchestrate</code> function takes as its input a piece of Wikilambda code (a <code>ZObject</code>), some configuration settings (<code>invariants</code>) and an <code>ImplementationSelector</code>. Its task is to run the given Wikilambda code, using the <code>ImplementationSelector</code> to choose between available “implementations” in the Wikifunctions database. It is this <code>ImplementationSelector</code> that most clearly virtualises the “orchestration” metaphor. Normally, a programming language will have <em>just one</em> way of doing each action: one function for addition, one for integer division, one for instantiating an array, and so on. If there are two ways of doing something, it would normally be up to the <em>programmer</em> to decide: perhaps there are two division routines, one that is fast and approximate and one that is slow but exact, and the programmer can select which one is appropriate for their task. The Wikilambda language is different, because there may be many ways of performing each operation, and it is the orchestrator’s job rather than the programmer’s to choose between them. At the time of writing, for example, there are three implementations of the “add Integers” function (<a href="https://www.wikifunctions.org/view/en/Z16693"><code>Z16693</code></a>), and six implementation of the function that checks if a word is a palindrome (<a href="https://www.wikifunctions.org/view/en/Z10096"><code>Z10096</code></a>). The programmer has no control over which “implementation” is used—the orchestrator decides. When a human programmer performs “function composition” with the help of the “function orchestrator,” they really are like a composer working with a separate orchestrator. The composer writes a piano score describing the structure of the piece, while the orchestrator decides which instruments should fill out which parts.</p>
+<p>In other programming languages, the equivalent of the the Wikilambda “orchestrator” would be known as the “evaluator” or the “interpreter.” Neither Python nor JavaScript have an <code>orchestrate</code> function; instead they have an <code>eval</code> function that performs the analogous operation. The metaphor in this case is different. “Interpreting” or “evaluating” a program implies that <span class="smallcaps">the program is a text</span>, whose meaning must be sought. The <span class="smallcaps">text</span> metaphor throws the emphasis on the vocabulary and syntax of the language. It situates the programmer as an author, the program as a poem, and the computer as a reader. The central problem for the “interpreter” is <em>understanding what the program says</em>. The <span class="smallcaps">symphony</span> metaphor throws the emphasis on the machinery of computation. It situates the programmer as a composer, the program is a piano score, and the computer a humble orchestrator. The central problem for the orchestrator is <em>getting the right instruments to play the right notes</em>. In the <span class="smallcap">symphony</span> metaphor, therefore, we can once again detect Wikilambda’s central claim about language: that it can be done away with. If Wikilambda is not a language, it cannot be used to write <span class="smallcaps">texts</span>. There is no need to “evaluate” or “interpret” what the code says, because it literally says what it means. It is a perfect language, which exposes the “abstract syntax tree” of the computation directly. Accordingly, the system has only the humble task of filling in the blanks of the “abstract syntax tree,” by selecting concrete “implementations” from its database of casually-employed musicians.</p>
+<p>As we have already seen, there is no escape from language. The orchestrator <em>does</em> interpret the code it orchestrates, but without the aid of the <span class="smallcaps">text</span> metaphor, the Wikilambda developers have struggled to express this process of interpretation clearly. This has led them to introduce many vague abstractions into the code, using the guiding metaphor <span class="smallcaps">an abstraction is a container</span>. This metaphor is virtualised most clearly the second key abstraction of the function orchestrator: the <code>ZWrapper</code> class.</p>
+<p>The role of the <code>ZWrapper</code> is to maintain information about the ‘scope’ of symbols in a Wikilambda program. This is required, because the same symbol may appear multiple times in a program with different meanings. For example, the “add Integers” function (<a href="https://www.wikifunctions.org/view/en/Z16693"><code>Z16693</code></a>) has two inputs, “left integer” (<code>Z16693K1</code>) and “right integer” (<code>Z16693K2</code>). Imagine that you implemented the following function in Wikilambda:</p>
+<p><span class="math display">\[
+f(x) = \frac{2 + x}{3} - \frac{x + (-3)}{4}
+\]</span></p>
+<p>Here there are at least <em>two</em> additions: <span class="math inline">\(2 + x\)</span> and <span class="math inline">\(x + (-3)\)</span>. In the first case, the “left integer” (<code>Z16693K1</code>) is <span class="math inline">\(2\)</span>, while the “right integer” (<code>Z16693K2</code>) is <span class="math inline">\(x\)</span>. In the second case, it is the “left integer” (<code>Z16693K1</code>) that is <span class="math inline">\(x\)</span>, while the “right integer” (<code>Z16693K2</code>) is <span class="math inline">\(-3\)</span>. The role of the <code>ZWrapper</code> is to keep track of which <code>Z16693K1</code> or <code>Z16693K2</code> is which. It also needs to keep track of <span class="math inline">\(x\)</span>. If this function is used more than once in the program, then <span class="math inline">\(x\)</span> may also have a different value each time. Keeping track of symbols is the main purpose of the <code>ZWrapper</code> class, but this role is not at all apparent from its name. What does “wrapping” have to do with <em>remembering the referents of symbols</em>? What exactly is being “wrapped”?</p>
+<p><a href="#lst-zwrapper" class="quarto-xref">Listing 2</a> shows the code that “wraps” a <code>ZObject</code> in a <code>ZWrapper</code>. A <code>ZObject</code> is a piece of Wikilambda code from the Wikifunctions database. It can be in one of two states, as shown in line 2 of the listing. It can be a piece of unprocessed text (<code>isString( zobjectJSON )</code>), or it can be a <code>ZObject</code> that has already been “wrapped” (<code>instanceof ZWrapper</code>). If the raw code has not yet been “wrapped,” the orchestrator works out if the <code>ZObject</code> is a <code>ZEnvelope</code> or not. If it <em>is</em> a <code>ZEnvelope</code>, then it wraps it up in a <code>ZEnvlopeWrapper</code>. If not, it wraps it in an ordinary <code>ZWrapper</code>. The last few lines of the function are the ones that do the work of remembering which symbol corresponds to which value. They do this by creating a <code>scope</code> in the <code>ZWrapper</code>, which is <code>populated</code> with the correct values for each symbol (e.g. remembering what the “left” and “right” integers are in an integer addition). As this explication reveals, the code does not explain itself at all. Nothing in the name <code>ZObject</code> indicates that it is an expression in the Wikilambda language. And what exactly is the difference between an <code>Envelope</code> and a <code>Wrapper</code>? These names are empty names. They use the metaphor <span class="smallcaps">an abstraction is a container</span> to indicate that the code contains abstractions, but they do not indicate what those abstractions are or why they are needed. An envelope or a wrapper is a container for some kind of object. But for what kind of object, and why does it need to be contained?</p>
+<div id="lst-zwrapper" class="JavaScript listing quarto-float quarto-figure quarto-figure-left">
+<figure class="quarto-float quarto-float-lst">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst" id="lst-zwrapper-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Listing 2: The method that wraps a <code>ZObject</code> in a <code>ZWrapper</code> as required. Source: src/ZWrapper.js, in <span class="citation" data-cites="massaro_function-orchestrator_2024">Massaro et al. (<a href="#ref-massaro_function-orchestrator_2024" role="doc-biblioref">2024b</a>)</span>
+</figcaption>
+<div aria-describedby="lst-zwrapper-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="sourceCode" id="lst-zwrapper"><pre class="sourceCode JavaScript"><code class="sourceCode javascript"><span id="lst-zwrapper-1"><a href="#lst-zwrapper-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="fu">createInternal_</span>( zobjectJSON<span class="op">,</span> scope<span class="op">,</span> parentPointer ) {</span>
+<span id="lst-zwrapper-2"><a href="#lst-zwrapper-2" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> ( <span class="fu">isString</span>( zobjectJSON ) <span class="op">||</span> zobjectJSON <span class="kw">instanceof</span> ZWrapper ) {</span>
+<span id="lst-zwrapper-3"><a href="#lst-zwrapper-3" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> zobjectJSON<span class="op">;</span></span>
+<span id="lst-zwrapper-4"><a href="#lst-zwrapper-4" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="lst-zwrapper-5"><a href="#lst-zwrapper-5" aria-hidden="true" tabindex="-1"></a>        <span class="kw">let</span> result<span class="op">;</span></span>
+<span id="lst-zwrapper-6"><a href="#lst-zwrapper-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> ( <span class="fu">isZEnvelope</span>( zobjectJSON ) ) {</span>
+<span id="lst-zwrapper-7"><a href="#lst-zwrapper-7" aria-hidden="true" tabindex="-1"></a>            result <span class="op">=</span> <span class="kw">new</span> <span class="fu">ZEnvelopeWrapper</span>()<span class="op">;</span> <span class="co">// eslint-disable-line no-use-before-define</span></span>
+<span id="lst-zwrapper-8"><a href="#lst-zwrapper-8" aria-hidden="true" tabindex="-1"></a>        } <span class="cf">else</span> {</span>
+<span id="lst-zwrapper-9"><a href="#lst-zwrapper-9" aria-hidden="true" tabindex="-1"></a>            result <span class="op">=</span> <span class="kw">new</span> <span class="fu">ZWrapper</span>()<span class="op">;</span></span>
+<span id="lst-zwrapper-10"><a href="#lst-zwrapper-10" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="lst-zwrapper-11"><a href="#lst-zwrapper-11" aria-hidden="true" tabindex="-1"></a>        result<span class="op">.</span><span class="fu">setScope</span>( scope )<span class="op">;</span></span>
+<span id="lst-zwrapper-12"><a href="#lst-zwrapper-12" aria-hidden="true" tabindex="-1"></a>        result<span class="op">.</span><span class="at">parent_</span> <span class="op">=</span> parentPointer<span class="op">;</span> <span class="co">// will use parent in case scope does not exist</span></span>
+<span id="lst-zwrapper-13"><a href="#lst-zwrapper-13" aria-hidden="true" tabindex="-1"></a>        result<span class="op">.</span><span class="fu">populateKeys_</span>( zobjectJSON )<span class="op">;</span></span>
+<span id="lst-zwrapper-14"><a href="#lst-zwrapper-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> result<span class="op">;</span></span>
+<span id="lst-zwrapper-15"><a href="#lst-zwrapper-15" aria-hidden="true" tabindex="-1"></a>    }</span></code></pre></div>
+</div>
+</figure>
+</div>
+<p>There are many reasons why the code should be this way. The Wikilambda developers charmingly admit that they are not very experienced in language design: “Dear reader, if you have solved similar problems–e.g., if you implemented programming languages before–and know the better way, have at it :)” <span class="citation" data-cites="massaro_function-orchestrator_2024">(“README.md,” <a href="#ref-massaro_function-orchestrator_2024" role="doc-biblioref">Massaro et al. 2024b</a>)</span>. But I would suggest the code reveals a deeper pattern than mere inexperience. Repeatedly in the code, the Wikilambda developers eschew well-known abstractions in programming language design. In <a href="#lst-zwrapper" class="quarto-xref">Listing 2</a>, for example, <code>createInternal</code> is basically a synonym for “evaluate” or “eval-dispatch,” and <code>zobjectJSON</code> is a synonym for “expression.” The two <code>if</code> statements at the start determine the type of “expression” (there are three types), and choose the correct evaluation method. The <code>scope</code> would normally be called the “environment” of the evaluation, and the <code>populateKeys</code> method is the function that “extends the environment” to include the “local bindings” of the current “expression.” These are not unusual or obscure terms of programming: “expression,” “evaluate,” “dispatch,” “environment,” “extend,” “local” and “bindings.” But they all partake of the dominant metaphor <span class="smallcaps">the program is a text</span>, a metaphor that the Wikilambda developers have rejected in their attempt to create a perfect language that interposes no symbolism between the programmer and their program.</p>
+<p>The code for the function orchestrator is in a medial state. The Wikilambda developers are in the process of carving out new abstractions, to describe a utopian project for a new programming language. Their central metaphor, <span class="smallcaps">a program is a symphony</span>, allows them to describe the most remarkable feature of their language: that it lives in a data centre, where many computers, and many little software daemons, are dynamically combined to bring the language to life. When they write code that summons and dismisses resources on the Wikimedia Foundation’s servers, the time write vivid, clear, metaphorical code. But when the <span class="smallcaps">symphony</span> metaphor fails—as in the description of the vocabulary and syntax of their new programming language—the Wikilambda developers fall back on the empty metaphor, <span class="smallcaps">an abstraction is a container</span>. The <span class="smallcaps">symphony</span> metaphor has imposed a “path of abstraction” on the developers, which has made it difficult for them to explore and express certain aspects of their project <span class="citation" data-cites="carrillo_scientific_2023">(<a href="#ref-carrillo_scientific_2023" role="doc-biblioref">Carrillo and Martínez 2023</a>)</span>. Perhaps in years to come they will carve out genuinely new abstractions for programming language design; in the mean time, they probably will continue to resist the best available metaphor, <span class="smallcaps">a program is a text</span>, because this metaphor contradicts their aim to create a perfect language.</p>
+</section>
+<section id="conclusion" class="level2" data-number="5">
+<h2 data-number="5"><span class="header-section-number">5</span> Conclusion</h2>
+<blockquote>
+<p>But it is perhaps nothing more than our ‘democratic’ illusion to imagine that perfection must imply universality. <span class="citation" data-cites="eco_search_1995">(<a href="#ref-eco_search_1995" role="doc-biblioref">Eco 1995, 100</a>)</span></p>
+</blockquote>
+<p>The Abstract Wikipedia/Wikifunctions project has a profoundly moral aim: to give human beings control over information in the Age of GenAI. If the problem were simply to populate minority-language Wikipedias with articles, it would be simpler just to get a Large Language Model (LLM) to translate English Wikipedia into those languages. But Wikilambda presents a stark alternative to LLMs such as Gemini, Llama or ChatGPT. These LLMs rely on vast concealed datasets. Wikifunctions draws its data from public Wikimedia databases. These LLMs generate text using opaque algorithms that even their designers cannot understand. Wikilambda makes every part of every algorithm available to anyone. In short, Wikilambda is <em>contestable</em>, as will be Abstract Wikipedia. If you ask ChatGPT to generate an article on a topic, the only way to contest its algorithm is to click 👍 or 👎 <span class="citation" data-cites="crawford_what_2016">(<a href="#ref-crawford_what_2016" role="doc-biblioref">Crawford and Gillespie 2016</a>)</span>. If you are unhappy with an article generated by Abstract Wikipedia, you will be able to: change the “abstract” content in Wikidata; change the algorithms that generate the article in Wikifunctions; or sever the connection between the article and Abstract Wikipedia, and edit it the old-fashioned way in Wikipedia. The role of Wikilambda in all this is to make algorithms “defeasible” <span class="citation" data-cites="blanton_abstract_2022">(<a href="#ref-blanton_abstract_2022" role="doc-biblioref">Blanton et al. 2022</a>)</span>. Every part of every algorithm is there, and can be contested on the platform itself, even if that contestation may be culturally and politically constrained <span class="citation" data-cites="tkacz_wikipedia_2015 ford_writing_2022">(<a href="#ref-tkacz_wikipedia_2015" role="doc-biblioref">Tkacz 2015</a>; <a href="#ref-ford_writing_2022" role="doc-biblioref">Ford 2022</a>)</span>. Wikilambda is an attempt to design what Alan <span class="citation" data-cites="blackwell_moral_2024">Blackwell (<a href="#ref-blackwell_moral_2024" role="doc-biblioref">2024</a>)</span> calls a “moral code”: it combines More Open Representation, Access to Learning, and Creating Opportunities for Digital Expression. If nothing else, Wikilambda is a thundering critique of corporate AI hype.</p>
+<p>To achieve their aims, the Wikilambda developers are attempting to escape from language. They want to escape from spoken languages into the “template language” of Abstract Wikipedia. They want to escape from programming languages into the “abstract syntax tree” of Wikilambda. So far, however, they have only escaped from language into language. The whole Abstract Wikipedia/Wikifunctions project is conceived in terms of the <span class="smallcaps">conduit</span> metaphor, a questionable metalinguistic abstraction baked into the English language (<a href="#sec-architecture" class="quarto-xref">Section 2</a>). The Wikilambda language tries to be no language at all, but is irresistibly becoming another human tongue, with its own culture and idioms (<a href="#sec-perfection" class="quarto-xref">Section 3</a>). In the code of the function orchestrator, the developers tell a “one-voice story” using English-language metaphors, and they struggle to express themselves in the code, because they have set out on a “path of abstraction” that forecloses the best available metaphor for what they are doing (<a href="#sec-code" class="quarto-xref">Section 4</a>).</p>
+<p>In response to criticism, the Wikilambda developers adopt one of the most popular programming metaphors: <span class="smallcaps">the world is Tolkein’s Middle-Earth</span> <span class="citation" data-cites="dillon_what_2023">(<a href="#ref-dillon_what_2023" role="doc-biblioref">Dillon and Schaffer-Goddard 2023</a>)</span>. What they wish to avoid is a “‘One Ring’ solution” to the problem of universalising access to knowledge <span class="citation" data-cites="blanton_abstract_2022">(<a href="#ref-blanton_abstract_2022" role="doc-biblioref">Blanton et al. 2022</a>)</span>. In this metaphor, the Google fellows who criticised the project are agents of Sauron, the Dark Lord. When the fellows suggest that the project abandon its quixotic quest to design the perfect programming language, when they suggest that perhaps an existing technology such as Scribunto or Grammatical Framework might be appropriate, these agents of Sauron (Google) are really suggesting that Abstract Wikipedia forge a magic ring in the fires of Mt Doom (Silicon Valley), and use it to dominate the world. The tragic contradiction of the Abstract Wikipedia project is that it is itself a “‘One Ring’ solution.” A group of Anglophone engineers in the heart of Mordor (California) are forging one language that all the world’s people should write, and one language that all the world’s people should program. They are attempting to resolve this contradiction by escaping from language. The template language will boil facts down to their primitive elements. The Wikilambda language will boil computations down to their primitive elements. From these primitive elements the whole world of facts, and the whole universe of computations, can be recombined without the need for words. But words “bite and scratch,” writes the poet, and “You never learn / the chemical process of separating them” <span class="citation" data-cites="frame_storms_2008">(<a href="#ref-frame_storms_2008" role="doc-biblioref">Frame 2008, 117</a>)</span>. It is the grand ambition of Denny Vrandečić and his hackers to learn this process, which has evaded so many linguistic alchemists before them.</p>
+</section>
+<section id="references" class="level2 unnumbered" data-number="6">
+<h2 class="unnumbered" data-number="6"><span class="header-section-number">6</span> References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-abelson_structure_1996" class="csl-entry" role="listitem">
+Abelson, Harold, Gerald Jay Sussman, and Julie Sussman. 1996. <em>Structure and Interpretation of Computer Programs</em>. Second. Cambridge: MIT Press.
+</div>
+<div id="ref-noauthor_abstract_2024-2" class="csl-entry" role="listitem">
+<span>“Abstract <span>Wikipedia</span>/<span>Architecture</span>.”</span> 2024. <em>Wikimedia Meta-Wiki</em>. <a href="https://meta.wikimedia.org/w/index.php?title=Abstract_Wikipedia/Architecture&amp;oldid=26987678">https://meta.wikimedia.org/w/index.php?title=Abstract_Wikipedia/Architecture&amp;oldid=26987678</a>.
+</div>
+<div id="ref-noauthor_abstract_2024-3" class="csl-entry" role="listitem">
+<span>“Abstract <span>Wikipedia</span>/<span>Components</span>.”</span> 2024. <em>Wikipedia Meta-Wiki</em>. <a href="https://meta.wikimedia.org/w/index.php?title=Abstract_Wikipedia/Components&amp;oldid=26987679">https://meta.wikimedia.org/w/index.php?title=Abstract_Wikipedia/Components&amp;oldid=26987679</a>.
+</div>
+<div id="ref-noauthor_annual_2023" class="csl-entry" role="listitem">
+<span>“Annual <span>Report</span> 2022-23.”</span> 2023. San Francisco: Wikimedia Endowment. <a href="https://wikimediaendowment.org/wp-content/uploads/2024/04/Endowment-Annual-Report-22-23.pdf">https://wikimediaendowment.org/wp-content/uploads/2024/04/Endowment-Annual-Report-22-23.pdf</a>.
+</div>
+<div id="ref-avieson_two_2022" class="csl-entry" role="listitem">
+Avieson, Bunty. 2022. <span>“Two <span>Wikipedias</span> in <span>Bhutan</span>: Problems and Solutions for Knowledge Equity in the Digital Age.”</span> <em>Asian Journal of Communication</em> 32 (5): 399–416. <a href="https://doi.org/10.1080/01292986.2021.1937248">https://doi.org/10.1080/01292986.2021.1937248</a>.
+</div>
+<div id="ref-bayer_wikimedia_2023" class="csl-entry" role="listitem">
+Bayer, Tilman. 2023. <span>“Wikimedia <span>Foundation</span>’s <span>Abstract</span> <span>Wikipedia</span> Project ’at Substantial Risk of Failure’.”</span> <em>The Signpost</em>, January. <a href="https://en.wikipedia.org/wiki/Wikipedia:Wikipedia_Signpost/2023-01-01/Technology_report">https://en.wikipedia.org/wiki/Wikipedia:Wikipedia_Signpost/2023-01-01/Technology_report</a>.
+</div>
+<div id="ref-bergson_essai_1908" class="csl-entry" role="listitem">
+Bergson, Henri. 1908. <em>Essai Sur Les Données Immédiates de La Conscience</em>. 6th ed. Paris: Alcan.
+</div>
+<div id="ref-blackwell_6000_2017" class="csl-entry" role="listitem">
+Blackwell, Alan F. 2017. <span>“6,000 <span>Years</span> of <span>Programming</span> <span>Language</span> <span>Design</span>: <span>A</span> <span>Meditation</span> on <span>Eco</span>’s <span>Perfect</span> <span>Language</span>.”</span> In <em>Conversations <span>Around</span> <span>Semiotic</span> <span>Engineering</span></em>, edited by Simone Diniz Junqueira Barbosa and Karin Breitman, 31–39. Cham: Springer International Publishing. <a href="https://doi.org/10.1007/978-3-319-56291-9_5">https://doi.org/10.1007/978-3-319-56291-9_5</a>.
+</div>
+<div id="ref-blackwell_moral_2024" class="csl-entry" role="listitem">
+———. 2024. <em>Moral <span>Codes</span>: <span>Designing</span> <span>Alternatives</span> to <span>AI</span></em>. The MIT Press. <a href="https://doi.org/10.7551/mitpress/14872.001.0001">https://doi.org/10.7551/mitpress/14872.001.0001</a>.
+</div>
+<div id="ref-blanton_abstract_2022" class="csl-entry" role="listitem">
+Blanton, Cai, Cory Massaro, David Martin, Denny Vrandečić, Genoveva Galarza Heredero, James Forrester, Julia Kieserman, and Stef Dunlap. 2022. <span>“Abstract <span>Wikipedia</span>/<span>Google</span>.org <span>Fellows</span> Evaluation - <span>Answer</span>.”</span> <em>Wikimedia Meta-Wiki</em>. <a href="https://meta.wikimedia.org/w/index.php?title=Abstract_Wikipedia/Google.org_Fellows_evaluation_-_Answer&amp;oldid=24262326">https://meta.wikimedia.org/w/index.php?title=Abstract_Wikipedia/Google.org_Fellows_evaluation_-_Answer&amp;oldid=24262326</a>.
+</div>
+<div id="ref-carrillo_scientific_2023" class="csl-entry" role="listitem">
+Carrillo, Natalia, and Sergio Martínez. 2023. <span>“Scientific <span>Inquiry</span>: <span>From</span> <span>Metaphors</span> to <span>Abstraction</span>.”</span> <em>Perspectives on Science</em> 31 (2): 233–61. <a href="https://doi.org/10.1162/posc_a_00571">https://doi.org/10.1162/posc_a_00571</a>.
+</div>
+<div id="ref-church_set_1932" class="csl-entry" role="listitem">
+Church, Alonzo. 1932. <span>“A <span>Set</span> of <span>Postulates</span> for the <span>Foundation</span> of <span>Logic</span>.”</span> <em>Annals of Mathematics</em> 33 (2): 346–66. <a href="https://doi.org/10.2307/1968337">https://doi.org/10.2307/1968337</a>.
+</div>
+<div id="ref-colburn_abstraction_2007" class="csl-entry" role="listitem">
+Colburn, Timothy, and Gary Shute. 2007. <span>“Abstraction in <span>Computer</span> <span>Science</span>.”</span> <em>Minds and Machines: Journal for Artificial Intelligence, Philosophy and Cognitive Science</em> 17 (2): 169–84. <a href="https://doi.org/10.1007/s11023-007-9061-7">https://doi.org/10.1007/s11023-007-9061-7</a>.
+</div>
+<div id="ref-crawford_what_2016" class="csl-entry" role="listitem">
+Crawford, Kate, and Tarleton Gillespie. 2016. <span>“What Is a Flag for? <span>Social</span> Media Reporting Tools and the Vocabulary of Complaint.”</span> <em>New Media &amp; Society</em> 18 (3): 410–28. <a href="https://doi.org/10.1177/1461444814543163">https://doi.org/10.1177/1461444814543163</a>.
+</div>
+<div id="ref-deleuze_bergsonisme_1998" class="csl-entry" role="listitem">
+Deleuze, Gilles. 1998. <em>Le Bergsonisme</em>. 2. ed. Paris: Presses Univ. de France.
+</div>
+<div id="ref-deleuze_difference_2014" class="csl-entry" role="listitem">
+———. 2014. <em>Difference and <span>Repetition</span></em>. Translated by Paul Patton. 2nd edition. London; New York: Bloomsbury Academic.
+</div>
+<div id="ref-dillon_what_2023" class="csl-entry" role="listitem">
+Dillon, Sarah, and Jennifer Schaffer-Goddard. 2023. <span>“What <span>AI</span> Researchers Read: The Role of Literature in Artificial Intelligence Research.”</span> <em>Interdisciplinary Science Reviews</em> 48 (1): 15–42. <a href="https://doi.org/10.1080/03080188.2022.2079214">https://doi.org/10.1080/03080188.2022.2079214</a>.
+</div>
+<div id="ref-dubrow_cosmopolitan_2018" class="csl-entry" role="listitem">
+Dubrow, Jennifer. 2018. <em>Cosmopolitan <span>Dreams</span>: <span>The</span> <span>Making</span> of <span>Modern</span> <span>Urdu</span> <span>Literary</span> <span>Culture</span> in <span>Colonial</span> <span>South</span> <span>Asia</span></em>. Honolulu: University of Hawaii Press.
+</div>
+<div id="ref-eco_search_1995" class="csl-entry" role="listitem">
+Eco, Umberto. 1995. <em>The Search for the Perfect Language</em>. Making of <span>Europe</span>. Oxford, UK ; Cambridge, Mass., USA: Blackwell.
+</div>
+<div id="ref-noauthor_extensionwikilambda_2024" class="csl-entry" role="listitem">
+<span>“Extension:<span>WikiLambda</span>.”</span> 2024. <em>MediaWiki</em>. <a href="https://www.mediawiki.org/w/index.php?title=Extension:WikiLambda&amp;oldid=6467929">https://www.mediawiki.org/w/index.php?title=Extension:WikiLambda&amp;oldid=6467929</a>.
+</div>
+<div id="ref-ford_writing_2022" class="csl-entry" role="listitem">
+Ford, Heather. 2022. <em>Writing the Revolution: <span>Wikipedia</span> and the Survival of Facts in the Digital Age</em>. Cambridge, Massachusetts: The MIT Press.
+</div>
+<div id="ref-ford_wikidata_2023" class="csl-entry" role="listitem">
+Ford, Heather, and Andrew Iliadis. 2023. <span>“Wikidata as <span>Semantic</span> <span>Infrastructure</span>: <span>Knowledge</span> <span>Representation</span>, <span>Data</span> <span>Labor</span>, and <span>Truth</span> in a <span>More</span>-<span>Than</span>-<span>Technical</span> <span>Project</span>.”</span> <em>Social Media + Society</em> 9 (3): 20563051231195552. <a href="https://doi.org/10.1177/20563051231195552">https://doi.org/10.1177/20563051231195552</a>.
+</div>
+<div id="ref-ford_how_2024" class="csl-entry" role="listitem">
+Ford, Heather, Francesca Sidoti, Michael Falk, Tamson Pietsch, and Tom Byers. 2024. <span>“How <span>Australian</span> Places Are Represented on <span>Wikipedia</span>.”</span> 2. University of Technology, Sydney. <a href="https://doi.org/10.5281/zenodo.13910503">https://doi.org/10.5281/zenodo.13910503</a>.
+</div>
+<div id="ref-foundation_first_2023" class="csl-entry" role="listitem">
+Foundation, Wikimedia. 2023. <span>“First Grants Announced from the <span>Wikimedia</span> <span>Endowment</span> to Support Technical Innovation Across <span>Wikipedia</span> and <span>Wikimedia</span> Projects.”</span> <em>Wikimedia Foundation</em>. <a href="https://wikimediafoundation.org/news/2023/04/13/first-grants-announced-from-the-wikimedia-endowment/">https://wikimediafoundation.org/news/2023/04/13/first-grants-announced-from-the-wikimedia-endowment/</a>.
+</div>
+<div id="ref-frame_storms_2008" class="csl-entry" role="listitem">
+Frame, Janet. 2008. <em>Storms Will Tell: Selected Poems</em>. Tarset, Northumberland: Bloodaxe Books.
+</div>
+<div id="ref-galloway_interface_2012" class="csl-entry" role="listitem">
+Galloway, Alexander R. 2012. <em>The Interface Effect</em>. Cambridge, UK ; Malden, MA: Polity.
+</div>
+<div id="ref-gnatiuk_uneven_2021" class="csl-entry" role="listitem">
+Gnatiuk, Oleksiy, and Victoria Glybovets. 2021. <span>“Uneven Geographies in the Various Language Editions of <span>Wikipedia</span>: The Case of <span>Ukrainian</span> Cities.”</span> <em>Hungarian Geographical Bulletin</em> 70 (3): 249–66. <a href="https://doi.org/10.15201/hungeobull.70.3.4">https://doi.org/10.15201/hungeobull.70.3.4</a>.
+</div>
+<div id="ref-hakala_negotiating_2016" class="csl-entry" role="listitem">
+Hakala, Walter. 2016. <em>Negotiating <span>Languages</span>: <span>Urdu</span>, <span>Hindi</span>, and the <span>Definition</span> of <span>Modern</span> <span>South</span> <span>Asia</span></em>. New York, UNITED STATES: Columbia University Press. <a href="http://ebookcentral.proquest.com/lib/usyd/detail.action?docID=4588404">http://ebookcentral.proquest.com/lib/usyd/detail.action?docID=4588404</a>.
+</div>
+<div id="ref-hoffmann_restrictions_2019" class="csl-entry" role="listitem">
+Hoffmann, Dorothea. 2019. <span>“Restrictions on the <span>Usage</span> of <span>Spatial</span> <span>Frames</span> of <span>Reference</span> in <span>Location</span> and <span>Orientation</span> <span>Descriptions</span>: <span>Evidence</span> from <span>Three</span> <span>Australian</span> <span>Languages</span>.”</span> <em>Australian Journal of Linguistics</em> 39 (1): 1–31. <a href="https://doi.org/10.1080/07268602.2019.1542927">https://doi.org/10.1080/07268602.2019.1542927</a>.
+</div>
+<div id="ref-hua_how_2023" class="csl-entry" role="listitem">
+Hua, Minh, and Rita Raley. 2023. <span>“How to <span>Do</span> <span>Things</span> with <span>Deep</span> <span>Learning</span> <span>Code</span>.”</span> <em>Digital Humanities Quarterly</em> 17 (2). <a href="https://www.digitalhumanities.org/dhq/vol/17/2/000684/000684.html">https://www.digitalhumanities.org/dhq/vol/17/2/000684/000684.html</a>.
+</div>
+<div id="ref-jamrozik_metaphor_2016" class="csl-entry" role="listitem">
+Jamrozik, Anja, Marguerite McQuire, Eileen R. Cardillo, and Anjan Chatterjee. 2016. <span>“Metaphor: <span>Bridging</span> Embodiment to Abstraction.”</span> <em>Psychonomic Bulletin &amp; Review</em> 23 (4): 1080–89. <a href="https://doi.org/10.3758/s13423-015-0861-0">https://doi.org/10.3758/s13423-015-0861-0</a>.
+</div>
+<div id="ref-kittler_there_2014" class="csl-entry" role="listitem">
+Kittler, Friedrich A. 2014. <span>“There Is No Software.”</span> In <em>The <span>Truth</span> of the <span>Technological</span> <span>World</span>: <span>Essays</span> on the <span>Genealogy</span> of <span>Presence</span></em>, translated by Erik Butler, 219–29. New York, UNITED STATES: Stanford University Press. <a href="http://ebookcentral.proquest.com/lib/unimelb/detail.action?docID=1774246">http://ebookcentral.proquest.com/lib/unimelb/detail.action?docID=1774246</a>.
+</div>
+<div id="ref-lakoff_contemporary_1993" class="csl-entry" role="listitem">
+Lakoff, George. 1993. <span>“The Contemporary Theory of Metaphor.”</span> In <em>Metaphor and <span>Thought</span></em>, edited by Andrew Ortony, 2nd ed., 202–51. Cambridge University Press. <a href="https://doi.org/10.1017/CBO9781139173865.013">https://doi.org/10.1017/CBO9781139173865.013</a>.
+</div>
+<div id="ref-lakoff_metaphors_1980" class="csl-entry" role="listitem">
+Lakoff, George, and Mark Johnson. 1980. <em>Metaphors We <span>Live</span> <span>By</span></em>. Chicago; London: The University of Chicago Press.
+</div>
+<div id="ref-langer_philosophy_1957" class="csl-entry" role="listitem">
+Langer, Susanne K. 1957. <em>Philosophy in a New Key; a Study in the Symbolism of Reason, Rite, and Art.</em> [3d ed.]. Cambridge: Harvard University Press.
+</div>
+<div id="ref-livneh_abstract_2022" class="csl-entry" role="listitem">
+Livneh, Ori, Ariel Gitman, Ari Assaf, and Mary Yang. 2022. <span>“Abstract <span>Wikipedia</span>/<span>Google</span>.org <span>Fellows</span> Evaluation.”</span> <em>Wikipedia Meta-Wiki</em>. <a href="https://meta.wikimedia.org/w/index.php?title=Abstract_Wikipedia/Google.org_Fellows_evaluation&amp;oldid=24268563">https://meta.wikimedia.org/w/index.php?title=Abstract_Wikipedia/Google.org_Fellows_evaluation&amp;oldid=24268563</a>.
+</div>
+<div id="ref-lovelace_sketch_2021" class="csl-entry" role="listitem">
+Lovelace, Ada, and L. F. Menabrea. 2021. <span>“Sketch of the <span>Analytical</span> <span>Engine</span> (1843).”</span> In <em>Ideas <span>That</span> <span>Created</span> the <span>Future</span></em>, edited by Harry Lewis, 9–26. The MIT Press. <a href="https://doi.org/10.7551/mitpress/12274.003.0005">https://doi.org/10.7551/mitpress/12274.003.0005</a>.
+</div>
+<div id="ref-marino_critical_2020" class="csl-entry" role="listitem">
+Marino, Mark C. 2020. <em>Critical <span>Code</span> <span>Studies</span></em>. The MIT Press. <a href="https://doi.org/10.7551/mitpress/12122.001.0001">https://doi.org/10.7551/mitpress/12122.001.0001</a>.
+</div>
+<div id="ref-massaro_function-evaluator_2024" class="csl-entry" role="listitem">
+Massaro, Cory, Denny Vrandečić, Daphne Smit, David Martin, Ecarg, Genoveva Galarza, Jeena Huneidi, James Forrester, Stef Dunlap, and Vaughn Walters. 2024a. <span>“Function-Evaluator.”</span> <a href="https://gitlab.wikimedia.org/repos/abstract-wiki/wikifunctions/function-evaluator/-/tree/dbfededdc4d83ff8175b2bab42b00327e1a4a6aa">https://gitlab.wikimedia.org/repos/abstract-wiki/wikifunctions/function-evaluator/-/tree/dbfededdc4d83ff8175b2bab42b00327e1a4a6aa</a>.
+</div>
+<div id="ref-massaro_function-orchestrator_2024" class="csl-entry" role="listitem">
+———. 2024b. <span>“Function-Orchestrator.”</span> <a href="https://gitlab.wikimedia.org/repos/abstract-wiki/wikifunctions/function-orchestrator/-/tree/86514fdaa663a75c9ebbda232c35e3248adbec5d">https://gitlab.wikimedia.org/repos/abstract-wiki/wikifunctions/function-orchestrator/-/tree/86514fdaa663a75c9ebbda232c35e3248adbec5d</a>.
+</div>
+<div id="ref-reddy_conduit_1993" class="csl-entry" role="listitem">
+Reddy, Michael J. 1993. <span>“The Conduit Metaphor: <span>A</span> Case of Frame Conflict in Our Language about Language.”</span> In <em>Metaphor and <span>Thought</span></em>, edited by Andrew Ortony, 2nd ed., 164–201. Cambridge University Press. <a href="https://doi.org/10.1017/CBO9781139173865.012">https://doi.org/10.1017/CBO9781139173865.012</a>.
+</div>
+<div id="ref-rountree_nonsense_2023" class="csl-entry" role="listitem">
+Rountree, Barry, and William Condee. 2023. <span>“Nonsense <span>Code</span>: <span>A</span> <span>Nonmaterial</span> <span>Performance</span>.”</span> <em>Digital Humanities Quarterly</em> 17 (2). <a href="https://www.digitalhumanities.org/dhq/vol/17/2/000702/000702.html">https://www.digitalhumanities.org/dhq/vol/17/2/000702/000702.html</a>.
+</div>
+<div id="ref-steele_jr_debunking_1977" class="csl-entry" role="listitem">
+Steele Jr., Guy Lewis. 1977. <span>“Debunking the "Expensive Procedure Call" Myth; or, Procedure Call Implementations Considered Harmful; or, Lambda: The Ultimate Goto.”</span> 443. Cambridge, Mass: Massachusetts Institute of Technology. <a href="https://apps.dtic.mil/sti/pdfs/ADA062381.pdf">https://apps.dtic.mil/sti/pdfs/ADA062381.pdf</a>.
+</div>
+<div id="ref-steele_jr_art_1978" class="csl-entry" role="listitem">
+Steele Jr., Guy Lewis, and Gerald Jay Sussman. 1978. <span>“The <span>Art</span> of the <span>Interpreter</span>; or, <span>The</span> <span>Modularity</span> <span>Complex</span> (<span>Parts</span> <span>Zero</span>, <span>One</span>, and <span>Two</span>).”</span> 453. Cambridge, Mass: Massachusetts Institute of Technology. <a href="https://dspace.mit.edu/bitstream/handle/1721.1/6094/AIM-453.pdf">https://dspace.mit.edu/bitstream/handle/1721.1/6094/AIM-453.pdf</a>.
+</div>
+<div id="ref-sussman_scheme_1975" class="csl-entry" role="listitem">
+Sussman, Gerald Jay, and Guy Lewis Steele Jr. 1975. <span>“Scheme: <span>An</span> Interpreter for Extended Lambda Calculus.”</span> 349. Cambridge, Mass: Massachusetts Institute of Technology. <a href="https://dspace.mit.edu/bitstream/handle/1721.1/5794/AIM-349.pdf">https://dspace.mit.edu/bitstream/handle/1721.1/5794/AIM-349.pdf</a>.
+</div>
+<div id="ref-swift_gullivers_2005" class="csl-entry" role="listitem">
+Swift, Jonathan. 2005. <em>Gulliver’s <span>Travels</span></em>. Edited by Claude Rawson. Oxford: OUP.
+</div>
+<div id="ref-tenen_plain_2017" class="csl-entry" role="listitem">
+Tenen, Dennis. 2017. <em>Plain Text: The Poetics of Computation</em>. Stanford, California: Stanford University Press.
+</div>
+<div id="ref-wa_thiongo_decolonising_1986" class="csl-entry" role="listitem">
+Thiong’o, Ngugi wa. 1986. <em>Decolonising the <span>Mind</span>: <span>The</span> <span>Politics</span> of <span>Language</span> in <span>African</span> <span>Literature</span></em>. Woodbridge: Boydell &amp; Brewer, Limited.
+</div>
+<div id="ref-tkacz_wikipedia_2015" class="csl-entry" role="listitem">
+Tkacz, Nathaniel. 2015. <em>Wikipedia and the Politics of Openness</em>. Chicago ; London: University of Chicago Press.
+</div>
+<div id="ref-vee_coding_2017" class="csl-entry" role="listitem">
+Vee, Annette. 2017. <em>Coding <span>Literacy</span>: <span>How</span> <span>Computer</span> <span>Programming</span> <span>Is</span> <span>Changing</span> <span>Writing</span></em>. The MIT Press. <a href="https://doi.org/10.7551/mitpress/10655.001.0001">https://doi.org/10.7551/mitpress/10655.001.0001</a>.
+</div>
+<div id="ref-vrandecic_capturing_2018" class="csl-entry" role="listitem">
+Vrandečić, Denny. 2018. <span>“Capturing Meaning: <span>Toward</span> an Abstract <span>Wikipedia</span>.”</span> In <em>International <span>Semantic</span> <span>Web</span> <span>Conference</span> 2018 - <span>Outrageous</span> <span>Ideas</span> <span>Track</span></em>. Monterey, CA. <a href="http://ceur-ws.org/Vol-2180/">http://ceur-ws.org/Vol-2180/</a>.
+</div>
+<div id="ref-vrandecic_collaborating_2020" class="csl-entry" role="listitem">
+———. 2020. <span>“Collaborating on the <span>Sum</span> of <span>All</span> <span>Knowledge</span> <span>Across</span> <span>Languages</span>,”</span> October. <a href="https://doi.org/10.7551/mitpress/12366.003.0016">https://doi.org/10.7551/mitpress/12366.003.0016</a>.
+</div>
+<div id="ref-vrandecic_building_2021" class="csl-entry" role="listitem">
+———. 2021. <span>“Building a Multilingual <span>Wikipedia</span>.”</span> <em>Communications of the ACM</em> 64 (4): 38–41. <a href="https://doi.org/10.1145/3425778">https://doi.org/10.1145/3425778</a>.
+</div>
+<div id="ref-wark_hacker_2004" class="csl-entry" role="listitem">
+Wark, McKenzie. 2004. <em>A <span>Hacker</span> <span>Manifesto</span></em>. Cambridge, Mass: Harvard University Press. <a href="https://doi.org/10.4159/9780674044845">https://doi.org/10.4159/9780674044845</a>.
+</div>
+<div id="ref-noauthor_wikifunctionsfunction_2024" class="csl-entry" role="listitem">
+<span>“Wikifunctions:<span>Function</span> Model.”</span> 2024. <em>Wikifunctions</em>. <a href="https://www.wikifunctions.org/w/index.php?title=Wikifunctions:Function_model&amp;oldid=107530">https://www.wikifunctions.org/w/index.php?title=Wikifunctions:Function_model&amp;oldid=107530</a>.
+</div>
+<div id="ref-noauthor_wikifunctionsvision_2023" class="csl-entry" role="listitem">
+<span>“Wikifunctions:<span>Vision</span>.”</span> 2023. <em>Wikifunctions</em>. <a href="https://www.wikifunctions.org/w/index.php?title=Wikifunctions:Vision&amp;oldid=50281">https://www.wikifunctions.org/w/index.php?title=Wikifunctions:Vision&amp;oldid=50281</a>.
+</div>
+<div id="ref-noauthor_wikifunctionswhat_2024" class="csl-entry" role="listitem">
+<span>“Wikifunctions:<span>What</span> <span>Wikifunctions</span> Is Not.”</span> 2024. <em>Wikifunctions</em>. <a href="https://www.wikifunctions.org/w/index.php?title=Wikifunctions:What_Wikifunctions_is_not&amp;oldid=71136">https://www.wikifunctions.org/w/index.php?title=Wikifunctions:What_Wikifunctions_is_not&amp;oldid=71136</a>.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>See <a href="#sec-code" class="quarto-xref">Section 4</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>The Wikilambda developers are not the first to devise a perfect programming language by implementing Church’s lambda calculus <span class="citation" data-cites="blackwell_6000_2017">(<a href="#ref-blackwell_6000_2017" role="doc-biblioref">Blackwell 2017</a>)</span>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>The function orchestrator (and its companion, the evaluator), are both in active development. I have analysed them at the time I cloned the code: that is commit <code>86514fdaa663a75c9ebbda232c35e3248adbec5d</code> of the orchestrator, and commit <code>dbfededdc4d83ff8175b2bab42b00327e1a4a6aa</code> of the evaluator.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>They have become “metaphors we live by” <span class="citation" data-cites="lakoff_metaphors_1980">(<a href="#ref-lakoff_metaphors_1980" role="doc-biblioref">Lakoff and Johnson 1980</a>)</span>.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>The pattern of electrical charges will also differ for every computer chip. Indeed, due to the abstraction of chip architecture, two chips may share exactly the same machine code, but implement that machine code using different circuitry. Taken at is extreme, the “information hiding” view implies that a piece of software becomes a new piece of software every time it is run on a different chip.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>I hope I have established the plausibility of this account. It raises several live philosophical problems: Is there a difference between signs and symbols <span class="citation" data-cites="langer_philosophy_1957">(<a href="#ref-langer_philosophy_1957" role="doc-biblioref">Langer 1957</a>)</span>? What is the relation between metaphors and abstractions <span class="citation" data-cites="lakoff_contemporary_1993 jamrozik_metaphor_2016">(<a href="#ref-lakoff_contemporary_1993" role="doc-biblioref">Lakoff 1993</a>; <a href="#ref-jamrozik_metaphor_2016" role="doc-biblioref">Jamrozik et al. 2016</a>)</span>? What is the meaning of terms such as reality, possibility, actuality and virtuality <span class="citation" data-cites="bergson_essai_1908 deleuze_bergsonisme_1998 deleuze_difference_2014">(<a href="#ref-bergson_essai_1908" role="doc-biblioref">Bergson 1908</a>; <a href="#ref-deleuze_bergsonisme_1998" role="doc-biblioref">Deleuze 1998</a>, <a href="#ref-deleuze_difference_2014" role="doc-biblioref">2014</a>)</span>? CCS must address these issues for its own sake, but also promises to enrich these venerable discussions with new data in a fascinating new kind of symbolism.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main>
+<!-- /main column -->
+<script id = "quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+</body>
+
+</html>

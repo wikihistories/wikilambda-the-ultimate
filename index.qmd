@@ -1,6 +1,7 @@
 ---
 title: Wikilambda the Ultimate
 subtitle: The Wikimedia foundation's search for the perfect language
+date-modified: last-modified
 authors:
   - name: Michael Falk
     affiliation: The University of Melbourne
@@ -156,7 +157,7 @@ Wikilambda's source code is a privileged medium for symbolising the software's s
 
 [^plausibility]: I hope I have established the plausibility of this account. It raises several live problems: Is there a difference between signs and symbols [@langer_philosophy_1957]? What is the relation between metaphors and abstractions [@lakoff_contemporary_1993; @ragg_pragmatic_2006; @jamrozik_metaphor_2016]? What is the meaning of terms such as reality, possibility, actuality and virtuality [@bergson_essai_1908; @deleuze_bergsonisme_1998; @deleuze_difference_2014]? CCS must address these issues for its own sake, but also promises to enrich these venerable discussions with new data in a fascinating new kind of symbolism.
 
-With the help of this account, I reframe the central questions for this section: What are the key metaphors in the Wikilambda source code? What abstractions do they attempt to virtualise?
+With the help of this account, I reframe the central questions for this section: What are the key metaphors in the Wikilambda source code? How are they virtualised in the abstractions of the program?
 
 Although the main focus of this section is the "function orchestrator," I begin with a brief quotation from the "function evaluator," another piece of software whose task is to locate and execute "implementations" of functions in the Wikifunctions database [@massaro_function-evaluator_2024]. @lst-immaHeadOut vividly demonstrates the vivid, hacky, intermediate state of the Wikilambda source code. The code is so metaphorical that its symbols are only barely "abstractions." This code snippet shuts down "executors" on the server when they are no longer needed. An "executor" is a server process that executes code in a particular "native language." For instance, if Wikifunctions has recently executed some Python code, then it may have some active Python executors on the server. These need to be periodically cleaned up to keep the server available for other work. To keep track of executors it has opened, the program maintains an `ExecutorPool`. At the end of a session, the program runs the `drainTheSwamp` method to empty the `ExecutorPool` and shut down the unneeded executors. When it drains the swamp, the program creates a `hitList` of executors in the pool, and then uses `killExecutors` to delete them all. The metaphor becomes gentler in the next phase of the process. To "kill" an individual executor, the program calls on the executor to use its own `immaHeadOut` method, which offers the suicidal executor a dignified exit—this is the method shown in @lst-immaHeadOut. The executor destroys the `childProcess` it has been using to execute code, and then posts an `obituary_` so the rest of the program knows it has done so. It knows whether an executor is still active on the server, because if the executor has been shut down already, it will will be either `null` or `killed`.
 

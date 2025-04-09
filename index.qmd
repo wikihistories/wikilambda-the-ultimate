@@ -1,6 +1,7 @@
 ---
 title: Wikilambda the Ultimate
 subtitle: The Wikimedia foundation's search for the perfect language
+date-modified: last-modified
 authors:
   - name: Michael Falk
     affiliation: The University of Melbourne

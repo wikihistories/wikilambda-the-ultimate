@@ -1,83 +1,172 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="generator" content="quarto-1.6.42">
 
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.42">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="keywords" content="Wikipedia, Wikifunctions, Abstract Wikipedia, Critical Code Studies, functional programming, perfect languages, polygraphies">
 
-<meta name="keywords" content="Wikipedia, Wikifunctions, Abstract Wikipedia, Critical Code Studies, functional programming, perfect languages, polygraphies">
+    <title>Wikilambda the Ultimate</title>
+    <style>
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      div.columns{display: flex; gap: min(4vw, 1.5em);}
+      div.column{flex: auto; overflow-x: auto;}
+      div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+      ul.task-list{list-style: none;}
+      ul.task-list li input[type="checkbox"] {
+        width: 0.8em;
+        margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+        vertical-align: middle;
+      }
+      /* CSS for syntax highlighting */
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+        }
+      pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+      div.sourceCode
+        {   }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+      /* CSS for citations */
+      div.csl-bib-body { }
+      div.csl-entry {
+        clear: both;
+        margin-bottom: 0em;
+      }
+      .hanging-indent div.csl-entry {
+        margin-left:2em;
+        text-indent:-2em;
+      }
+      div.csl-left-margin {
+        min-width:2em;
+        float:left;
+      }
+      div.csl-right-inline {
+        margin-left:2em;
+        padding-left:1em;
+      }
+      div.csl-indent {
+        margin-left: 2em;
+      }    </style>
 
-<title>Wikilambda the Ultimate</title>
-<style>
-code{white-space: pre-wrap;}
-span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
-div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-ul.task-list{list-style: none;}
-ul.task-list li input[type="checkbox"] {
-  width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
-  vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+    <style>
+      body.hypothesis-enabled #quarto-embed-header {
+        padding-right: 36px;
+      }
 
+      #quarto-embed-header {
+        height: 3em;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: solid 1px;
+      }
 
+      #quarto-embed-header h6 {
+        font-size: 1.1em;
+        padding-top: 0.6em;
+        margin-left: 1em;
+        margin-right: 1em;
+        font-weight: 400;
+      }
+
+      #quarto-embed-header a.quarto-back-link,
+      #quarto-embed-header a.quarto-download-embed {
+        font-size: 0.8em;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        margin-left: 1em;
+        margin-right: 1em;
+      }
+
+      .quarto-back-container {
+        padding-left: 0.5em;
+        display: flex;
+      }
+
+      .headroom {
+          will-change: transform;
+          transition: transform 200ms linear;
+      }
+
+      .headroom--pinned {
+          transform: translateY(0%);
+      }
+
+      .headroom--unpinned {
+          transform: translateY(-100%);
+      }      
+    </style>
+
+    <script>
+    window.document.addEventListener("DOMContentLoaded", function () {
+
+      var header = window.document.querySelector("#quarto-embed-header");
+      const titleBannerEl = window.document.querySelector("body > #title-block-header");
+      if (titleBannerEl) {
+        titleBannerEl.style.paddingTop = header.clientHeight + "px";
+      }
+      const contentEl = window.document.getElementById('quarto-content');
+      for (const child of contentEl.children) {
+        child.style.paddingTop = header.clientHeight + "px";
+        child.style.marginTop = "1em";
+      }
+
+      // Use the article root if the `back` call doesn't work. This isn't perfect
+      // but should typically work
+      window.quartoBackToArticle = () => {
+        var currentUrl = window.location.href;
+        window.history.back();
+        setTimeout(() => {
+            // if location was not changed in 100 ms, then there is no history back
+            if(currentUrl === window.location.href){              
+                // redirect to site root
+                window.location.href = "index.html";
+            }
+        }, 100);
+      }
+
+      const headroom = new window.Headroom(header, {
+        tolerance: 5,
+        onPin: function () {
+        },
+        onUnpin: function () {
+        },
+      });
+      headroom.init();
+    });
+    </script>
+
+    
+<script src="site_libs/manuscript-notebook/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -91,38 +180,8 @@ div.csl-indent {
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<meta name="citation_title" content="Wikilambda the Ultimate">
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script> 
+      <meta name="citation_title" content="Wikilambda the Ultimate">
 <meta name="citation_abstract" content="In 2020, the Wikimedia foundation launched its first new project in nearly a decade. The new project consists of two main parts: (1) Wikifunctions, a library of programming functions; and (2) Abstract Wikipedia, a language-agnostic Wikipedia that will be dynamically translated into the reader’s native tongue. Lying beneath both Wikifunctions and Abstract Wikipedia is a new system called Wikilambda, which can execute code in potentially any programming language, providing a massively flexible computing service drawing on Wikifunctions and powering Abstract Wikipedia. The entire system is designed to address a fundamental bias in Wikipedia, namely its bias towards majority languages like English and Spanish. In this paper, I present Wikilambda as an audacious attempt to realise a ‘perfect language’, as theorised by Umberto @eco_search_1995. Wikilambda provides a way of specifying functions that is supposed to transcend any particular &amp;amp;#039;native' language. In this way, it provides editors of Wikifunctions and Abstract Wikipedia with a way of contributing to the overall system no matter which 'native' programming languages they know. More broadly, Wikilambda aims to achieve the 'democratization of programming', by enabling any person to use any function without needing to know English or a particular programming language [@vrandecic_building_2021]. To analyse the technical and ideological aspects of Wikilambda, I apply the techniques of Critical Code Studies [@marino_critical_2020] to 'the orchestrator', the JavaScript application that instantiates Wikilambda's new functional programming language. In the absence of a formal specification of the language, the Abstract Wikipedia team have gradually hacked Wikilambda out of JavaScript, leaving a fascinating public record of their attempt to realise their vision for a universal programming system.
 ">
 <meta name="citation_keywords" content="Wikipedia,Wikifunctions,Abstract Wikipedia,Critical Code Studies,functional programming,perfect languages,polygraphies">
@@ -249,9 +308,16 @@ window.Quarto = {
 <meta name="citation_reference" content="citation_title=Gulliver’s Travels;,citation_author=Jonathan Swift;,citation_editor=Claude Rawson;,citation_publication_date=2005;,citation_cover_date=2005;,citation_year=2005;">
 </head>
 
-<body>
+  <body class="quarto-notebook">
+    <div id="quarto-embed-header" class="headroom fixed-top bg-primary">
+      
+      <a onclick="window.quartoBackToArticle(); return false;" class="btn btn-primary quarto-back-link" href=""><i class="bi bi-caret-left"></i> Back to Article</a>
+      <h6><i class="bi bi-journal-code"></i> Article Notebook</h6>
 
-<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
+            <a href="./index.qmd" class="btn btn-primary quarto-download-embed" download="index.qmd">Download Source</a>
+          </div>
+
+     <header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">Wikilambda the Ultimate</h1>
@@ -283,7 +349,7 @@ window.Quarto = {
               </div>
       </div>
       <div class="quarto-title-meta-column-end quarto-other-formats-target">
-      <div class="quarto-alternate-formats"><div class="quarto-title-meta-heading">Other Formats</div><div class="quarto-title-meta-contents"><p><a href="index.docx"><i class="bi bi-file-word"></i>MS Word</a></p></div></div></div>
+      </div>
     </div>
 
     <div>
@@ -319,13 +385,13 @@ window.Quarto = {
 </div>
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
 </div>
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">      
 
-
-
-  
-
-
+       <div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>wikilambda_link <span class="ot">&lt;-</span> <span class="cf">function</span>(zcode) {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  glue<span class="sc">::</span><span class="fu">glue</span>(<span class="st">"[`{zcode}`](https://www.wikifunctions.org/view/en/{zcode})"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
 <blockquote class="blockquote">
 <p>The story of the search for the perfect language is the story of a dream and of a series of failures. <span class="citation" data-cites="eco_search_1995">(<a href="#ref-eco_search_1995" role="doc-biblioref">Eco 1995, 19</a>)</span></p>
 </blockquote>
@@ -497,12 +563,8 @@ Listing&nbsp;2: The method that wraps a <code>ZObject</code> in a <code>ZWrapper
 <p>In response to criticism, the Wikilambda developers adopt one of the most popular programming metaphors: <span class="smallcaps">the world is Tolkein’s Middle-Earth</span> <span class="citation" data-cites="dillon_what_2023">(<a href="#ref-dillon_what_2023" role="doc-biblioref">Dillon and Schaffer-Goddard 2023</a>)</span>. What they wish to avoid is a “‘One Ring’ solution” to the problem of universalising access to knowledge <span class="citation" data-cites="blanton_abstract_2022">(<a href="#ref-blanton_abstract_2022" role="doc-biblioref">Blanton et al. 2022</a>)</span>. In this metaphor, the Google fellows who criticised the project are agents of Sauron, the Dark Lord. When the fellows suggest that the project abandon its quixotic quest to design the perfect programming language, when they suggest that perhaps an existing technology such as Scribunto or Grammatical Framework might be appropriate, these agents of Sauron (Google) are really suggesting that Abstract Wikipedia forge a magic ring in the fires of Mt Doom (Silicon Valley), and use it to dominate the world. The tragic contradiction of the Abstract Wikipedia project is that it is itself a “‘One Ring’ solution.” A group of Anglophone engineers in the heart of Mordor (California) are forging one language that all the world’s writers should write, and another language that all the world’s programmers should program. They attempt to resolve this contradiction by escaping from language. The template language will boil facts down to their primitive elements. The Wikilambda language will boil computations down to their primitive elements. From these primitive elements the whole world of facts, and the whole universe of computations, will be recombined without the need for words. But words “bite and scratch,” writes the poet, and “You never learn / the chemical process of separating them” <span class="citation" data-cites="frame_storms_2008">(<a href="#ref-frame_storms_2008" role="doc-biblioref">Frame 2008, 117</a>)</span>. It is the grand ambition of Denny Vrandečić and his hackers to learn this chemical process, which has evaded so many linguistic alchemists before them.</p>
 </section>
 <section id="references" class="level2 unnumbered" data-number="6">
-
-
-</section>
-
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">6 References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<h2 class="unnumbered anchored" data-number="6" data-anchor-id="references"><span class="header-section-number">6</span> References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-abelson_structure_1996" class="csl-entry" role="listitem">
 Abelson, Harold, Gerald Jay Sussman, and Julie Sussman. 1996. <em>Structure and Interpretation of Computer Programs</em>. Second. Cambridge: MIT Press.
 </div>
@@ -677,8 +739,10 @@ Wark, McKenzie. 2004. <em>A <span>Hacker</span> <span>Manifesto</span></em>. Cam
 <div id="ref-noauthor_wikifunctionswhat_2024" class="csl-entry" role="listitem">
 <span>“Wikifunctions:<span>What</span> <span>Wikifunctions</span> Is Not.”</span> 2024. <em>Wikifunctions</em>. <a href="https://www.wikifunctions.org/w/index.php?title=Wikifunctions:What_Wikifunctions_is_not&amp;oldid=71136">https://www.wikifunctions.org/w/index.php?title=Wikifunctions:What_Wikifunctions_is_not&amp;oldid=71136</a>.
 </div>
-</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
 <ol>
 <li id="fn1"><p>See <a href="#sec-code" class="quarto-xref">Section&nbsp;4</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>The function orchestrator (and its companion, the evaluator), are both in active development. I have analysed them at the time I cloned the code: that is commit <code>86514fdaa663a75c9ebbda232c35e3248adbec5d</code> of the orchestrator, and commit <code>dbfededdc4d83ff8175b2bab42b00327e1a4a6aa</code> of the evaluator.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
@@ -687,9 +751,9 @@ Wark, McKenzie. 2004. <em>A <span>Hacker</span> <span>Manifesto</span></em>. Cam
 <li id="fn5"><p>I hope I have established the plausibility of this account. It raises several live problems: Is there a difference between signs and symbols <span class="citation" data-cites="langer_philosophy_1957">(<a href="#ref-langer_philosophy_1957" role="doc-biblioref">Langer 1957</a>)</span>? What is the relation between metaphors and abstractions <span class="citation" data-cites="lakoff_contemporary_1993 ragg_pragmatic_2006 jamrozik_metaphor_2016">(<a href="#ref-lakoff_contemporary_1993" role="doc-biblioref">Lakoff 1993</a>; <a href="#ref-ragg_pragmatic_2006" role="doc-biblioref">Ragg 2006</a>; <a href="#ref-jamrozik_metaphor_2016" role="doc-biblioref">Jamrozik et al. 2016</a>)</span>? What is the meaning of terms such as reality, possibility, actuality and virtuality <span class="citation" data-cites="bergson_essai_1908 deleuze_bergsonisme_1998 deleuze_difference_2014">(<a href="#ref-bergson_essai_1908" role="doc-biblioref">Bergson 1908</a>; <a href="#ref-deleuze_bergsonisme_1998" role="doc-biblioref">Deleuze 1998</a>, <a href="#ref-deleuze_difference_2014" role="doc-biblioref">2014</a>)</span>? CCS must address these issues for its own sake, but also promises to enrich these venerable discussions with new data in a fascinating new kind of symbolism.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn6"><p>The “function evaluator” of the Abstract Wikipedia project is really more like the “primitive operations” than the “evaluator” of a normal programming language.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</section></div></main>
-<!-- /main column -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section>
+     </main>
+<!-- /main column -->  <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1105,9 +1169,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-</div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+</script>  </div> <!-- /content -->  <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
@@ -1138,9 +1200,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   };
   
 })();
-          </script>
-
-
-
-
+          </script> 
+  
 </body></html>

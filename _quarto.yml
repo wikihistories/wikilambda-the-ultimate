@@ -8,6 +8,7 @@ format:
   html: default
   docx:
     papersize: A4
+  pdf: default
 
 execute:
   freeze: true

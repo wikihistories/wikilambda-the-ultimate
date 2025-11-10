@@ -1,0 +1,1692 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{5}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+ % allow citations to break across lines
+ \let\@cite@ofmt\@firstofone
+ % avoid brackets around text for \cite:
+ \def\@biblabel#1{}
+ \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+   \setlength{\leftmargin}{\cslhangindent}
+   \setlength{\itemindent}{-1\cslhangindent}
+  \fi
+  % set entry spacing
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Wikilambda the Ultimate},
+  pdfkeywords={Wikipedia, Wikifunctions, Abstract Wikipedia, Critical
+Code Studies, functional programming, perfect languages, polygraphies},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Wikilambda the Ultimate}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{The Wikimedia foundation's search for the perfect language}
+\author{Michael Falk}
+\date{}
+\begin{document}
+\maketitle
+\begin{abstract}
+In 2020, the Wikimedia foundation launched its first new project in
+nearly a decade. The new project consists of two main parts: (1)
+Wikifunctions, a library of programming functions; and (2) Abstract
+Wikipedia, a language-agnostic Wikipedia that will be dynamically
+translated into the reader's native tongue. Lying beneath both
+Wikifunctions and Abstract Wikipedia is a new system called Wikilambda,
+which can execute code in potentially any programming language,
+providing a massively flexible computing service drawing on
+Wikifunctions and powering Abstract Wikipedia. The entire system is
+designed to address a fundamental bias in Wikipedia, namely its bias
+towards majority languages like English and Spanish. In this paper, I
+present Wikilambda as an audacious attempt to realise a `perfect
+language', as theorised by Umberto Eco (1995). Wikilambda provides a way
+of specifying functions that is supposed to transcend any particular
+`native' language. In this way, it provides editors of Wikifunctions and
+Abstract Wikipedia with a way of contributing to the overall system no
+matter which `native' programming languages they know. More broadly,
+Wikilambda aims to achieve the `democratization of programming', by
+enabling any person to use any function without needing to know English
+or a particular programming language (Vrandečić 2021). To analyse the
+technical and ideological aspects of Wikilambda, I apply the techniques
+of Critical Code Studies (Marino 2020) to `the orchestrator', the
+JavaScript application that instantiates Wikilambda's new functional
+programming language. In the absence of a formal specification of the
+language, the Abstract Wikipedia team have gradually hacked Wikilambda
+out of JavaScript, leaving a fascinating public record of their attempt
+to realise their vision for a universal programming system.
+\end{abstract}
+
+
+\begin{quote}
+The story of the search for the perfect language is the story of a dream
+and of a series of failures. (Eco 1995, 19)
+\end{quote}
+
+\section{Introduction}\label{introduction}
+
+On New Year's Day, 2023, an alarming headline appeared in \emph{The
+Signpost}, Wikipedia's community newsletter:
+
+\begin{quote}
+Wikimedia Foundation's Abstract Wikipedia project ``at substantial risk
+of failure'' (Bayer 2023)
+\end{quote}
+
+Such a ``risk of failure'' is hardly surprising, because Abstract
+Wikipedia is a project of quite astonishing ambition. Abstract Wikipedia
+aims to transform Wikipedia from a \emph{multi}lingual encyclopaeida
+into a \emph{meta}lingual one. It will provide a way for contributors to
+write articles in a universal ``template language,'' which will then be
+automatically translated into all the world's human languages. Abstract
+Wikipedia thus combines two equally extreme ambitions: (1) the ambition
+to devise a single language in which all the world's knowledge can be
+easily expressed; and (2) the ambition to provide 300-6,000
+``renderers'' that can translate this ``abstract content'' into readable
+text. As the leader of the Abstract Wikipedia project admits, the
+project's ``ambitious goal'' is not new, and ``such ambitions have
+repeatedly failed'' (Vrandečić 2020, 180; 2021, 41). Abstract Wikipedia
+is the latest in a long line of attempts to create a ``perfect'' or
+``universal'' language---to be more precise, it is the latest in a long
+line of ``polygraphies,'' or universal writing systems (Eco 1995, chap.
+9). Since every prior attempt at polygraphy has failed, it is hardly
+surprising that Abstract Wikipedia risks failing also!
+
+Why, then, was it \emph{news} in 2023 that Abstract Wikipedia was ``at
+substantial risk of failure''? The project was an audacious gamble from
+the start. What had changed?
+
+Three years in to the Abstract Wikipedia project, it had become apparent
+that the project aimed to create not \emph{one} perfect language, but
+\emph{two}. Work on the template language that would enable people to
+contribute articles to Abstract Wikipedia had barely begun. Instead, the
+project had devoted nearly all its effort to the creation of a brand new
+programming language in which the 300-6,000 ``renderers'' for Abstract
+Wikipedia would be written. This programming language would make
+Abstract Wikipedia possible, by allowing universal access to
+programming:
+
+\begin{quote}
+Imagine a programming system that truly is \textbf{accessible}, one that
+is open not only to speakers of English but to billions of people more
+who will not have to learn English first in order to learn how to
+program. ({``Wikifunctions:{Vision}''} 2023)
+\end{quote}
+
+The new language that underlies this universally accessible programming
+system remains nameless to this day. I will refer to the language as
+``Wikilambda'', because that is the name of the software that implements
+it, but it has other names, including ``composition,'' ``the Function
+Model,'' ``ZObjects'' and ``Wikifunctions'' (the name of the database
+where the language is hosted).
+
+As \emph{The Signpost} reported, all was not well with Wikilambda. Ten
+days prior to the article, a group of Google employees seconded to
+Abstract Wikipedia had released a damning report on Meta-Wiki, the site
+where projects of the Wikimedia Foundation are documented:
+
+\begin{quote}
+To summarize, creating a good programming language is hard, and having a
+good clear initial design is crucial. The Wikifunctions model ignores
+decades of programming language research and existing technology.
+Instead, it invents a completely new ad-hoc system, but that
+unfortunately does not seem to have good properties, and it is
+questionable whether it will be able to support {[}such{]} a large,
+complex software system, as Abstract Wikipedia. (Livneh et al. 2022)
+\end{quote}
+
+This is a significant crisis for the Wikimedia Foundation. Abstract
+Wikipedia was the first new project sponsored by the Foundation in 10
+years. In 2022-23, the project was awarded US\$1 million from the
+Wikimedia Endowment ({``Annual {Report} 2022-23''} 2023; Foundation
+2023). A prototype of the project's ``ad-hoc'' and ``questionable''
+programming system is already available at
+\href{https://wikifunctions.org}{wikifunctions.org}. How did the project
+get into this situation, and what does its future hold?
+
+In this article, I examine the documentation and source code of
+Wikilambda to critique both its ideals and its implementation. There is
+in fact an intimate link between the project's ideals and its blithe
+ignorance of ``decades of programming language research.'' The project
+expresses, in a typically extreme way, a certain kind of hacker
+utopianism. It is relentlessly future-oriented. The present arrangement
+of things is an historical accident. Through a simple hack, the project
+will bring into being a \emph{new} arrangement of things, in which
+information is freer, the world is smaller, the mind is larger. McKenzie
+Wark (2004, para. 098) poetically summarises this attitude to history:
+``The past weighs like insomnia upon the consciousness of the present.''
+The past can be brushed aside, because it has already been achieved.
+What matters is what comes next, and what comes next can \emph{only}
+come about through the ingenuity and creativity of the hacker. The only
+\emph{faits} worth caring about are \emph{faits accomplis}.
+
+To make this case, I analyse the project on three levels. In
+Section~\ref{sec-architecture}, I describe the overall architecture of
+the Abstract Wikipedia project, and explain how the new programming
+language Wikilambda fits into the structure. In
+Section~\ref{sec-perfection}, I examine Wikilambda's documentation,
+critiquing the arguments used by its developers to establish the
+perfection and universality of this new programming language. Finally in
+Section~\ref{sec-code}, I closely read the source code for the
+``function orchestrator,'' the JavaScript application whose job is to
+evaluate expressions in the Wikilambda language. Not only does the code
+\emph{implement} the project's ideals, it \emph{expresses} them. In the
+code itself, we can perceive the struggle of Vrandečić and his team to
+realise their ideals in practice.
+
+My aim in this research is partly hermeneutic and partly methodological.
+On the hermeneutic level, I wish to understand what the project means to
+its creators, and to set their hacker utopianism in a broader context.
+On the methodological level, I wish to fashion new tools for the
+burgeoning community of Critical Code Studies (CCS). Thus in
+Section~\ref{sec-code} I present a theory of \emph{abstraction} and
+\emph{metaphor} in source code. Programmers create software by
+developing abstractions to describe the behaviour of their programs.
+These abstractions begin life as metaphors. The classic theory of
+abstraction in programming holds that abstraction is a form of
+``information hiding'' (Colburn and Shute 2007). This theory has had
+noticeable impact on early research in CCS (Hua and Raley 2023, para.
+14; Rountree and Condee 2023, paras. 8--10). I argue that the
+``information hiding'' theory is one-sided and ignores the metaphoricity
+of abstractions. I propose a theory, \emph{abstraction as the
+virtualisation of metaphor}, and use this theory to elucidate the
+``extrafunctional significance'' of the Wikilambda code (Marino 2020).
+
+\section{Architecture of Abstract
+Wikipedia/Wikifunctions}\label{sec-architecture}
+
+\begin{quote}
+The conclusion is that the Wikimedia movement does not believe that
+language is the right dimension to split knowledge---it is a historical
+decision, driven by convenience. (Vrandečić 2020, 182)
+\end{quote}
+
+The Wikimedia Foundation already provides Wikipedias in more than 300
+languages. Each language edition of Wikipedia has its own editorial
+culture, though it is also common for editors to contribute to multiple
+language editions (Ford 2022; Avieson 2022). The language editions vary
+greatly in number and quality of articles. It has been common for
+editors of smaller language editions, such as Cebuano, Swedish, Waray,
+Egyptian Arabic and Romanian, to rely on machine translation and bots to
+generate articles (Gnatiuk and Glybovets 2021; Ford et al. 2024).
+
+Denny Vrandečić, the leader of the Abstract Wikipedia project, objects
+to inconsistencies between the language editions. His previous project
+for the Wikimedia Foundation, Wikidata, automates the synchronisation of
+``language links'' between Wikipedia articles, and provides a source of
+structured data about the entities those Wikipedia articles describe.
+For example, Joseph Furphy's novel \emph{Such is Life} has the Wikidata
+ID \href{https://www.wikidata.org/wiki/Q7632777}{Q7632777}. At the time
+of writing, Wikidata records that two Wikipedias contain articles about
+\emph{Such is Life}, namely the
+\href{https://en.wikipedia.org/wiki/Such_Is_Life_(novel)}{English} and
+\href{https://sh.wikipedia.org/wiki/Such_Is_Life_(roman)}{Serbo-Croatian}
+Wikipedias. The Wikidata item for the novel contains structured data,
+such as the author and publication date, which could be used to generate
+an Infobox or basic article about the novel in other Wikipedias. If only
+more Wikipedia articles would draw on Wikidata in this way, laments
+Vrandečić (2020, 178), then the more ``comprehensive, current, and
+accessible'' the many Wikipedias would become.
+
+Abstract Wikipedia extends Vrandečić's ideal of ``comprehensive,
+current, and accessible'' knowledge. In his view, knowledge is a
+collection of atomistic facts. Knowledge is ``comprehensive'' if it
+includes all the facts, ``current'' if none of them are out of date, and
+``accessible'' if you can read a statement of each fact in a language
+you understand. Vrandečić illustrates these ideas using the example of
+San Francisco. Ideally, it shouldn't matter what languages you read, you
+should be able to access San Francisco's current ranking by population
+among Californian cities ({``Abstract {Wikipedia}/{Architecture}''}
+2024), the name of its current Mayor (Vrandečić 2020, 176--77), and the
+fact that it is currently the cultural, commercial and financial centre
+of Northern California (Vrandečić 2018, 2021). Since these facts are not
+currently available to readers of all languages on Wikipedia, argues
+Vrandečić (2020, 182), the Wikipedia project has thus far failed to
+allow ``access to the sum of all knowledge to every single reader, no
+matter what their language.''
+
+The central aim of Abstract Wikipedia is to complete the ``sum'' of
+human knowledge. Abstract Wikipedia will not be a new Wikipedia language
+edition, but rather an extension to the Wikidata database, complemented
+by a brand-new Wikimedia project, Wikifunctions. Wikidata will be
+extended, so that contributors can write ``abstract content'' about
+Wikidata items in a new template language. The Wikifunctions database
+will store the ``constructors'' that define this template language, and
+the ``renderers'' that will translate the abstract content into readable
+content in natural languages. Editors of individual language editions
+will have control over how abstract content is imported into their
+encyclopaedia: they can choose to sync their language edition with
+Wikidata, automatically including all abstract pages, or they can import
+them piecemeal, or import the abstract content as the starting point for
+a manually-written article ({``Abstract {Wikipedia}/{Architecture}''}
+2024; {``Abstract {Wikipedia}/{Components}''} 2024).
+
+The intended architecture of the system is shown in
+Figure~\ref{fig-wikilambda-architecture}. The part that implements a new
+programming language is the ``function orchestrator,'' whose source code
+I analyse in Section~\ref{sec-code}. The orchestrator not only
+implements a new programming language, but serves as the main entry
+point for the Wikilamdba software. Imagine that an editor wishes to
+import an ``abstract'' article into Croatian Wikipedia. In this case, a
+``parser function request'' will be sent from the ``MediaWiki App
+Server'' for Croatian Wikipedia. This ``parser function request'' will
+be received by the ``function orchestrator,'' which will ``orchestrate''
+the generation of the new Croatian article. First it will send a ``data
+fetch'' to Wikidata to get the abstract content for the article; then it
+will pass this data to the ``function evaluators'' that do all the work
+of transforming the abstract content into readable Croatian text. The
+reason there are multiple ``function evaluators'' we will see in
+Section~\ref{sec-perfection}---the programming language implemented by
+the ``function orchestrator'' is a meta-language that allows code in
+many programming languages to be combined. Each supported programming
+language will require a separate ``evaluator.''
+
+\begin{figure}
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{img/wikilambda-architecture.png}}
+
+}
+
+\caption{\label{fig-wikilambda-architecture}High-level model of the
+Wikilambda Extension. Source: {``Extension:{WikiLambda}''} (2024). By
+jdforrester (Wikimedia Foundation)
+\href{https://creativecommons.org/licenses/by-sa/4.0/deed.en}{CC BY-SA
+4.0}.}
+
+\end{figure}%
+
+Abstract Wikipedia is thus a machine for broadcasting facts to Wikipedia
+editions. Vrandečić takes the metaphor of the ``sum'' of knowledge very
+seriously. As far as Wikipedia is concerned, there is one, universal set
+of facts, and language is merely a device for encoding these facts in
+sentences.
+
+Vrandečić (2020) expounds this linguistic theory of knowledge in a
+chapter justifying the project. He argues that ``Language Does Not Align
+With Culture,'' and denies that linguistic diversity is a structuring
+principle of the Wikipedia project (2020, 181). To justify this
+argument, he provides a somewhat self-defeating example. He observes
+that there are three Wikipedia editions for readers of Serbian and
+Croatian: Serbian Wikipedia, Croation Wikipedia, and Serbo-Croatian
+Wikipedia. First he complains that the distinction between these three
+languages is arbitrary: ``Linguistically, the differences among the
+dialects of Croation are often larger than the differences between
+standard Croation and standard Serbian'' (2020, 183). Then in the next
+sentence, he complains that Croatian Wikipedia has fascist leanings.
+There is a subtle contradiction between these arguments, which defeats
+Vrandečić's point. He uses the term ``language'' in two senses. When he
+argues that there is very little ``linguistic'' difference between
+standard Serbian and standard Croation, he is referring to what
+linguists call language\textsubscript{1}, or language defined in terms
+of its vocabulary and syntax. When he complains that Croation Wikipedia
+is fascist, he is referring to what linguists call
+language\textsubscript{2}, or language as a social institution,
+recognised and cherished by its speakers. It is not surprising that
+editors with fascist leanings would prefer to edit Croatian Wikipedia:
+for them, Croatian would be a language\textsubscript{2} that symbolises
+the Croatian nation. More liberal or cosmopolitan editors would
+presumably prefer to edit the Serbo-Croatian Wikipedia: for them,
+Serbo-Croatian would be a language\textsubscript{2} that symbolises a
+transnational, pan-Slavic community. Such linguistic politics are
+common. In India and Pakistan, for example, liberal intellectuals have
+often promoted the ``Hindustani'' language, as a non-sectarian
+alternative to Urdu and Hindi (Hakala 2016; Dubrow 2018). Although Hindi
+and Urdu are ``linguistically'' very similar, as Vrandečić might say,
+they are socially, politically, and religiously distinct---sometimes
+bloodily so. Vrandečić needs to prove that ``Language Does Not Align
+With Culture,'' so he can establish that it doesn't matter what language
+is used to express a fact. But in trying to prove his point, he presents
+a powerful example that language\textsubscript{2} \emph{does} strongly
+align with culture.
+
+Perhaps Vrandečić could repair his argument, and remove the
+contradiction. Yes, it is true that people place a \emph{subjective
+value} on their language\textsubscript{2}, but Wikipedia is an
+encyclopaedia, its aim is to communicate knowledge, and in this context
+all that matters is that \emph{objective facts} can be expressed in some
+intelligible language\textsubscript{1}. If you want to state the fact
+that ``San Francisco is the cultural centre of Northern California,'' it
+doesn't matter whether you state this in English, Serbo-Croation,
+Hindustani or Jaminjung.
+
+Except that it does. There are at least three concepts in the statement
+that are metaphorical: ``cultural,'' ``centre'' and ``Northern.'' In
+Jaminjung there is no concept of ``North,'' for instance. Speakers of
+Jaminjung do not orient themselves according to compass points, but
+rather according to the flow of the Victoria River (Hoffmann 2019). Is
+Northern California \emph{buya} (downstream) or \emph{manamba}
+(upstream)? The word ``Northern'' relies on the metaphor: \textsc{the
+world is a map}. The word ``centre'' also relies on \textsc{the world is
+a map}---otherwise why should an important place be located in the
+middle? Would a Jaminjung speaker who sees \textsc{the world as a
+watercourse} also talk about ``cultural \emph{centres}''? The word
+``culture'' itself relies on a different metaphor: \textsc{human manners
+are a farm}. Thus the apparently bland statement, ``San Francisco is the
+cultural centre of Northern California,'' relies on at least two
+metaphors that are baked into the English language. This is not merely a
+matter of language\textsubscript{2}, of a speaker's self-conscious
+identification with a speech-community; it is also a matter of
+language\textsubscript{1}, of persistent structures of vocabulary and
+syntax that make statements intelligible. Persistent metaphorical
+structures such as \textsc{the world is a map} and \textsc{human manners
+are a garden} frame experience in a certain way. ``San Francisco is the
+cultural centre of Northern California'' is not a neutral fact. It is
+only relevant or meaningful if you already divide the human world into
+geographically distinctive regions, and believe that certain spots in
+those regions are more culturally fertile. If you speak English or
+another European language, you probably \emph{do} divide the world up in
+this way. if you speak another language, then Vrandečić's example may
+not even count as a fact.
+
+I am making a familiar argument, that languages are ``carriers of
+culture'' (Thiong'o 1986). They carry culture mainly in the form of
+metaphors, which ``partially'' but ``coherently'' structure our
+experience (Lakoff and Johnson 1980). Vrandečić himself, and the
+Abstract Wikipedia project as a whole, embody one of the most powerful
+metaphors in the English language, the well-known ``conduit metaphor''
+(Reddy 1993). According to this metaphor, \textsc{language is a
+conduit}. When we speak or write, we pack ``content'' into a sentence,
+which is then delivered to a speaker or reader who unpacks the content
+at the other end. This metaphor is virtualised\footnote{See
+  Section~\ref{sec-code}.} in the architecture of the Abstract
+Wikipedia/Wikifunctions project:
+
+\begin{quote}
+The main components of the project are the following three:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Constructors} -- definitions of Constructors and their slots,
+  including what they mean and restrictions on the types for the slots
+  and the return type of the Constructor {[}\ldots{]}
+\item
+  \textbf{Content} -- abstract calls to Constructors including fillers
+  for the slots {[}\ldots{]}
+\item
+  \textbf{Renderers} -- functions that take Content and a language and
+  return a text, resulting in the natural language representing the
+  meaning of the Content {[}\ldots{]} ({``Abstract
+  {Wikipedia}/{Architecture}''} 2024)
+\end{enumerate}
+\end{quote}
+
+A ``constructor'' is a container, with ``slots'' that get ``filled'' by
+``content''. This ``content'' is then delivered to a ``renderer,'' which
+extracts the ``meaning.'' This ``meaning,'' of course, is unchanged by
+the processes of ``construction'' and ``rendering,'' as the
+\textsc{language is a conduit} metaphor requires. Within the overall
+project, Wikilambda's purpose is to provide the constructors that
+package the content, and the renderers that unpack it at the other end
+of the conduit. In their attempt to escape language and universalise
+knowledge, Vrandečić and his team have plunged into English, the very
+language they have been most concerned to escape.
+
+The Abstract Wikipedia/Wikifunctions project attempts not one, but two
+escapes from language. Ultimately, the Wikilambda developers want to
+escape from spoken languages, into the ``abstract content'' of Abstract
+Wikipedia's template language. But before attempting this, they have
+attempted another escape, an escape from programming languages into the
+``abstract syntax tree'' of the Wikilambda language---a language which
+they deny is a language at all.
+
+\section{Wikilambda the Perfect}\label{sec-perfection}
+
+\begin{quote}
+\textbf{Wikifunctions is not a programming language, nor is trying to
+evangelise a particular language} ({``Wikifunctions:{What}
+{Wikifunctions} Is Not''} 2024)
+\end{quote}
+
+Umberto Eco (1995, 73) distinguishes two kinds of ideal language: the
+``perfect'' and the ``universal.'' A ``perfect'' language is one that is
+``capable of mirroring the true nature of objects.'' Such a language
+must analyse the world into its constituent parts, and provide means to
+build it back up again. Each word must correspond to a real component of
+nature, and each syntactic rule must correspond to a way that nature
+combines primitive elements into complex entities. Jonathan Swift (2005)
+parodies the ideal of a ``perfect'' language in \emph{Gulliver's
+Travels}. On the floating island of Laputa, the enlightened inhabitants
+have attempted to do away with the imperfections of words, and
+communicate directly with \emph{things}. As a result, they need to cart
+around enormous loads of objects to provide their vocabulary. A
+``universal'' language is ideal in a different way: it is a language
+``which everyone might, or ought to, speak.'' Esperanto is an example
+among the spoken languages. Among programming languages, BASIC, Logo,
+Python and Scratch are examples of languages that are intended to be
+universally accessible (Vee 2017, 43--46).
+
+The proposed ``template language'' for Abstract Wikipedia is intended to
+be both perfect and universal: it will be perfectly able to express any
+fact, and universally accessible by writers all over the world. To
+implement this ``template language,'' the Abstract Wikipedia team have
+gone about developing another perfect and universal language:
+Wikilambda. This programming language will enable the people of the
+world to collaborate to build the constructors and renderers that will
+define and express the sum of human knowledge. According to the
+Wikilambda developers, Wikilambda is \emph{universal} because it breaks
+the hegemony of English; it is \emph{perfect} because it is not actually
+a language.
+
+The main argument for Wikilambda's \emph{universality} is that it will
+break the hegemony of English. Most programming languages, observe
+Wikilambda's creators, use English as a source of vocabulary. JavaScript
+has \emph{objects}, \emph{functions} and \emph{if}-statements, rather
+than \emph{Objekte}, \emph{Funktionen} and \emph{wenn}-statements. Since
+languages like JavsScript use English words, they force budding
+programmers to ``learn English first'' before they learn to program,
+which is unfair ({``Wikifunctions:{Vision}''} 2023). To solve this
+problem, Wikilambda does not use words to denote parts of a computation.
+Instead, each part of the computation is assigned a \texttt{Z}-number or
+\texttt{Z}-key in the Wikifunctions database. When a person visits a
+function in the Wikifunctions interface, they are presented with a
+translation of these \texttt{Z}-numbers and \texttt{Z}-keys into their
+preferred language. If English is the preferred language in your
+browser, then when you visit function
+\href{https://www.wikifunctions.org/wiki/Z802?uselang=en&oldid=132257}{\texttt{Z802}}
+you will see a function called \texttt{if}, with three parameters: the
+\texttt{condition}, \texttt{then} and \texttt{else}. If Bengali is your
+preferred language, you will instead see a function called \texttt{যদি}
+with the parameters \texttt{শর্ত}, \texttt{যদি\ সত্য\ তাহলে} and
+\texttt{যদি\ সত্য\ না\ তাহলে} (Figure~\ref{fig-bangla-if}).
+
+\begin{figure}
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{img/fig-bangla-if.png}}
+
+}
+
+\caption{\label{fig-bangla-if}Function \texttt{Z802} in Wikifunctions in
+Bangla. Visitors can run the function by filling in the three inputs in
+the large box in the right of the figure, then pressing the blue button.
+Source:
+\url{https://www.wikifunctions.org/wiki/Z802?uselang=bn&oldid=132257}}
+
+\end{figure}%
+
+Accessibility is essential to the aims of the Abstract Wikipedia
+project, for two reasons. The first reason is practical. To write
+``renderers'' for all the world's languages, Wikifunctions must pool the
+expertise of all the world's programmers and all the world's native
+speakers. A reader of Swahili or Motu must be able to scrutinise the
+``renderers'' for their language so they can check that they implement
+the correct linguistic rules. The second reason is cognitive. Abstract
+Wikipedia presents an extremely severe engineering challenge, and this
+challenge will only be soluble if \emph{all} the world's minds are
+engaged, not only those minds that are trapped in the English language:
+
+\begin{quote}
+A solution designed by a small group of Westerners is likely to produce
+a system that replicates the trends of an imperialist English-focused
+Western-thinking industry. Existing tools tell a one-voice story
+{[}\ldots{]} (Blanton et al. 2022)
+\end{quote}
+
+Here a contradiction emerges. On the one hand, the project relies on the
+\textsc{conduit} metaphor to prove that it doesn't matter what language
+is used to express a fact. On the other hand, here they argue that the
+English language is not a mere {conduit}, but is an ``imperialist''
+language that imposes ``Western thinking'' on the world. The programmers
+who are attempting to break the hegemony of English are moreover English
+speakers, using English to describe and defend their project to overcome
+English. How can they cut through this thicket of contradiction?
+
+Their solution is not to build a language at all: ``Wikifunctions is not
+a programming language'' ({``Wikifunctions:{What} {Wikifunctions} Is
+Not''} 2024). This is the sense in which Wikilambda is a ``perfect''
+language. If a perfect language mirrors the true nature of objects, then
+Wikilambda mirrors the true nature of computation. What is the true
+nature of computation? Wikilambda's answer is implicit in the name of
+the software (Wikilambda) and the name of the online database where it
+runs (Wikifunctions). Computation can be boiled down to a single kind of
+primitive element, the \emph{function} (or a \emph{lambda}, to use the
+Greek terminology of computer science pioneer Alonzo Church (1932)).
+Complex computations can be created by \emph{composing} functions
+together. Wikilambda allows users to define \emph{functions} and
+\emph{compose} them together ``and that's it'' ({``Wikifunctions:{What}
+{Wikifunctions} Is Not''} 2024). Wikilambda is not a ``language,''
+infected with English vocabulary, which comes between the user and the
+computation. It is an ``an abstract syntax tree,'' which allows the user
+to modify the structure of the computation directly (Blanton et al.
+2022).
+
+There are two key problems with Wikilambda's claim to perfection. The
+first is that it \emph{is} a language, as its creators uneasily admit in
+the ``README'' file for the ``function orchestrator'': ``the
+orchestrator kind of implements a functional programming language''
+(Massaro et al. 2024b). As a result, the team have become involved in
+tricky choices, about things like evaluation order, recursion depth and
+error handling. They joke that the Wikilambda language is ``something
+like LISP in JSON'' ({``Wikifunctions:{Function} Model''} 2024).
+Wikilambda is indeed very much like LISP, but in their drive for extreme
+simplicity, the Wikilambda developers have overlooked key elements that
+make LISP usable in practice, such as tail recursion, the REPL, partial
+compilation, garbage collection, specialised data structures, special
+forms, and quasiquotation (see generally Sussman and Steele Jr. 1975;
+Steele Jr. 1977; Steele Jr. and Sussman 1978; Abelson, Sussman, and
+Sussman 1996). Simply put, even just to provide access to the ``abstract
+syntax tree,'' Wikilambda will need to become a lot more powerful; to
+become useable enough to support the complex software for Abstract
+Wikipedia, it will need to become more powerful still. And through all
+this, the English-speaking Wikilambda developers will be telling their
+own ``one-voice story'' in the code they write for the orchestrator.
+
+There is an alternative future, which however reveals the second problem
+with Wikilambda's claim to perfection. The Wikilambda language could
+remain extremely simple (and therefore basically unusable), and all the
+real programming could be done by providing ``implementations'' of the
+various ``renderers'' in existing programming languages. Instead of
+programming the Cantonese renderer in Wikilambda, for example, a
+programmer could simply enter a single function into the database called
+``render article into Cantonese,'' and then write an implementation of
+this ``render'' function in Python, JavaScript, or some other language
+supported by the Wikifunctions system. In this case, Wikilambda's claim
+not to be a programming language will be literally realised---it will
+not be used to do any programming! And all the supposed problems with
+``English'' programming languages such as Python and JavaScript will
+remain.
+
+The Wikilambda team envisage a middle course between these extremes:
+implementation languages such as Python and JavaScript will be used to
+implement particular functions in the Wikifunctions database, and the
+Wikilambda language will be used to compose these functions into larger
+wholes. Perhaps they will be able to steer this middle course, but it
+seems impossible that Wikilambda will be able to remain so minimal and
+under-specified.
+
+If the developers do find this middle course, will they achieve their
+central goal, of escaping from the hegemony of English, and opening
+programming to the non-English-speaking world? The example of Wikidata
+would suggest not. Wikidata also has a language-neutral interface, which
+is automatically translated into the reader's preferred language. But
+all discussion and decision on the platform is conducted in English,
+because this is the world's \emph{lingua franca} (Ford and Iliadis
+2023). It is possible that Wikifunctions will avoid this fate, because
+parts of the platform will be language-specific. For example, functions
+intended to render abstract content into Ndebele might be discussed and
+debated in Ndebele---but then any programmers who don't already read and
+write Ndebele would be hampered from contributing code.
+
+More deeply, the notion that budding programmers must ``learn English
+first'' is misconceived. The fact is that ``words in code simply do not
+behave the way they do in spoken or written language'' (Marino 2020,
+145--47). For example, the function \texttt{mapcar} in the Scheme
+programming language might look like English, but it has nothing to do
+with either maps or cars. The \texttt{mapcar} function in fact
+\emph{applies the passed operator to the first item of each list in a
+list of lists}. More subtly, Python's \texttt{if} keyword has precisely
+three distinct meanings, depending on whether it is used to create a
+\texttt{statement}, an \texttt{expression} or a \texttt{guard}. Needless
+to say, the English word ``if'' does not divide into these three
+distinct meanings. The fact is that programming languages are themselves
+human languages, with their own culture and idioms (Blackwell 2017, 37).
+If a programming language contains an English word, then it is a
+loan-word, which becomes part of the programming language, loses some or
+all of its English meaning, and may well be a false friend to beginning
+programmers.
+
+The Wikilambda team try to skirt this issue by creating an extremely
+minimal, abstract language, which exposes the raw structure of
+computation to the programmer, and will therefore be empty of linguistic
+borrowings. This strategy seems to me impossible. If users do flock to
+the platform, then Wikilambda will develop its own culture: idioms,
+metaphors, styles, ideals. It doesn't much matter if
+\href{https://www.wikifunctions.org/wiki/Z802?uselang=bn&oldid=132257}{\texttt{Z802}}
+is transliterated into \texttt{if} or \texttt{যদি}: this transliteration
+does not change the fact that \texttt{Z802} is a single word in the
+Wikilambda language, and acquires meaning in that language. The process
+of acculturation has already begun. Wikilambda is already idiomatic,
+metaphorical, stylish and idealistic. Its culture is expressed in the
+(English) documentation I have been analysing in this section. Its
+culture is expressed even more vividly in the source code for the
+``function orchestrator,'' which implements the Wikilambda language, and
+which is replete with powerful (English) metaphors.
+
+\section{Abstraction and Metaphor in the Orchestrator}\label{sec-code}
+
+\begin{quote}
+Through the production of new forms of abstraction, the hacker class
+produces the possibility of the future. (Wark 2004, sec. 077)
+\end{quote}
+
+A programming language, argue Abelson, Sussman, and Sussman (1996, 607),
+is ``a coherent family of abstractions erected on the machine
+language.'' The language itself provides a family of abstractions to the
+programmer: using JavaScript, I can create an \texttt{object} or
+interact with a \texttt{document} without worrying about the particular
+sequence of CPU instructions that makes an \texttt{object} or a
+\texttt{document} behave as it does. The language does not merely
+\emph{provide} abstractions, however---it is \emph{made} of
+abstractions. Someone has to write the code that defines what a
+JavaScript \emph{object} or \emph{document} is. The code that implements
+a programming language will contain many abstractions, such as
+\emph{expression}, \emph{symbol} or \emph{token}, which are used to
+describe the language being implemented. Perplexingly, many programming
+languages are implemented \emph{in themselves}. The C compiler, for
+example, is itself written in C. C provides a coherent family of
+abstractions, which is then used to describe and implement C, which
+provides a coherent family of abstractions, which is then used to
+describe and implement C, which \ldots{}
+
+Wikilambda is not as dizzying as C. It is a new language, which is not
+yet powerful enough to implement itself. It is implemented in
+JavaScript. In this section, I conduct a close analysis of the
+``function orchestrator'' (Massaro et al. 2024b) the piece of JavaScript
+code that implements the Wikilambda language. What abstractions have the
+Wikilambda developers invented to describe their new language? What can
+these abstractions tell us about the nature and intent of their
+project?\footnote{The function orchestrator (and its companion, the
+  evaluator), are both in active development. I have analysed them at
+  the time I cloned the code: that is commit
+  \texttt{86514fdaa663a75c9ebbda232c35e3248adbec5d} of the orchestrator,
+  and commit \texttt{dbfededdc4d83ff8175b2bab42b00327e1a4a6aa} of the
+  evaluator.}
+
+One answer to these questions is: not much. According to a popular view,
+programming ``abstractions'' exist merely to ``hide information''
+(Colburn and Shute 2007). Abstractions exist to conceal the complexity
+of the underlying machine code from the programmer. As a JavaScript
+programmer, I know that eventually all the code I write will be
+translated into machine code that the CPU can understand. But this is
+all too much to think about, so I invent fictitious entities such as
+\emph{objects} and \emph{documents} to work with, allowing me to focus
+on the bigger picture. This idea has had a powerful effect in humanistic
+critiques of technology. Media theorists such as Friedrich Kittler
+(2014, 223), Alexander Galloway (2012, 64) and Denis Tenen (2017, 32)
+have argued that code is illusory. In reality, software is made up of
+``varying electric potentials'' or ``electromagnetic charges'' in the
+computer hardware. The code supervenes on these electrical realities: at
+best, code ``signifies'' or ``substitutes for'' the electrons in the
+CPU; at worst, it ``obfuscates'' them. If this is so, then there is
+little reason to interpret the abstractions in source code. Why should
+we concern ourselves with the code, rather than with the material
+reality it signifies, substitutes or obfuscates?
+
+I do not have space here to refute this view. Instead, I simply wish to
+establish the plausibility of an alternative. Such an alternative is a
+requirement for CCS. Though some CCS scholars have attempted to ground
+their practice on the ``information hiding'' view (Hua and Raley 2023;
+Rountree and Condee 2023), such attempts are in my view doomed to fail,
+because the ``information hiding'' view denies the ultimate reality of
+code.
+
+As an alternative, I suggest that source code abstractions are
+\emph{virtualisations} of \emph{metaphors}. The nub of truth in the
+``information hiding'' view is that programming abstractions are
+metaphorical. Abstractions provide a concrete framework for thinking
+about or conceptualising the behaviour of the machine. Some of these
+abstractions are so familiar that we have forgotten they are
+metaphors.\footnote{They have become ``metaphors we live by'' (Lakoff
+  and Johnson 1980).} It may seem that computers literally have a
+``memory,'' but this is only because we rely on an underlying metaphor:
+\textsc{the computer is a brain}. The Victorian computer pioneer Charles
+Babbage used a different metaphor: \textsc{the computer is a factory}.
+His proposed Analytical Engine had a ``storehouse'' for data, rather
+than a ``memory'' (Lovelace and Menabrea 2021). Thus even the hardware
+of the computer is abstract and metaphorical. Even the ``varying
+electrical charges'' of Kittler and his followers are abstractions over
+underlying quantum effects, which are themselves abstractions developed
+by human mathematicians. At no depth does the metaphorical tower of
+abstraction descend to a literal foundation.
+
+Thus programming abstractions are \emph{metaphors}. In what sense are
+they \emph{virtualisations}? Programming abstractions \emph{do things}.
+You can write some functions in JavaScript, deploy them to a server, and
+then those functions will make the Wikifunctions database appear in a
+visitor's web browser. The ``information hiding'' view sees this as a
+process of actualisation. The vaporous abstractions in the source code
+are made real only when converted into machine instructions actually
+executed by a computer. But this is only part of the story. The
+abstractions in source code certainly have the virtue of executability,
+but they also have other virtues, and therefore, other effects. In the
+future, for example, Wikilambda may be ported into another language. In
+this case, developers might read the Wikilambda code (written in
+JavaScript), and translate its abstractions into another language (such
+as Clojure, Rust or C++). In this case, the abstractions \emph{frame an
+implementation}. In the future, Wikilambda may be established as an IEEE
+Standard. In this case, whichever abstractions are deemed essential to
+the Wikilambda language will be codified in a document. If someone wants
+to write their own implementation of Wikilambda, it may be compulsory
+for them to include certain abstractions, such as \texttt{ZWrapper} or
+\texttt{ArgumentState}. If they fail to implement the right
+abstractions, then their purported implementation of Wikilambda will
+simply fail to be an implementation of Wikilambda. In this case, the
+abstractions \emph{provide criteria of correctness}. In the future, most
+crucially, Wikilambda will continue to be debugged and extended by its
+core developers. They will need to understand the structure and intent
+of the software, and their understanding will affect the future course
+of the project. They will understand Wikilambda's structure and intent
+by using abstractions. They will encounter these abstractions in the
+source code, in the documentation, in the conversation of their
+workmates, in textbooks, in blogs, at conferences, or abed on sleepless
+nights puzzling over fiendish bugs. In this case, the abstractions
+\emph{impose a ``path of abstraction''} on the software, partially
+determining its future development (Carrillo and Martínez 2023).
+
+Wikilambda's source code is a privileged medium for symbolising the
+software's structure and intent, because the source code is executable
+and can be deployed to actualise the software on the Web. But, like the
+Pope, the code is merely \emph{primus inter pares}, and the abstractions
+it expresses lead an itinerant lifestyle, travelling between documents,
+diagrams and discussions as the software evolves. This is why I say
+programming abstractions are \emph{virtualisations}. They exist ``by
+virtue of'' their ability to shape computations. In the same manner that
+alcohol has the virtue of intoxication, programming abstractions have
+the virtue of functional specification. They are metaphors that say
+\emph{what the machine is supposed to do}. If the machine does what it
+is supposed to, we say the abstraction is ``correct.'' If the machine
+misbehaves, we say the abstraction has a ``bug.'' If the machine does
+what it is supposed to, but we realise we want it to do something
+different, we say that we need a ``new abstraction.'' The electrical
+charges in the hardware are not the same thing as the software, because
+the electrical charges can be wrong.\footnote{The pattern of electrical
+  charges will also differ for every computer chip. Indeed, due to the
+  abstraction of chip architecture, two chips may share the same machine
+  code, but implement that machine code using different circuitry. Taken
+  at is extreme, the ``information hiding'' view implies that a piece of
+  software becomes a new piece of software every time it is run on a
+  different chip or with different data.} This wrongness may be the
+software's fault---or not, if the wrongness is caused by electronic
+interference or quantum fluctuations in the circuitry. The abstractions
+in source code are virtually the real thing, and scholars of CCS should
+treat them as such.\footnote{I hope I have established the plausibility
+  of this account. It raises several live problems: Is there a
+  difference between signs and symbols (Langer 1957)? What is the
+  relation between metaphors and abstractions (Lakoff 1993; Ragg 2006;
+  Jamrozik et al. 2016)? What is the meaning of terms such as reality,
+  possibility, actuality and virtuality (Bergson 1908; Deleuze 1998,
+  2014)? CCS must address these issues for its own sake, but also
+  promises to enrich these venerable discussions with new data in a
+  fascinating new kind of symbolism.}
+
+With the help of this account, I reframe the central questions for this
+section: What are the key metaphors in the Wikilambda source code? How
+are they virtualised in the abstractions of the program?
+
+Although the main focus of this section is the ``function
+orchestrator,'' I begin with a brief quotation from the ``function
+evaluator,'' another piece of software whose task is to locate and
+execute ``implementations'' of functions in the Wikifunctions database
+(Massaro et al. 2024a). Listing~\ref{lst-immaHeadOut} vividly
+demonstrates the vivid, hacky, intermediate state of the Wikilambda
+source code. The code is so metaphorical that its symbols are only
+barely ``abstractions.'' This code snippet shuts down ``executors'' on
+the server when they are no longer needed. An ``executor'' is a server
+process that executes code in a particular ``native language.'' For
+instance, if Wikifunctions has recently executed some Python code, then
+it may have some active Python executors on the server. These need to be
+periodically cleaned up to keep the server available for other work. To
+keep track of executors it has opened, the program maintains an
+\texttt{ExecutorPool}. At the end of a session, the program runs the
+\texttt{drainTheSwamp} method to empty the \texttt{ExecutorPool} and
+shut down the unneeded executors. When it drains the swamp, the program
+creates a \texttt{hitList} of executors in the pool, and then uses
+\texttt{killExecutors} to delete them all. The metaphor becomes gentler
+in the next phase of the process. To ``kill'' an individual executor,
+the program calls on the executor to use its own \texttt{immaHeadOut}
+method, which offers the suicidal executor a dignified exit---this is
+the method shown in Listing~\ref{lst-immaHeadOut}. The executor destroys
+the \texttt{childProcess} it has been using to execute code, and then
+posts an \texttt{obituary\_} so the rest of the program knows it has
+done so. It knows whether an executor is still active on the server,
+because if the executor has been shut down already, it will will be
+either \texttt{null} or \texttt{killed}.
+
+\begin{codelisting}
+
+\caption{\label{lst-immaHeadOut}The method that `kills' an unneeded
+executor on the `hitList' after a call to `drainTheSwamp'. Source:
+src/Executor.js, in Massaro et al. (2024a)}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{async} \FunctionTok{immaHeadOut}\NormalTok{() \{}
+  \CommentTok{// Kill the executor child process if it has survived.}
+  \ControlFlowTok{if}\NormalTok{ ( }\KeywordTok{this}\OperatorTok{.}\AttributeTok{childProcess\_} \OperatorTok{!==} \KeywordTok{null} \OperatorTok{\&\&} \OperatorTok{!}\KeywordTok{this}\OperatorTok{.}\AttributeTok{childProcess\_}\OperatorTok{.}\AttributeTok{killed}\NormalTok{ ) \{}
+    \ControlFlowTok{await} \FunctionTok{killProcessFamily}\NormalTok{( }\KeywordTok{this}\OperatorTok{.}\AttributeTok{childProcess\_}\OperatorTok{.}\AttributeTok{pid}\NormalTok{ )}\OperatorTok{;}
+\NormalTok{  \}}
+
+  \CommentTok{// Announce the death of the child.}
+  \KeywordTok{this}\OperatorTok{.}\FunctionTok{obituary\_}\NormalTok{()}\OperatorTok{;}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\end{codelisting}%
+
+Pool, swamp, hitman, netspeak, funeral---the Wikilambda software is
+written with a mixture of bruality and tenderness that bespeaks the
+passion of its programmers. There is nothing clinical or professional
+about code that riffs on Trumpian rhetoric and mourns the euthanasia of
+children. This is vivid code, full of metaphors that the Wikilambda
+developers use to communicate with one another. Wikilambda's ``function
+evaluator'' is a simple program, which performs tasks familiar to any
+web developer. The ``function orchestrator'' is a much more complex and
+unusual piece of software, which the Wikilambda developers admit they do
+not fully understand themselves. Its metaphors are accordingly more
+vital to the project, and less confident in their application, than
+those of the gleeful ``evaluator.''
+
+The first key abstraction in the ``function orchestrator'' is in the
+name. The ``orchestrator'' and its central \texttt{orchestrate} function
+virtualise the metaphor: \textsc{A program is a symphony}. In this
+metaphor, a program is made up of many musicians, who each play their
+own role in the computation. The orchestrator's role is to select the
+right mixture of instruments to achieve the composition. The
+\texttt{orchestrate} function takes as its input a piece of Wikilambda
+code (a \texttt{ZObject}), some configuration settings
+(\texttt{invariants}) and an \texttt{ImplementationSelector}. Its task
+is to run the given Wikilambda code, using the
+\texttt{ImplementationSelector} to choose between available
+``implementations'' in the Wikifunctions database. It is this
+\texttt{ImplementationSelector} that most clearly virtualises the
+``orchestration'' metaphor. Normally, a programming language will have
+\emph{just one} way of doing each action: one function for addition, one
+for integer division, one for instantiating an array, and so on. If
+there are two ways of doing something, it would normally be up to the
+\emph{programmer} to decide: perhaps there are two division routines,
+one that is fast and approximate and one that is slow but exact, and the
+programmer can select which one is appropriate for their task. The
+Wikilambda language is different, because there may be many ways of
+performing each operation, and it is the orchestrator's job rather than
+the programmer's to choose between them. At the time of writing, for
+example, there are three implementations of the ``add Integers''
+function
+(\href{https://www.wikifunctions.org/view/en/Z16693}{\texttt{Z16693}}),
+and six implementation of the function that checks if a word is a
+palindrome
+(\href{https://www.wikifunctions.org/view/en/Z10096}{\texttt{Z10096}}).
+The programmer has no control over which ``implementation'' is
+used---the orchestrator decides. When a human programmer performs
+``function composition'' with the help of the ``function orchestrator,''
+they really are like a composer working with a separate orchestrator.
+The composer writes a piano score describing the structure of the
+symphony, while the orchestrator decides which instruments should fill
+out which parts.
+
+In other programming languages, the equivalent of the the Wikilambda
+``orchestrator'' would be known as the ``evaluator'' or the
+``interpreter.''\footnote{The ``function evaluator'' of the Abstract
+  Wikipedia project is really more like the ``primitive operations''
+  than the ``evaluator'' of a normal programming language.} Neither
+Python nor JavaScript have an \texttt{orchestrate} function; instead
+they have an \texttt{eval} function that performs the analogous
+operation. The metaphor in this case is different. ``Interpreting'' or
+``evaluating'' a program implies that \textsc{the program is a text},
+whose meaning must be sought. The \textsc{text} metaphor throws the
+emphasis on the vocabulary, syntax and intelligibility of the language.
+It situates the programmer as an author, the program as a poem, and the
+computer as a reader. The central problem for the ``interpreter'' is
+\emph{understanding what the program says}. The \textsc{symphony}
+metaphor throws the emphasis on the machinery of computation. It
+situates the programmer as a composer, the program as a piano score, and
+the computer as an orchestrator. The central problem for the
+orchestrator is \emph{getting the right instruments to play the right
+notes}. In the {symphony} metaphor, therefore, we can once again detect
+Wikilambda's central claim about language: that it can be done away
+with. If Wikilambda is not a language, it cannot be used to write
+\textsc{texts}. There is no need to ``evaluate'' or ``interpret'' what
+the code says, because it literally says what it means. It is a perfect
+language, which exposes the ``abstract syntax tree'' of the computation
+directly. Accordingly, the system has only the humble task of filling in
+the blanks of the ``abstract syntax tree,'' by selecting concrete
+``implementations'' from its philharmonic database of casually-employed
+musicians.
+
+As we have already seen, there is no escape from language. The
+orchestrator \emph{does} interpret the code it orchestrates, but without
+the aid of the \textsc{text} metaphor, the Wikilambda developers have
+struggled to express this process of interpretation clearly. This has
+led them to introduce many vague abstractions into the code, using the
+guiding metaphor \textsc{an abstraction is a container}. This metaphor
+is virtualised most clearly the second key abstraction of the function
+orchestrator: the \texttt{ZWrapper} class.
+
+The role of the \texttt{ZWrapper} is to maintain information about the
+`scope' of symbols in a Wikilambda program. This is required, because
+the same symbol may appear multiple times in a program with different
+meanings. For example, the ``add Integers'' function
+(\href{https://www.wikifunctions.org/view/en/Z16693}{\texttt{Z16693}})
+has two inputs, ``left integer'' (\texttt{Z16693K1}) and ``right
+integer'' (\texttt{Z16693K2}). Imagine that you implemented the
+following function in Wikilambda:
+
+\[
+f(x) = \frac{2 + x}{3} - \frac{x + (-3)}{4}
+\]
+
+Here there are at least \emph{two} additions: \(2 + x\) and
+\(x + (-3)\). In the first case, the ``left integer''
+(\texttt{Z16693K1}) is \(2\), while the ``right integer''
+(\texttt{Z16693K2}) is \(x\). In the second case, it is the ``left
+integer'' (\texttt{Z16693K1}) that is \(x\), while the ``right integer''
+(\texttt{Z16693K2}) is \(-3\). The role of the \texttt{ZWrapper} is to
+keep track of which \texttt{Z16693K1} or \texttt{Z16693K2} is which. It
+also needs to keep track of \(x\). If this function is used more than
+once in the program, then \(x\) may also have a different value each
+time. Keeping track of symbols is the main purpose of the
+\texttt{ZWrapper} class, but this role is not at all apparent from its
+name. What does ``wrapping'' have to do with \emph{remembering the
+referents of symbols}? What exactly is being ``wrapped''?
+
+Listing~\ref{lst-zwrapper} shows the code that ``wraps'' a
+\texttt{ZObject} in a \texttt{ZWrapper}. A \texttt{ZObject} is a piece
+of Wikilambda code from the Wikifunctions database. It can be in one of
+two states, as shown in line 2 of the listing. It can be a piece of
+unprocessed text (\texttt{isString(\ zobjectJSON\ )}), or it can be a
+\texttt{ZObject} that has already been ``wrapped''
+(\texttt{instanceof\ ZWrapper}). If the raw code has not yet been
+``wrapped,'' the orchestrator works out if the \texttt{ZObject} is a
+\texttt{ZEnvelope} or not. If it \emph{is} a \texttt{ZEnvelope}, then it
+wraps it up in a \texttt{ZEnvlopeWrapper}. If not, it wraps it in an
+ordinary \texttt{ZWrapper}. The last few lines of the function are the
+ones that do the work of remembering which symbol corresponds to which
+value. They do this by creating a \texttt{scope} in the
+\texttt{ZWrapper}, which is \texttt{populated} with the correct values
+for each symbol (e.g.~remembering what the ``left'' and ``right''
+integers are in an integer addition). As this explication reveals, the
+code does not explain itself at all. Nothing in the name
+\texttt{ZObject} indicates that it is an expression in the Wikilambda
+language. And what exactly is the difference between an
+\texttt{Envelope} and a \texttt{Wrapper}? These names are empty. They
+use the metaphor \textsc{an abstraction is a container} to indicate that
+the code contains abstractions, but they do not indicate what those
+abstractions are or why they are needed. An envelope or a wrapper is a
+container for some kind of object. But for what kind of object, and why
+does it need to be contained?
+
+\begin{codelisting}
+
+\caption{\label{lst-zwrapper}The method that wraps a \texttt{ZObject} in
+a \texttt{ZWrapper} as required. Source: src/ZWrapper.js, in Massaro et
+al. (2024b)}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{static} \FunctionTok{createInternal\_}\NormalTok{( zobjectJSON}\OperatorTok{,}\NormalTok{ scope}\OperatorTok{,}\NormalTok{ parentPointer ) \{}
+        \ControlFlowTok{if}\NormalTok{ ( }\FunctionTok{isString}\NormalTok{( zobjectJSON ) }\OperatorTok{||}\NormalTok{ zobjectJSON }\KeywordTok{instanceof}\NormalTok{ ZWrapper ) \{}
+            \ControlFlowTok{return}\NormalTok{ zobjectJSON}\OperatorTok{;}
+\NormalTok{        \}}
+        \KeywordTok{let}\NormalTok{ result}\OperatorTok{;}
+        \ControlFlowTok{if}\NormalTok{ ( }\FunctionTok{isZEnvelope}\NormalTok{( zobjectJSON ) ) \{}
+\NormalTok{            result }\OperatorTok{=} \KeywordTok{new} \FunctionTok{ZEnvelopeWrapper}\NormalTok{()}\OperatorTok{;} \CommentTok{// eslint{-}disable{-}line no{-}use{-}before{-}define}
+\NormalTok{        \} }\ControlFlowTok{else}\NormalTok{ \{}
+\NormalTok{            result }\OperatorTok{=} \KeywordTok{new} \FunctionTok{ZWrapper}\NormalTok{()}\OperatorTok{;}
+\NormalTok{        \}}
+\NormalTok{        result}\OperatorTok{.}\FunctionTok{setScope}\NormalTok{( scope )}\OperatorTok{;}
+\NormalTok{        result}\OperatorTok{.}\AttributeTok{parent\_} \OperatorTok{=}\NormalTok{ parentPointer}\OperatorTok{;} \CommentTok{// will use parent in case scope does not exist}
+\NormalTok{        result}\OperatorTok{.}\FunctionTok{populateKeys\_}\NormalTok{( zobjectJSON )}\OperatorTok{;}
+        \ControlFlowTok{return}\NormalTok{ result}\OperatorTok{;}
+\NormalTok{    \}}
+\end{Highlighting}
+\end{Shaded}
+
+\end{codelisting}%
+
+There are many reasons why the code should be this way. The Wikilambda
+developers charmingly admit that they are not very experienced in
+language design: ``Dear reader, if you have solved similar
+problems---e.g., if you implemented programming languages before---and
+know the better way, have at it :)'' (``README.md,'' Massaro et al.
+2024b). But I would suggest the code reveals a deeper pattern than mere
+inexperience. Repeatedly in the code, the Wikilambda developers eschew
+well-known abstractions in programming language design. In
+Listing~\ref{lst-zwrapper}, for example, \texttt{createInternal} is
+basically a synonym for ``evaluate'' or ``eval-dispatch,'' and
+\texttt{zobjectJSON} is a synonym for ``expression.'' The two
+\texttt{if} statements at the start determine the ``expression type''
+(there are three types), and choose the correct evaluation method. The
+\texttt{scope} would normally be called the ``environment'' of the
+evaluation, and the \texttt{populateKeys} method is the function that
+``extends the environment'' to include the ``local bindings'' of the
+current ``expression.'' These are not unusual or obscure terms in the
+world of programming: ``expression,'' ``evaluate,'' ``dispatch,''
+``environment,'' ``extend,'' ``local'' and ``bindings.'' But they all
+partake of the dominant metaphor \textsc{the program is a text}, a
+metaphor that the Wikilambda developers have rejected in their attempt
+to create a perfect language that interposes no symbolism between the
+programmer and their program.
+
+The code for the function orchestrator is in a medial state. The
+Wikilambda developers are in the process of carving out new
+abstractions, to describe a utopian project for a new programming
+language. Their central metaphor, \textsc{a program is a symphony},
+allows them to describe the most remarkable feature of their language:
+that it lives in a data centre, where many computers, and many little
+software daemons, are dynamically combined to bring the language to
+life. When they write code that summons and dismisses resources on the
+Wikimedia Foundation's servers, they write vivid, clear, metaphorical
+code (e.g. Listing~\ref{lst-immaHeadOut}). But when the
+\textsc{symphony} metaphor fails---as in the description of the
+vocabulary and syntax of their new programming language---the Wikilambda
+developers fall back on the empty metaphor, \textsc{an abstraction is a
+container} (e.g. Listing~\ref{lst-zwrapper}). The \textsc{symphony}
+metaphor has imposed a ``path of abstraction'' on the developers, which
+has made it difficult for them to explore and express certain aspects of
+their project (Carrillo and Martínez 2023). Perhaps in years to come
+they will carve out genuinely new abstractions for programming language
+design; in the mean time, they probably will continue to resist the best
+available metaphor, \textsc{a program is a text}, because this metaphor
+contradicts their aim to create a perfect language.
+
+\section{Conclusion}\label{conclusion}
+
+\begin{quote}
+But it is perhaps nothing more than our `democratic' illusion to imagine
+that perfection must imply universality. (Eco 1995, 100)
+\end{quote}
+
+The Abstract Wikipedia/Wikifunctions project has a profoundly moral aim:
+to give human beings control over information in the Age of GenAI. If
+the problem were simply to populate minority-language Wikipedias with
+articles, it would be simpler just to get a Large Language Model (LLM)
+to translate English Wikipedia into those languages. But Wikilambda
+presents a stark alternative to LLMs such as Gemini, Llama or ChatGPT.
+These LLMs rely on vast concealed datasets. Wikifunctions draws its data
+openly from public Wikimedia databases. These LLMs generate text using
+opaque algorithms that even their designers cannot understand.
+Wikilambda makes every part of every algorithm available to anyone. In
+short, Wikilambda is \emph{contestable}. If you ask ChatGPT to generate
+an article on a topic, the only way to contest its algorithm is to click
+👍 or 👎 (Crawford and Gillespie 2016). If you are unhappy with an
+article generated by Abstract Wikipedia, you will be able to: change the
+``abstract'' content in Wikidata; change the algorithms that construct
+or render the article in Wikifunctions; or sever the connection between
+the article and Abstract Wikipedia, and edit the article the
+old-fashioned way in Wikipedia. The role of Wikilambda in all this is to
+make algorithms ``defeasible'' (Blanton et al. 2022). Every part of
+every algorithm is there, and can be contested on the platform itself,
+even if that contestation may be culturally and politically constrained
+(Tkacz 2015; Ford 2022). Wikilambda is an attempt to design what Alan
+Blackwell (2024) calls a ``moral code'': it combines More Open
+Representation, Access to Learning, and Creating Opportunities for
+Digital Expression. If nothing else, Wikilambda is a thundering critique
+of corporate AI hype.
+
+To achieve their aims, the Wikilambda developers are attempting to
+escape from language. They want to escape from spoken languages into the
+template language of Abstract Wikipedia. They want to escape from
+programming languages into the abstract syntax tree of Wikilambda. So
+far, however, they have only escaped \emph{from} language \emph{into}
+language. The whole Abstract Wikipedia/Wikifunctions project is
+conceived in terms of the \textsc{conduit} metaphor, a questionable
+metalinguistic abstraction baked into the English language
+(Section~\ref{sec-architecture}). The Wikilambda language tries to be no
+language at all, but is irresistibly becoming another human tongue, with
+its own culture and idioms (Section~\ref{sec-perfection}). In the code
+of the function orchestrator, the developers tell a ``one-voice story''
+using English metaphors, and they struggle to express themselves in the
+code, because they have set out on a path of abstraction that forecloses
+the best available metaphor for what they are doing
+(Section~\ref{sec-code}).
+
+In response to criticism, the Wikilambda developers adopt one of the
+most popular programming metaphors: \textsc{the world is Tolkein's
+Middle-Earth} (Dillon and Schaffer-Goddard 2023). What they wish to
+avoid is a ``\,`One Ring' solution'' to the problem of universalising
+access to knowledge (Blanton et al. 2022). In this metaphor, the Google
+fellows who criticised the project are agents of Sauron, the Dark Lord.
+When the fellows suggest that the project abandon its quixotic quest to
+design the perfect programming language, when they suggest that perhaps
+an existing technology such as Scribunto or Grammatical Framework might
+be appropriate, these agents of Sauron (Google) are really suggesting
+that Abstract Wikipedia forge a magic ring in the fires of Mt Doom
+(Silicon Valley), and use it to dominate the world. The tragic
+contradiction of the Abstract Wikipedia project is that it is itself a
+``\,`One Ring' solution.'' A group of Anglophone engineers in the heart
+of Mordor (California) are forging one language that all the world's
+writers should write, and another language that all the world's
+programmers should program. They attempt to resolve this contradiction
+by escaping from language. The template language will boil facts down to
+their primitive elements. The Wikilambda language will boil computations
+down to their primitive elements. From these primitive elements the
+whole world of facts, and the whole universe of computations, will be
+recombined without the need for words. But words ``bite and scratch,''
+writes the poet, and ``You never learn / the chemical process of
+separating them'' (Frame 2008, 117). It is the grand ambition of Denny
+Vrandečić and his hackers to learn this chemical process, which has
+evaded so many linguistic alchemists before them.
+
+\section*{References}\label{references}
+\addcontentsline{toc}{section}{References}
+
+\phantomsection\label{refs}
+\begin{CSLReferences}{1}{0}
+\bibitem[\citeproctext]{ref-abelson_structure_1996}
+Abelson, Harold, Gerald Jay Sussman, and Julie Sussman. 1996.
+\emph{Structure and Interpretation of Computer Programs}. Second.
+Cambridge: MIT Press.
+
+\bibitem[\citeproctext]{ref-noauthor_abstract_2024-2}
+{``Abstract {Wikipedia}/{Architecture}.''} 2024. \emph{Wikimedia
+Meta-Wiki}.
+\url{https://meta.wikimedia.org/w/index.php?title=Abstract_Wikipedia/Architecture&oldid=26987678}.
+
+\bibitem[\citeproctext]{ref-noauthor_abstract_2024-3}
+{``Abstract {Wikipedia}/{Components}.''} 2024. \emph{Wikipedia
+Meta-Wiki}.
+\url{https://meta.wikimedia.org/w/index.php?title=Abstract_Wikipedia/Components&oldid=26987679}.
+
+\bibitem[\citeproctext]{ref-noauthor_annual_2023}
+{``Annual {Report} 2022-23.''} 2023. San Francisco: Wikimedia Endowment.
+\url{https://wikimediaendowment.org/wp-content/uploads/2024/04/Endowment-Annual-Report-22-23.pdf}.
+
+\bibitem[\citeproctext]{ref-avieson_two_2022}
+Avieson, Bunty. 2022. {``Two {Wikipedias} in {Bhutan}: Problems and
+Solutions for Knowledge Equity in the Digital Age.''} \emph{Asian
+Journal of Communication} 32 (5): 399--416.
+\url{https://doi.org/10.1080/01292986.2021.1937248}.
+
+\bibitem[\citeproctext]{ref-bayer_wikimedia_2023}
+Bayer, Tilman. 2023. {``Wikimedia {Foundation}'s {Abstract} {Wikipedia}
+Project 'at Substantial Risk of Failure'.''} \emph{The Signpost},
+January.
+\url{https://en.wikipedia.org/wiki/Wikipedia:Wikipedia_Signpost/2023-01-01/Technology_report}.
+
+\bibitem[\citeproctext]{ref-bergson_essai_1908}
+Bergson, Henri. 1908. \emph{Essai Sur Les Données Immédiates de La
+Conscience}. 6th ed. Paris: Alcan.
+
+\bibitem[\citeproctext]{ref-blackwell_6000_2017}
+Blackwell, Alan F. 2017. {``6,000 {Years} of {Programming} {Language}
+{Design}: {A} {Meditation} on {Eco}'s {Perfect} {Language}.''} In
+\emph{Conversations {Around} {Semiotic} {Engineering}}, edited by Simone
+Diniz Junqueira Barbosa and Karin Breitman, 31--39. Cham: Springer
+International Publishing.
+\url{https://doi.org/10.1007/978-3-319-56291-9_5}.
+
+\bibitem[\citeproctext]{ref-blackwell_moral_2024}
+---------. 2024. \emph{Moral {Codes}: {Designing} {Alternatives} to
+{AI}}. The MIT Press.
+\url{https://doi.org/10.7551/mitpress/14872.001.0001}.
+
+\bibitem[\citeproctext]{ref-blanton_abstract_2022}
+Blanton, Cai, Cory Massaro, David Martin, Denny Vrandečić, Genoveva
+Galarza Heredero, James Forrester, Julia Kieserman, and Stef Dunlap.
+2022. {``Abstract {Wikipedia}/{Google}.org {Fellows} Evaluation -
+{Answer}.''} \emph{Wikimedia Meta-Wiki}.
+\url{https://meta.wikimedia.org/w/index.php?title=Abstract_Wikipedia/Google.org_Fellows_evaluation_-_Answer&oldid=24262326}.
+
+\bibitem[\citeproctext]{ref-carrillo_scientific_2023}
+Carrillo, Natalia, and Sergio Martínez. 2023. {``Scientific {Inquiry}:
+{From} {Metaphors} to {Abstraction}.''} \emph{Perspectives on Science}
+31 (2): 233--61. \url{https://doi.org/10.1162/posc_a_00571}.
+
+\bibitem[\citeproctext]{ref-church_set_1932}
+Church, Alonzo. 1932. {``A {Set} of {Postulates} for the {Foundation} of
+{Logic}.''} \emph{Annals of Mathematics} 33 (2): 346--66.
+\url{https://doi.org/10.2307/1968337}.
+
+\bibitem[\citeproctext]{ref-colburn_abstraction_2007}
+Colburn, Timothy, and Gary Shute. 2007. {``Abstraction in {Computer}
+{Science}.''} \emph{Minds and Machines: Journal for Artificial
+Intelligence, Philosophy and Cognitive Science} 17 (2): 169--84.
+\url{https://doi.org/10.1007/s11023-007-9061-7}.
+
+\bibitem[\citeproctext]{ref-crawford_what_2016}
+Crawford, Kate, and Tarleton Gillespie. 2016. {``What Is a Flag for?
+{Social} Media Reporting Tools and the Vocabulary of Complaint.''}
+\emph{New Media \& Society} 18 (3): 410--28.
+\url{https://doi.org/10.1177/1461444814543163}.
+
+\bibitem[\citeproctext]{ref-deleuze_bergsonisme_1998}
+Deleuze, Gilles. 1998. \emph{Le Bergsonisme}. 2. ed. Paris: Presses
+Univ. de France.
+
+\bibitem[\citeproctext]{ref-deleuze_difference_2014}
+---------. 2014. \emph{Difference and {Repetition}}. Translated by Paul
+Patton. 2nd edition. London; New York: Bloomsbury Academic.
+
+\bibitem[\citeproctext]{ref-dillon_what_2023}
+Dillon, Sarah, and Jennifer Schaffer-Goddard. 2023. {``What {AI}
+Researchers Read: The Role of Literature in Artificial Intelligence
+Research.''} \emph{Interdisciplinary Science Reviews} 48 (1): 15--42.
+\url{https://doi.org/10.1080/03080188.2022.2079214}.
+
+\bibitem[\citeproctext]{ref-dubrow_cosmopolitan_2018}
+Dubrow, Jennifer. 2018. \emph{Cosmopolitan {Dreams}: {The} {Making} of
+{Modern} {Urdu} {Literary} {Culture} in {Colonial} {South} {Asia}}.
+Honolulu: University of Hawaii Press.
+
+\bibitem[\citeproctext]{ref-eco_search_1995}
+Eco, Umberto. 1995. \emph{The Search for the Perfect Language}. Making
+of {Europe}. Oxford, UK ; Cambridge, Mass., USA: Blackwell.
+
+\bibitem[\citeproctext]{ref-noauthor_extensionwikilambda_2024}
+{``Extension:{WikiLambda}.''} 2024. \emph{MediaWiki}.
+\url{https://www.mediawiki.org/w/index.php?title=Extension:WikiLambda&oldid=6467929}.
+
+\bibitem[\citeproctext]{ref-ford_writing_2022}
+Ford, Heather. 2022. \emph{Writing the Revolution: {Wikipedia} and the
+Survival of Facts in the Digital Age}. Cambridge, Massachusetts: The MIT
+Press.
+
+\bibitem[\citeproctext]{ref-ford_wikidata_2023}
+Ford, Heather, and Andrew Iliadis. 2023. {``Wikidata as {Semantic}
+{Infrastructure}: {Knowledge} {Representation}, {Data} {Labor}, and
+{Truth} in a {More}-{Than}-{Technical} {Project}.''} \emph{Social Media
++ Society} 9 (3): 20563051231195552.
+\url{https://doi.org/10.1177/20563051231195552}.
+
+\bibitem[\citeproctext]{ref-ford_how_2024}
+Ford, Heather, Francesca Sidoti, Michael Falk, Tamson Pietsch, and Tom
+Byers. 2024. {``How {Australian} Places Are Represented on
+{Wikipedia}.''} 2. University of Technology, Sydney.
+\url{https://doi.org/10.5281/zenodo.13910503}.
+
+\bibitem[\citeproctext]{ref-foundation_first_2023}
+Foundation, Wikimedia. 2023. {``First Grants Announced from the
+{Wikimedia} {Endowment} to Support Technical Innovation Across
+{Wikipedia} and {Wikimedia} Projects.''} \emph{Wikimedia Foundation}.
+\url{https://wikimediafoundation.org/news/2023/04/13/first-grants-announced-from-the-wikimedia-endowment/}.
+
+\bibitem[\citeproctext]{ref-frame_storms_2008}
+Frame, Janet. 2008. \emph{Storms Will Tell: Selected Poems}. Tarset,
+Northumberland: Bloodaxe Books.
+
+\bibitem[\citeproctext]{ref-galloway_interface_2012}
+Galloway, Alexander R. 2012. \emph{The Interface Effect}. Cambridge, UK
+; Malden, MA: Polity.
+
+\bibitem[\citeproctext]{ref-gnatiuk_uneven_2021}
+Gnatiuk, Oleksiy, and Victoria Glybovets. 2021. {``Uneven Geographies in
+the Various Language Editions of {Wikipedia}: The Case of {Ukrainian}
+Cities.''} \emph{Hungarian Geographical Bulletin} 70 (3): 249--66.
+\url{https://doi.org/10.15201/hungeobull.70.3.4}.
+
+\bibitem[\citeproctext]{ref-hakala_negotiating_2016}
+Hakala, Walter. 2016. \emph{Negotiating {Languages}: {Urdu}, {Hindi},
+and the {Definition} of {Modern} {South} {Asia}}. New York, UNITED
+STATES: Columbia University Press.
+\url{http://ebookcentral.proquest.com/lib/usyd/detail.action?docID=4588404}.
+
+\bibitem[\citeproctext]{ref-hoffmann_restrictions_2019}
+Hoffmann, Dorothea. 2019. {``Restrictions on the {Usage} of {Spatial}
+{Frames} of {Reference} in {Location} and {Orientation} {Descriptions}:
+{Evidence} from {Three} {Australian} {Languages}.''} \emph{Australian
+Journal of Linguistics} 39 (1): 1--31.
+\url{https://doi.org/10.1080/07268602.2019.1542927}.
+
+\bibitem[\citeproctext]{ref-hua_how_2023}
+Hua, Minh, and Rita Raley. 2023. {``How to {Do} {Things} with {Deep}
+{Learning} {Code}.''} \emph{Digital Humanities Quarterly} 17 (2).
+\url{https://www.digitalhumanities.org/dhq/vol/17/2/000684/000684.html}.
+
+\bibitem[\citeproctext]{ref-jamrozik_metaphor_2016}
+Jamrozik, Anja, Marguerite McQuire, Eileen R. Cardillo, and Anjan
+Chatterjee. 2016. {``Metaphor: {Bridging} Embodiment to Abstraction.''}
+\emph{Psychonomic Bulletin \& Review} 23 (4): 1080--89.
+\url{https://doi.org/10.3758/s13423-015-0861-0}.
+
+\bibitem[\citeproctext]{ref-kittler_there_2014}
+Kittler, Friedrich A. 2014. {``There Is No Software.''} In \emph{The
+{Truth} of the {Technological} {World}: {Essays} on the {Genealogy} of
+{Presence}}, translated by Erik Butler, 219--29. New York, UNITED
+STATES: Stanford University Press.
+\url{http://ebookcentral.proquest.com/lib/unimelb/detail.action?docID=1774246}.
+
+\bibitem[\citeproctext]{ref-lakoff_contemporary_1993}
+Lakoff, George. 1993. {``The Contemporary Theory of Metaphor.''} In
+\emph{Metaphor and {Thought}}, edited by Andrew Ortony, 2nd ed.,
+202--51. Cambridge University Press.
+\url{https://doi.org/10.1017/CBO9781139173865.013}.
+
+\bibitem[\citeproctext]{ref-lakoff_metaphors_1980}
+Lakoff, George, and Mark Johnson. 1980. \emph{Metaphors We {Live} {By}}.
+Chicago; London: The University of Chicago Press.
+
+\bibitem[\citeproctext]{ref-langer_philosophy_1957}
+Langer, Susanne K. 1957. \emph{Philosophy in a New Key; a Study in the
+Symbolism of Reason, Rite, and Art.} {[}3d ed.{]}. Cambridge: Harvard
+University Press.
+
+\bibitem[\citeproctext]{ref-livneh_abstract_2022}
+Livneh, Ori, Ariel Gitman, Ari Assaf, and Mary Yang. 2022. {``Abstract
+{Wikipedia}/{Google}.org {Fellows} Evaluation.''} \emph{Wikipedia
+Meta-Wiki}.
+\url{https://meta.wikimedia.org/w/index.php?title=Abstract_Wikipedia/Google.org_Fellows_evaluation&oldid=24268563}.
+
+\bibitem[\citeproctext]{ref-lovelace_sketch_2021}
+Lovelace, Ada, and L. F. Menabrea. 2021. {``Sketch of the {Analytical}
+{Engine} (1843).''} In \emph{Ideas {That} {Created} the {Future}},
+edited by Harry Lewis, 9--26. The MIT Press.
+\url{https://doi.org/10.7551/mitpress/12274.003.0005}.
+
+\bibitem[\citeproctext]{ref-marino_critical_2020}
+Marino, Mark C. 2020. \emph{Critical {Code} {Studies}}. The MIT Press.
+\url{https://doi.org/10.7551/mitpress/12122.001.0001}.
+
+\bibitem[\citeproctext]{ref-massaro_function-evaluator_2024}
+Massaro, Cory, Denny Vrandečić, Daphne Smit, David Martin, Ecarg,
+Genoveva Galarza, Jeena Huneidi, James Forrester, Stef Dunlap, and
+Vaughn Walters. 2024a. {``Function-Evaluator.''}
+\url{https://gitlab.wikimedia.org/repos/abstract-wiki/wikifunctions/function-evaluator/-/tree/dbfededdc4d83ff8175b2bab42b00327e1a4a6aa}.
+
+\bibitem[\citeproctext]{ref-massaro_function-orchestrator_2024}
+---------. 2024b. {``Function-Orchestrator.''}
+\url{https://gitlab.wikimedia.org/repos/abstract-wiki/wikifunctions/function-orchestrator/-/tree/86514fdaa663a75c9ebbda232c35e3248adbec5d}.
+
+\bibitem[\citeproctext]{ref-ragg_pragmatic_2006}
+Ragg, Edward. 2006. {``Pragmatic {Abstraction} Vs. {Metaphor}:
+{Stevens}' "{The} {Pure} {Good} of {Theory}" and "{Macbeth}".''}
+\emph{The Wallace Stevens Journal} 30 (1): 5--29.
+\url{https://www.jstor.org/stable/44884979}.
+
+\bibitem[\citeproctext]{ref-reddy_conduit_1993}
+Reddy, Michael J. 1993. {``The Conduit Metaphor: {A} Case of Frame
+Conflict in Our Language about Language.''} In \emph{Metaphor and
+{Thought}}, edited by Andrew Ortony, 2nd ed., 164--201. Cambridge
+University Press. \url{https://doi.org/10.1017/CBO9781139173865.012}.
+
+\bibitem[\citeproctext]{ref-rountree_nonsense_2023}
+Rountree, Barry, and William Condee. 2023. {``Nonsense {Code}: {A}
+{Nonmaterial} {Performance}.''} \emph{Digital Humanities Quarterly} 17
+(2).
+\url{https://www.digitalhumanities.org/dhq/vol/17/2/000702/000702.html}.
+
+\bibitem[\citeproctext]{ref-steele_jr_debunking_1977}
+Steele Jr., Guy Lewis. 1977. {``Debunking the "Expensive Procedure Call"
+Myth; or, Procedure Call Implementations Considered Harmful; or, Lambda:
+The Ultimate Goto.''} 443. Cambridge, Mass: Massachusetts Institute of
+Technology. \url{https://apps.dtic.mil/sti/pdfs/ADA062381.pdf}.
+
+\bibitem[\citeproctext]{ref-steele_jr_art_1978}
+Steele Jr., Guy Lewis, and Gerald Jay Sussman. 1978. {``The {Art} of the
+{Interpreter}; or, {The} {Modularity} {Complex} ({Parts} {Zero}, {One},
+and {Two}).''} 453. Cambridge, Mass: Massachusetts Institute of
+Technology.
+\url{https://dspace.mit.edu/bitstream/handle/1721.1/6094/AIM-453.pdf}.
+
+\bibitem[\citeproctext]{ref-sussman_scheme_1975}
+Sussman, Gerald Jay, and Guy Lewis Steele Jr. 1975. {``Scheme: {An}
+Interpreter for Extended Lambda Calculus.''} 349. Cambridge, Mass:
+Massachusetts Institute of Technology.
+\url{https://dspace.mit.edu/bitstream/handle/1721.1/5794/AIM-349.pdf}.
+
+\bibitem[\citeproctext]{ref-swift_gullivers_2005}
+Swift, Jonathan. 2005. \emph{Gulliver's {Travels}}. Edited by Claude
+Rawson. Oxford: OUP.
+
+\bibitem[\citeproctext]{ref-tenen_plain_2017}
+Tenen, Dennis. 2017. \emph{Plain Text: The Poetics of Computation}.
+Stanford, California: Stanford University Press.
+
+\bibitem[\citeproctext]{ref-wa_thiongo_decolonising_1986}
+Thiong'o, Ngugi wa. 1986. \emph{Decolonising the {Mind}: {The}
+{Politics} of {Language} in {African} {Literature}}. Woodbridge: Boydell
+\& Brewer, Limited.
+
+\bibitem[\citeproctext]{ref-tkacz_wikipedia_2015}
+Tkacz, Nathaniel. 2015. \emph{Wikipedia and the Politics of Openness}.
+Chicago ; London: University of Chicago Press.
+
+\bibitem[\citeproctext]{ref-vee_coding_2017}
+Vee, Annette. 2017. \emph{Coding {Literacy}: {How} {Computer}
+{Programming} {Is} {Changing} {Writing}}. The MIT Press.
+\url{https://doi.org/10.7551/mitpress/10655.001.0001}.
+
+\bibitem[\citeproctext]{ref-vrandecic_capturing_2018}
+Vrandečić, Denny. 2018. {``Capturing Meaning: {Toward} an Abstract
+{Wikipedia}.''} In \emph{International {Semantic} {Web} {Conference}
+2018 - {Outrageous} {Ideas} {Track}}. Monterey, CA.
+\url{http://ceur-ws.org/Vol-2180/}.
+
+\bibitem[\citeproctext]{ref-vrandecic_collaborating_2020}
+---------. 2020. {``Collaborating on the {Sum} of {All} {Knowledge}
+{Across} {Languages},''} October.
+\url{https://doi.org/10.7551/mitpress/12366.003.0016}.
+
+\bibitem[\citeproctext]{ref-vrandecic_building_2021}
+---------. 2021. {``Building a Multilingual {Wikipedia}.''}
+\emph{Communications of the ACM} 64 (4): 38--41.
+\url{https://doi.org/10.1145/3425778}.
+
+\bibitem[\citeproctext]{ref-wark_hacker_2004}
+Wark, McKenzie. 2004. \emph{A {Hacker} {Manifesto}}. Cambridge, Mass:
+Harvard University Press. \url{https://doi.org/10.4159/9780674044845}.
+
+\bibitem[\citeproctext]{ref-noauthor_wikifunctionsfunction_2024}
+{``Wikifunctions:{Function} Model.''} 2024. \emph{Wikifunctions}.
+\url{https://www.wikifunctions.org/w/index.php?title=Wikifunctions:Function_model&oldid=107530}.
+
+\bibitem[\citeproctext]{ref-noauthor_wikifunctionsvision_2023}
+{``Wikifunctions:{Vision}.''} 2023. \emph{Wikifunctions}.
+\url{https://www.wikifunctions.org/w/index.php?title=Wikifunctions:Vision&oldid=50281}.
+
+\bibitem[\citeproctext]{ref-noauthor_wikifunctionswhat_2024}
+{``Wikifunctions:{What} {Wikifunctions} Is Not.''} 2024.
+\emph{Wikifunctions}.
+\url{https://www.wikifunctions.org/w/index.php?title=Wikifunctions:What_Wikifunctions_is_not&oldid=71136}.
+
+\end{CSLReferences}
+
+
+
+
+\end{document}

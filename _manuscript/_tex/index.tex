@@ -281,7 +281,7 @@ to realise their vision for a universal programming system.
 
 \begin{quote}
 The story of the search for the perfect language is the story of a dream
-and of a series of failures. (Eco 1995, 19)
+and of a series of failures. (Eco 1995, p. 19)
 \end{quote}
 
 \section{Introduction}\label{introduction}
@@ -306,12 +306,12 @@ easily expressed; and (2) the ambition to provide 300-6,000
 ``renderers'' that can translate this ``abstract content'' into readable
 text. As the leader of the Abstract Wikipedia project admits, the
 project's ``ambitious goal'' is not new, and ``such ambitions have
-repeatedly failed'' (Vrandečić 2020, 180; 2021, 41). Abstract Wikipedia
-is the latest in a long line of attempts to create a ``perfect'' or
-``universal'' language---to be more precise, it is the latest in a long
-line of ``polygraphies,'' or universal writing systems (Eco 1995, chap.
-9). Since every prior attempt at polygraphy has failed, it is hardly
-surprising that Abstract Wikipedia risks failing also!
+repeatedly failed'' (Vrandečić 2020, p. 180, 2021, p. 41). Abstract
+Wikipedia is the latest in a long line of attempts to create a
+``perfect'' or ``universal'' language---to be more precise, it is the
+latest in a long line of ``polygraphies,'' or universal writing systems
+(Eco 1995, chap. 9). Since every prior attempt at polygraphy has failed,
+it is hardly surprising that Abstract Wikipedia risks failing also!
 
 Why, then, was it \emph{news} in 2023 that Abstract Wikipedia was ``at
 substantial risk of failure''? The project was an audacious gamble from
@@ -330,7 +330,7 @@ access to programming:
 Imagine a programming system that truly is \textbf{accessible}, one that
 is open not only to speakers of English but to billions of people more
 who will not have to learn English first in order to learn how to
-program. ({``Wikifunctions:{Vision}''} 2023)
+program. (2023a)
 \end{quote}
 
 The new language that underlies this universally accessible programming
@@ -358,11 +358,10 @@ complex software system, as Abstract Wikipedia. (Livneh et al. 2022)
 This is a significant crisis for the Wikimedia Foundation. Abstract
 Wikipedia was the first new project sponsored by the Foundation in 10
 years. In 2022-23, the project was awarded US\$1 million from the
-Wikimedia Endowment ({``Annual {Report} 2022-23''} 2023; Foundation
-2023). A prototype of the project's ``ad-hoc'' and ``questionable''
-programming system is already available at
-\href{https://wikifunctions.org}{wikifunctions.org}. How did the project
-get into this situation, and what does its future hold?
+Wikimedia Endowment (2023b; Foundation 2023). A prototype of the
+project's ``ad-hoc'' and ``questionable'' programming system is already
+available at \href{https://wikifunctions.org}{wikifunctions.org}. How
+did the project get into this situation, and what does its future hold?
 
 In this article, I examine the documentation and source code of
 Wikilambda to critique both its ideals and its implementation. There is
@@ -418,7 +417,7 @@ Wikipedia/Wikifunctions}\label{sec-architecture}
 \begin{quote}
 The conclusion is that the Wikimedia movement does not believe that
 language is the right dimension to split knowledge---it is a historical
-decision, driven by convenience. (Vrandečić 2020, 182)
+decision, driven by convenience. (Vrandečić 2020, p. 182)
 \end{quote}
 
 The Wikimedia Foundation already provides Wikipedias in more than 300
@@ -445,7 +444,7 @@ Wikipedias. The Wikidata item for the novel contains structured data,
 such as the author and publication date, which could be used to generate
 an Infobox or basic article about the novel in other Wikipedias. If only
 more Wikipedia articles would draw on Wikidata in this way, laments
-Vrandečić (2020, 178), then the more ``comprehensive, current, and
+Vrandečić (2020, p. 178), then the more ``comprehensive, current, and
 accessible'' the many Wikipedias would become.
 
 Abstract Wikipedia extends Vrandečić's ideal of ``comprehensive,
@@ -456,14 +455,14 @@ includes all the facts, ``current'' if none of them are out of date, and
 you understand. Vrandečić illustrates these ideas using the example of
 San Francisco. Ideally, it should not matter what languages you read,
 you should be able to access San Francisco's current ranking by
-population among Californian cities ({``Abstract
-{Wikipedia}/{Architecture}''} 2024), the name of its current Mayor
-(Vrandečić 2020, 176--77), and the fact that it is currently the
-cultural, commercial and financial centre of Northern California
+population among Californian cities (2024a), the name of its current
+Mayor (Vrandečić 2020, pp. 176--77), and the fact that it is currently
+the cultural, commercial and financial centre of Northern California
 (Vrandečić 2018, 2021). Since these facts are not currently available to
-readers of all languages on Wikipedia, argues Vrandečić (2020, 182), the
-Wikipedia project has thus far failed to allow ``access to the sum of
-all knowledge to every single reader, no matter what their language.''
+readers of all languages on Wikipedia, argues Vrandečić (2020, p. 182),
+the Wikipedia project has thus far failed to allow ``access to the sum
+of all knowledge to every single reader, no matter what their
+language.''
 
 The central aim of Abstract Wikipedia is to complete the ``sum'' of
 human knowledge. Abstract Wikipedia will not be a new Wikipedia language
@@ -478,8 +477,7 @@ will have control over how abstract content is imported into their
 encyclopaedia: they can choose to sync their language edition with
 Wikidata, automatically including all abstract pages, or they can import
 them piecemeal, or import the abstract content as the starting point for
-a manually-written article ({``Abstract {Wikipedia}/{Architecture}''}
-2024; {``Abstract {Wikipedia}/{Components}''} 2024).
+a manually-written article (2024a, b).
 
 The intended architecture of the system is shown in
 Figure~\ref{fig-wikilambda-architecture}. The part that implements a new
@@ -510,8 +508,8 @@ language will require a separate ``evaluator.''
 }
 
 \caption{\label{fig-wikilambda-architecture}High-level model of the
-Wikilambda Extension. Source: {``Extension:{WikiLambda}''} (2024). By
-jdforrester (Wikimedia Foundation)
+Wikilambda Extension. Source: (2024c). By jdforrester (Wikimedia
+Foundation)
 \href{https://creativecommons.org/licenses/by-sa/4.0/deed.en}{CC BY-SA
 4.0}.}
 
@@ -526,19 +524,19 @@ sentences.
 Vrandečić (2020) expounds this linguistic theory of knowledge in a
 chapter justifying the project. He argues that ``Language Does Not Align
 With Culture,'' and denies that linguistic diversity is a structuring
-principle of the Wikipedia project (2020, 181). To justify this
+principle of the Wikipedia project (2020, p. 181). To justify this
 argument, he provides a somewhat self-defeating example. He observes
 that there are three Wikipedia editions for readers of Serbian and
 Croatian: Serbian Wikipedia, Croatian Wikipedia, and Serbo-Croatian
 Wikipedia. First he complains that the distinction between these three
 languages is arbitrary: ``Linguistically, the differences among the
 dialects of Croatian are often larger than the differences between
-standard Croatian and standard Serbian'' (2020, 183). Then in the next
-sentence, he complains that Croatian Wikipedia has fascist leanings.
-There is a subtle contradiction between these arguments, which defeats
-Vrandečić's point. He uses the term ``language'' in two senses. When he
-argues that there is very little ``linguistic'' difference between
-standard Serbian and standard Croatian, he is referring to what
+standard Croatian and standard Serbian'' (2020, p. 183). Then in the
+next sentence, he complains that Croatian Wikipedia has fascist
+leanings. There is a subtle contradiction between these arguments, which
+defeats Vrandečić's point. He uses the term ``language'' in two senses.
+When he argues that there is very little ``linguistic'' difference
+between standard Serbian and standard Croatian, he is referring to what
 linguists call language\textsubscript{1}, or language defined in terms
 of its vocabulary and syntax. When he complains that Croatian Wikipedia
 is fascist, he is referring to what linguists call
@@ -632,8 +630,7 @@ The main components of the project are the following three:
 \item
   \textbf{Renderers} -- functions that take Content and a language and
   return a text, resulting in the natural language representing the
-  meaning of the Content {[}\ldots{]} ({``Abstract
-  {Wikipedia}/{Architecture}''} 2024)
+  meaning of the Content {[}\ldots{]} (2024a)
 \end{enumerate}
 \end{quote}
 
@@ -660,11 +657,10 @@ they deny is a language at all.
 
 \begin{quote}
 \textbf{Wikifunctions is not a programming language, nor is trying to
-evangelise a particular language} ({``Wikifunctions:{What}
-{Wikifunctions} Is Not''} 2024)
+evangelise a particular language} (2024d)
 \end{quote}
 
-Umberto Eco (1995, 73) distinguishes two kinds of ideal language: the
+Umberto Eco (1995, p. 73) distinguishes two kinds of ideal language: the
 ``perfect'' and the ``universal.'' A ``perfect'' language is one that is
 ``capable of mirroring the true nature of objects.'' Such a language
 must analyse the world into its constituent parts, and provide means to
@@ -680,7 +676,7 @@ around enormous loads of objects to provide their vocabulary. A
 ``which everyone might, or ought to, speak.'' Esperanto is an example
 among the spoken languages. Among programming languages, BASIC, Logo,
 Python and Scratch are examples of languages that are intended to be
-universally accessible (Vee 2017, 43--46).
+universally accessible (Vee 2017, pp. 43--46).
 
 The proposed ``template language'' for Abstract Wikipedia is intended to
 be both perfect and universal: it will be perfectly able to express any
@@ -701,14 +697,14 @@ has \emph{objects}, \emph{functions} and \emph{if}-statements, rather
 than \emph{Objekte}, \emph{Funktionen} and \emph{wenn}-statements. Since
 languages like JavaScript use English words, they force budding
 programmers to ``learn English first'' before they learn to program,
-which is unfair ({``Wikifunctions:{Vision}''} 2023). To solve this
-problem, Wikilambda does not use words to denote parts of a computation.
-Instead, each part of the computation is assigned a \texttt{Z}-number or
-\texttt{Z}-key in the Wikifunctions database. When a person visits a
-function in the Wikifunctions interface, they are presented with a
-translation of these \texttt{Z}-numbers and \texttt{Z}-keys into their
-preferred language. If English is the preferred language in your
-browser, then when you visit function
+which is unfair (2023a). To solve this problem, Wikilambda does not use
+words to denote parts of a computation. Instead, each part of the
+computation is assigned a \texttt{Z}-number or \texttt{Z}-key in the
+Wikifunctions database. When a person visits a function in the
+Wikifunctions interface, they are presented with a translation of these
+\texttt{Z}-numbers and \texttt{Z}-keys into their preferred language. If
+English is the preferred language in your browser, then when you visit
+function
 \href{https://www.wikifunctions.org/wiki/Z802?uselang=en&oldid=132257}{\texttt{Z802}}
 you will see a function called \texttt{if}, with three parameters: the
 \texttt{condition}, \texttt{then} and \texttt{else}. If Bengali is your
@@ -760,44 +756,42 @@ speakers, using English to describe and defend their project to overcome
 English. How can they cut through this thicket of contradiction?
 
 Their solution is not to build a language at all: ``Wikifunctions is not
-a programming language'' ({``Wikifunctions:{What} {Wikifunctions} Is
-Not''} 2024). This is the sense in which Wikilambda is a ``perfect''
-language. If a perfect language mirrors the true nature of objects, then
-Wikilambda mirrors the true nature of computation. What is the true
-nature of computation? Wikilambda's answer is implicit in the name of
-the software (Wikilambda) and the name of the online database where it
-runs (Wikifunctions). Computation can be boiled down to a single kind of
-primitive element, the \emph{function} (or a \emph{lambda}, to use the
-Greek terminology of computer science pioneer Alonzo Church (1932)).
-Complex computations can be created by \emph{composing} functions
-together. Wikilambda allows users to define \emph{functions} and
-\emph{compose} them together ``and that's it'' ({``Wikifunctions:{What}
-{Wikifunctions} Is Not''} 2024). Wikilambda is not a ``language,''
-infected with English vocabulary, which comes between the user and the
-computation. It is an ``an abstract syntax tree,'' which allows the user
-to modify the structure of the computation directly (Blanton et al.
-2022).
+a programming language'' (2024d). This is the sense in which Wikilambda
+is a ``perfect'' language. If a perfect language mirrors the true nature
+of objects, then Wikilambda mirrors the true nature of computation. What
+is the true nature of computation? Wikilambda's answer is implicit in
+the name of the software (Wikilambda) and the name of the online
+database where it runs (Wikifunctions). Computation can be boiled down
+to a single kind of primitive element, the \emph{function} (or a
+\emph{lambda}, to use the Greek terminology of computer science pioneer
+Alonzo Church (1932)). Complex computations can be created by
+\emph{composing} functions together. Wikilambda allows users to define
+\emph{functions} and \emph{compose} them together ``and that's it''
+(2024d). Wikilambda is not a ``language,'' infected with English
+vocabulary, which comes between the user and the computation. It is an
+``an abstract syntax tree,'' which allows the user to modify the
+structure of the computation directly (Blanton et al. 2022).
 
 There are two key problems with Wikilambda's claim to perfection. The
 first is that it \emph{is} a language, as its creators uneasily admit in
 the ``README'' file for the ``function orchestrator'': ``the
 orchestrator kind of implements a functional programming language''
-(Massaro et al. 2024b). As a result, the team have become involved in
+(Massaro et al. 2024a). As a result, the team have become involved in
 tricky choices, about things like evaluation order, recursion depth and
 error handling. They joke that the Wikilambda language is ``something
-like LISP in JSON'' ({``Wikifunctions:{Function} Model''} 2024).
-Wikilambda is indeed very much like LISP, but in their drive for extreme
-simplicity, the Wikilambda developers have overlooked key elements that
-make LISP usable in practice, such as tail recursion, the REPL, partial
-compilation, garbage collection, specialised data structures, special
-forms, and quasiquotation (see generally Sussman and Steele Jr. 1975;
-Steele Jr. 1977; Steele Jr. and Sussman 1978; Abelson, Sussman, and
-Sussman 1996). Simply put, even just to provide access to the ``abstract
-syntax tree,'' Wikilambda will need to become a lot more powerful; to
-become usable enough to support the complex software for Abstract
-Wikipedia, it will need to become more powerful still. And through all
-this, the English-speaking Wikilambda developers will be telling their
-own ``one-voice story'' in the code they write for the orchestrator.
+like LISP in JSON'' (2024e). Wikilambda is indeed very much like LISP,
+but in their drive for extreme simplicity, the Wikilambda developers
+have overlooked key elements that make LISP usable in practice, such as
+tail recursion, the REPL, partial compilation, garbage collection,
+specialised data structures, special forms, and quasiquotation (see
+generally Sussman and Steele Jr. 1975; Steele Jr. 1977; Steele Jr. and
+Sussman 1978; Abelson et al. 1996). Simply put, even just to provide
+access to the ``abstract syntax tree,'' Wikilambda will need to become a
+lot more powerful; to become usable enough to support the complex
+software for Abstract Wikipedia, it will need to become more powerful
+still. And through all this, the English-speaking Wikilambda developers
+will be telling their own ``one-voice story'' in the code they write for
+the orchestrator.
 
 There is an alternative future, which however reveals the second problem
 with Wikilambda's claim to perfection. The Wikilambda language could
@@ -837,8 +831,8 @@ and write Ndebele would be hampered from contributing code.
 
 More deeply, the notion that budding programmers must ``learn English
 first'' is misconceived. The fact is that ``words in code simply do not
-behave the way they do in spoken or written language'' (Marino 2020,
-145--47). For example, the function \texttt{mapcar} in the Scheme
+behave the way they do in spoken or written language'' (Marino 2020, pp.
+145--147). For example, the function \texttt{mapcar} in the Scheme
 programming language might look like English, but it has nothing to do
 with either maps or cars. The \texttt{mapcar} function in fact
 \emph{applies the passed operator to the first item of each list in a
@@ -847,8 +841,8 @@ three distinct meanings, depending on whether it is used to create a
 \texttt{statement}, an \texttt{expression} or a \texttt{guard}. Needless
 to say, the English word ``if'' does not divide into these three
 distinct meanings. The fact is that programming languages are themselves
-human languages, with their own culture and idioms (Blackwell 2017, 37).
-If a programming language contains an English word, then it is a
+human languages, with their own culture and idioms (Blackwell 2017, p.
+37). If a programming language contains an English word, then it is a
 loan-word, which becomes part of the programming language, loses some or
 all of its English meaning, and may well be a false friend to beginning
 programmers.
@@ -878,29 +872,28 @@ Through the production of new forms of abstraction, the hacker class
 produces the possibility of the future. (Wark 2004, sec. 077)
 \end{quote}
 
-A programming language, argue Abelson, Sussman, and Sussman (1996, 607),
-is ``a coherent family of abstractions erected on the machine
-language.'' The language itself provides a family of abstractions to the
-programmer: using JavaScript, I can create an \texttt{object} or
-interact with a \texttt{document} without worrying about the particular
-sequence of CPU instructions that makes an \texttt{object} or a
-\texttt{document} behave as it does. The language does not merely
-\emph{provide} abstractions, however---it is \emph{made} of
-abstractions. Someone has to write the code that defines what a
-JavaScript \emph{object} or \emph{document} is. The code that implements
-a programming language will contain many abstractions, such as
-\emph{expression}, \emph{symbol} or \emph{token}, which are used to
-describe the language being implemented. Perplexingly, many programming
-languages are implemented \emph{in themselves}. The C compiler, for
-example, is itself written in C. C provides a coherent family of
-abstractions, which is then used to describe and implement C, which
-provides a coherent family of abstractions, which is then used to
+A programming language, argue Abelson et al. (1996, p. 607), is ``a
+coherent family of abstractions erected on the machine language.'' The
+language itself provides a family of abstractions to the programmer:
+using JavaScript, I can create an \texttt{object} or interact with a
+\texttt{document} without worrying about the particular sequence of CPU
+instructions that makes an \texttt{object} or a \texttt{document} behave
+as it does. The language does not merely \emph{provide} abstractions,
+however---it is \emph{made} of abstractions. Someone has to write the
+code that defines what a JavaScript \emph{object} or \emph{document} is.
+The code that implements a programming language will contain many
+abstractions, such as \emph{expression}, \emph{symbol} or \emph{token},
+which are used to describe the language being implemented. Perplexingly,
+many programming languages are implemented \emph{in themselves}. The C
+compiler, for example, is itself written in C. C provides a coherent
+family of abstractions, which is then used to describe and implement C,
+which provides a coherent family of abstractions, which is then used to
 describe and implement C, which \ldots{}
 
 Wikilambda is not as dizzying as C. It is a new language, which is not
 yet powerful enough to implement itself. It is implemented in
 JavaScript. In this section, I conduct a close analysis of the
-``function orchestrator'' (Massaro et al. 2024b), the piece of
+``function orchestrator'' (Massaro et al. 2024a), the piece of
 JavaScript code that implements the Wikilambda language. What
 abstractions have the Wikilambda developers invented to describe their
 new language? What can these abstractions tell us about the nature and
@@ -921,15 +914,15 @@ all too much to think about, so I invent fictitious entities such as
 \emph{objects} and \emph{documents} to work with, allowing me to focus
 on the bigger picture. This idea has had a powerful effect in humanistic
 critiques of technology. Media theorists such as Friedrich Kittler
-(2014, 223), Alexander Galloway (2012, 64) and Denis Tenen (2017, 32)
-have argued that code is illusory. In reality, software is made up of
-``varying electric potentials'' or ``electromagnetic charges'' in the
-computer hardware. The code supervenes on these electrical realities: at
-best, code ``signifies'' or ``substitutes for'' the electrons in the
-CPU; at worst, it ``obfuscates'' them. If this is so, then there is
-little reason to interpret the abstractions in source code. Why should
-we concern ourselves with the code, rather than with the material
-reality it signifies, substitutes or obfuscates?
+(2014, p. 223), Alexander Galloway (2012, p. 64) and Denis Tenen (2017,
+p. 32) have argued that code is illusory. In reality, software is made
+up of ``varying electric potentials'' or ``electromagnetic charges'' in
+the computer hardware. The code supervenes on these electrical
+realities: at best, code ``signifies'' or ``substitutes for'' the
+electrons in the CPU; at worst, it ``obfuscates'' them. If this is so,
+then there is little reason to interpret the abstractions in source
+code. Why should we concern ourselves with the code, rather than with
+the material reality it signifies, substitutes or obfuscates?
 
 I do not have space here to refute this view. Instead, I simply wish to
 establish the plausibility of an alternative. Such an alternative is a
@@ -1039,7 +1032,7 @@ Although the main focus of this section is the ``function
 orchestrator,'' I begin with a brief quotation from the ``function
 evaluator,'' another piece of software whose task is to locate and
 execute ``implementations'' of functions in the Wikifunctions database
-(Massaro et al. 2024a). Listing~\ref{lst-immaHeadOut} vividly
+(Massaro et al. 2024b). Listing~\ref{lst-immaHeadOut} vividly
 demonstrates the vivid, hacky, intermediate state of the Wikilambda
 source code. The code is so metaphorical that its symbols are only
 barely ``abstractions.'' This code snippet shuts down ``executors'' on
@@ -1068,7 +1061,7 @@ either \texttt{null} or \texttt{killed}.
 
 \caption{\label{lst-immaHeadOut}The method that `kills' an unneeded
 executor on the `hitList' after a call to `drainTheSwamp'. Source:
-src/Executor.js, in Massaro et al. (2024a)}
+src/Executor.js, in Massaro et al. (2024b)}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1232,7 +1225,7 @@ does it need to be contained?
 
 \caption{\label{lst-zwrapper}The method that wraps a \texttt{ZObject} in
 a \texttt{ZWrapper} as required. Source: src/ZWrapper.js, in Massaro et
-al. (2024b)}
+al. (2024a)}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1261,7 +1254,7 @@ developers charmingly admit that they are not very experienced in
 language design: ``Dear reader, if you have solved similar
 problems---e.g., if you implemented programming languages before---and
 know the better way, have at it :)'' (``README.md,'' Massaro et al.
-2024b). But I would suggest the code reveals a deeper pattern than mere
+2024a). But I would suggest the code reveals a deeper pattern than mere
 inexperience. Repeatedly in the code, the Wikilambda developers eschew
 well-known abstractions in programming language design. In
 Listing~\ref{lst-zwrapper}, for example, \texttt{createInternal} is
@@ -1306,7 +1299,7 @@ contradicts their aim to create a perfect language.
 
 \begin{quote}
 But it is perhaps nothing more than our `democratic' illusion to imagine
-that perfection must imply universality. (Eco 1995, 100)
+that perfection must imply universality. (Eco 1995, p. 100)
 \end{quote}
 
 The Abstract Wikipedia/Wikifunctions project has a profoundly moral aim:
@@ -1377,322 +1370,311 @@ down to their primitive elements. From these primitive elements the
 whole world of facts, and the whole universe of computations, will be
 recombined without the need for words. But words ``bite and scratch,''
 writes the poet, and ``You never learn / the chemical process of
-separating them'' (Frame 2008, 117). It is the grand ambition of Denny
-Vrandečić and his hackers to learn this chemical process, which has
-evaded so many linguistic alchemists before them.
+separating them'' (Frame 2008, p. 117). It is the grand ambition of
+Denny Vrandečić and his hackers to learn this chemical process, which
+has evaded so many linguistic alchemists before them.
 
 \section*{References}\label{references}
 \addcontentsline{toc}{section}{References}
 
 \phantomsection\label{refs}
-\begin{CSLReferences}{1}{0}
-\bibitem[\citeproctext]{ref-abelson_structure_1996}
-Abelson, Harold, Gerald Jay Sussman, and Julie Sussman. 1996.
-\emph{Structure and Interpretation of Computer Programs}. Second.
-Cambridge: MIT Press.
-
-\bibitem[\citeproctext]{ref-noauthor_abstract_2024-2}
-{``Abstract {Wikipedia}/{Architecture}.''} 2024. \emph{Wikimedia
-Meta-Wiki}.
-\url{https://meta.wikimedia.org/w/index.php?title=Abstract_Wikipedia/Architecture&oldid=26987678}.
-
-\bibitem[\citeproctext]{ref-noauthor_abstract_2024-3}
-{``Abstract {Wikipedia}/{Components}.''} 2024. \emph{Wikipedia
-Meta-Wiki}.
-\url{https://meta.wikimedia.org/w/index.php?title=Abstract_Wikipedia/Components&oldid=26987679}.
-
-\bibitem[\citeproctext]{ref-noauthor_annual_2023}
-{``Annual {Report} 2022-23.''} 2023. San Francisco: Wikimedia Endowment.
-\url{https://wikimediaendowment.org/wp-content/uploads/2024/04/Endowment-Annual-Report-22-23.pdf}.
-
-\bibitem[\citeproctext]{ref-avieson_two_2022}
-Avieson, Bunty. 2022. {``Two {Wikipedias} in {Bhutan}: Problems and
-Solutions for Knowledge Equity in the Digital Age.''} \emph{Asian
-Journal of Communication} 32 (5): 399--416.
-\url{https://doi.org/10.1080/01292986.2021.1937248}.
-
-\bibitem[\citeproctext]{ref-bayer_wikimedia_2023}
-Bayer, Tilman. 2023. {``Wikimedia {Foundation}'s {Abstract} {Wikipedia}
-Project 'at Substantial Risk of Failure'.''} \emph{The Signpost},
-January.
-\url{https://en.wikipedia.org/wiki/Wikipedia:Wikipedia_Signpost/2023-01-01/Technology_report}.
-
-\bibitem[\citeproctext]{ref-bergson_essai_1908}
-Bergson, Henri. 1908. \emph{Essai Sur Les Données Immédiates de La
-Conscience}. 6th ed. Paris: Alcan.
-
-\bibitem[\citeproctext]{ref-blackwell_6000_2017}
-Blackwell, Alan F. 2017. {``6,000 {Years} of {Programming} {Language}
-{Design}: {A} {Meditation} on {Eco}'s {Perfect} {Language}.''} In
-\emph{Conversations {Around} {Semiotic} {Engineering}}, edited by Simone
-Diniz Junqueira Barbosa and Karin Breitman, 31--39. Cham: Springer
-International Publishing.
-\url{https://doi.org/10.1007/978-3-319-56291-9_5}.
-
-\bibitem[\citeproctext]{ref-blackwell_moral_2024}
----------. 2024. \emph{Moral {Codes}: {Designing} {Alternatives} to
-{AI}}. The MIT Press.
-\url{https://doi.org/10.7551/mitpress/14872.001.0001}.
-
-\bibitem[\citeproctext]{ref-blanton_abstract_2022}
-Blanton, Cai, Cory Massaro, David Martin, Denny Vrandečić, Genoveva
-Galarza Heredero, James Forrester, Julia Kieserman, and Stef Dunlap.
-2022. {``Abstract {Wikipedia}/{Google}.org {Fellows} Evaluation -
-{Answer}.''} \emph{Wikimedia Meta-Wiki}.
-\url{https://meta.wikimedia.org/w/index.php?title=Abstract_Wikipedia/Google.org_Fellows_evaluation_-_Answer&oldid=24262326}.
-
-\bibitem[\citeproctext]{ref-carrillo_scientific_2023}
-Carrillo, Natalia, and Sergio Martínez. 2023. {``Scientific {Inquiry}:
-{From} {Metaphors} to {Abstraction}.''} \emph{Perspectives on Science}
-31 (2): 233--61. \url{https://doi.org/10.1162/posc_a_00571}.
-
-\bibitem[\citeproctext]{ref-church_set_1932}
-Church, Alonzo. 1932. {``A {Set} of {Postulates} for the {Foundation} of
-{Logic}.''} \emph{Annals of Mathematics} 33 (2): 346--66.
-\url{https://doi.org/10.2307/1968337}.
-
-\bibitem[\citeproctext]{ref-colburn_abstraction_2007}
-Colburn, Timothy, and Gary Shute. 2007. {``Abstraction in {Computer}
-{Science}.''} \emph{Minds and Machines: Journal for Artificial
-Intelligence, Philosophy and Cognitive Science} 17 (2): 169--84.
-\url{https://doi.org/10.1007/s11023-007-9061-7}.
-
-\bibitem[\citeproctext]{ref-crawford_what_2016}
-Crawford, Kate, and Tarleton Gillespie. 2016. {``What Is a Flag for?
-{Social} Media Reporting Tools and the Vocabulary of Complaint.''}
-\emph{New Media \& Society} 18 (3): 410--28.
-\url{https://doi.org/10.1177/1461444814543163}.
-
-\bibitem[\citeproctext]{ref-deleuze_bergsonisme_1998}
-Deleuze, Gilles. 1998. \emph{Le Bergsonisme}. 2. ed. Paris: Presses
-Univ. de France.
-
-\bibitem[\citeproctext]{ref-deleuze_difference_2014}
----------. 2014. \emph{Difference and {Repetition}}. Translated by Paul
-Patton. 2nd edition. London; New York: Bloomsbury Academic.
-
-\bibitem[\citeproctext]{ref-dillon_what_2023}
-Dillon, Sarah, and Jennifer Schaffer-Goddard. 2023. {``What {AI}
-Researchers Read: The Role of Literature in Artificial Intelligence
-Research.''} \emph{Interdisciplinary Science Reviews} 48 (1): 15--42.
-\url{https://doi.org/10.1080/03080188.2022.2079214}.
-
-\bibitem[\citeproctext]{ref-dubrow_cosmopolitan_2018}
-Dubrow, Jennifer. 2018. \emph{Cosmopolitan {Dreams}: {The} {Making} of
-{Modern} {Urdu} {Literary} {Culture} in {Colonial} {South} {Asia}}.
-Honolulu: University of Hawaii Press.
-
-\bibitem[\citeproctext]{ref-eco_search_1995}
-Eco, Umberto. 1995. \emph{The Search for the Perfect Language}. Making
-of {Europe}. Oxford, UK ; Cambridge, Mass., USA: Blackwell.
-
-\bibitem[\citeproctext]{ref-noauthor_extensionwikilambda_2024}
-{``Extension:{WikiLambda}.''} 2024. \emph{MediaWiki}.
-\url{https://www.mediawiki.org/w/index.php?title=Extension:WikiLambda&oldid=6467929}.
-
-\bibitem[\citeproctext]{ref-ford_writing_2022}
-Ford, Heather. 2022. \emph{Writing the Revolution: {Wikipedia} and the
-Survival of Facts in the Digital Age}. Cambridge, Massachusetts: The MIT
-Press.
-
-\bibitem[\citeproctext]{ref-ford_wikidata_2023}
-Ford, Heather, and Andrew Iliadis. 2023. {``Wikidata as {Semantic}
-{Infrastructure}: {Knowledge} {Representation}, {Data} {Labor}, and
-{Truth} in a {More}-{Than}-{Technical} {Project}.''} \emph{Social Media
-+ Society} 9 (3): 20563051231195552.
-\url{https://doi.org/10.1177/20563051231195552}.
-
-\bibitem[\citeproctext]{ref-ford_how_2024}
-Ford, Heather, Francesca Sidoti, Michael Falk, Tamson Pietsch, and Tom
-Byers. 2024. {``How {Australian} Places Are Represented on
-{Wikipedia}.''} 2. University of Technology, Sydney.
-\url{https://doi.org/10.5281/zenodo.13910503}.
-
-\bibitem[\citeproctext]{ref-foundation_first_2023}
-Foundation, Wikimedia. 2023. {``First Grants Announced from the
-{Wikimedia} {Endowment} to Support Technical Innovation Across
-{Wikipedia} and {Wikimedia} Projects.''} \emph{Wikimedia Foundation}.
-\url{https://wikimediafoundation.org/news/2023/04/13/first-grants-announced-from-the-wikimedia-endowment/}.
-
-\bibitem[\citeproctext]{ref-frame_storms_2008}
-Frame, Janet. 2008. \emph{Storms Will Tell: Selected Poems}. Tarset,
-Northumberland: Bloodaxe Books.
-
-\bibitem[\citeproctext]{ref-galloway_interface_2012}
-Galloway, Alexander R. 2012. \emph{The Interface Effect}. Cambridge, UK
-; Malden, MA: Polity.
-
-\bibitem[\citeproctext]{ref-gnatiuk_uneven_2021}
-Gnatiuk, Oleksiy, and Victoria Glybovets. 2021. {``Uneven Geographies in
-the Various Language Editions of {Wikipedia}: The Case of {Ukrainian}
-Cities.''} \emph{Hungarian Geographical Bulletin} 70 (3): 249--66.
-\url{https://doi.org/10.15201/hungeobull.70.3.4}.
-
-\bibitem[\citeproctext]{ref-hakala_negotiating_2016}
-Hakala, Walter. 2016. \emph{Negotiating {Languages}: {Urdu}, {Hindi},
-and the {Definition} of {Modern} {South} {Asia}}. New York, UNITED
-STATES: Columbia University Press.
-\url{http://ebookcentral.proquest.com/lib/usyd/detail.action?docID=4588404}.
-
-\bibitem[\citeproctext]{ref-hoffmann_restrictions_2019}
-Hoffmann, Dorothea. 2019. {``Restrictions on the {Usage} of {Spatial}
-{Frames} of {Reference} in {Location} and {Orientation} {Descriptions}:
-{Evidence} from {Three} {Australian} {Languages}.''} \emph{Australian
-Journal of Linguistics} 39 (1): 1--31.
-\url{https://doi.org/10.1080/07268602.2019.1542927}.
-
-\bibitem[\citeproctext]{ref-hua_how_2023}
-Hua, Minh, and Rita Raley. 2023. {``How to {Do} {Things} with {Deep}
-{Learning} {Code}.''} \emph{Digital Humanities Quarterly} 17 (2).
-\url{https://www.digitalhumanities.org/dhq/vol/17/2/000684/000684.html}.
-
-\bibitem[\citeproctext]{ref-jamrozik_metaphor_2016}
-Jamrozik, Anja, Marguerite McQuire, Eileen R. Cardillo, and Anjan
-Chatterjee. 2016. {``Metaphor: {Bridging} Embodiment to Abstraction.''}
-\emph{Psychonomic Bulletin \& Review} 23 (4): 1080--89.
-\url{https://doi.org/10.3758/s13423-015-0861-0}.
-
-\bibitem[\citeproctext]{ref-kittler_there_2014}
-Kittler, Friedrich A. 2014. {``There Is No Software.''} In \emph{The
-{Truth} of the {Technological} {World}: {Essays} on the {Genealogy} of
-{Presence}}, translated by Erik Butler, 219--29. New York, UNITED
-STATES: Stanford University Press.
-\url{http://ebookcentral.proquest.com/lib/unimelb/detail.action?docID=1774246}.
-
-\bibitem[\citeproctext]{ref-lakoff_contemporary_1993}
-Lakoff, George. 1993. {``The Contemporary Theory of Metaphor.''} In
-\emph{Metaphor and {Thought}}, edited by Andrew Ortony, 2nd ed.,
-202--51. Cambridge University Press.
-\url{https://doi.org/10.1017/CBO9781139173865.013}.
-
-\bibitem[\citeproctext]{ref-lakoff_metaphors_1980}
-Lakoff, George, and Mark Johnson. 1980. \emph{Metaphors We {Live} {By}}.
-Chicago; London: The University of Chicago Press.
-
-\bibitem[\citeproctext]{ref-langer_philosophy_1957}
-Langer, Susanne K. 1957. \emph{Philosophy in a New Key; a Study in the
-Symbolism of Reason, Rite, and Art.} {[}3d ed.{]}. Cambridge: Harvard
-University Press.
-
-\bibitem[\citeproctext]{ref-livneh_abstract_2022}
-Livneh, Ori, Ariel Gitman, Ari Assaf, and Mary Yang. 2022. {``Abstract
-{Wikipedia}/{Google}.org {Fellows} Evaluation.''} \emph{Wikipedia
-Meta-Wiki}.
-\url{https://meta.wikimedia.org/w/index.php?title=Abstract_Wikipedia/Google.org_Fellows_evaluation&oldid=24268563}.
-
-\bibitem[\citeproctext]{ref-lovelace_sketch_2021}
-Lovelace, Ada, and L. F. Menabrea. 2021. {``Sketch of the {Analytical}
-{Engine} (1843).''} In \emph{Ideas {That} {Created} the {Future}},
-edited by Harry Lewis, 9--26. The MIT Press.
-\url{https://doi.org/10.7551/mitpress/12274.003.0005}.
-
-\bibitem[\citeproctext]{ref-marino_critical_2020}
-Marino, Mark C. 2020. \emph{Critical {Code} {Studies}}. The MIT Press.
-\url{https://doi.org/10.7551/mitpress/12122.001.0001}.
-
-\bibitem[\citeproctext]{ref-massaro_function-evaluator_2024}
-Massaro, Cory, Denny Vrandečić, Daphne Smit, David Martin, Ecarg,
-Genoveva Galarza, Jeena Huneidi, James Forrester, Stef Dunlap, and
-Vaughn Walters. 2024a. {``Function-Evaluator.''}
-\url{https://gitlab.wikimedia.org/repos/abstract-wiki/wikifunctions/function-evaluator/-/tree/dbfededdc4d83ff8175b2bab42b00327e1a4a6aa}.
-
-\bibitem[\citeproctext]{ref-massaro_function-orchestrator_2024}
----------. 2024b. {``Function-Orchestrator.''}
-\url{https://gitlab.wikimedia.org/repos/abstract-wiki/wikifunctions/function-orchestrator/-/tree/86514fdaa663a75c9ebbda232c35e3248adbec5d}.
-
-\bibitem[\citeproctext]{ref-ragg_pragmatic_2006}
-Ragg, Edward. 2006. {``Pragmatic {Abstraction} Vs. {Metaphor}:
-{Stevens}' "{The} {Pure} {Good} of {Theory}" and "{Macbeth}".''}
-\emph{The Wallace Stevens Journal} 30 (1): 5--29.
-\url{https://www.jstor.org/stable/44884979}.
-
-\bibitem[\citeproctext]{ref-reddy_conduit_1993}
-Reddy, Michael J. 1993. {``The Conduit Metaphor: {A} Case of Frame
-Conflict in Our Language about Language.''} In \emph{Metaphor and
-{Thought}}, edited by Andrew Ortony, 2nd ed., 164--201. Cambridge
-University Press. \url{https://doi.org/10.1017/CBO9781139173865.012}.
-
-\bibitem[\citeproctext]{ref-rountree_nonsense_2023}
-Rountree, Barry, and William Condee. 2023. {``Nonsense {Code}: {A}
-{Nonmaterial} {Performance}.''} \emph{Digital Humanities Quarterly} 17
-(2).
-\url{https://www.digitalhumanities.org/dhq/vol/17/2/000702/000702.html}.
-
-\bibitem[\citeproctext]{ref-steele_jr_debunking_1977}
-Steele Jr., Guy Lewis. 1977. {``Debunking the "Expensive Procedure Call"
-Myth; or, Procedure Call Implementations Considered Harmful; or, Lambda:
-The Ultimate Goto.''} 443. Cambridge, Mass: Massachusetts Institute of
-Technology. \url{https://apps.dtic.mil/sti/pdfs/ADA062381.pdf}.
-
-\bibitem[\citeproctext]{ref-steele_jr_art_1978}
-Steele Jr., Guy Lewis, and Gerald Jay Sussman. 1978. {``The {Art} of the
-{Interpreter}; or, {The} {Modularity} {Complex} ({Parts} {Zero}, {One},
-and {Two}).''} 453. Cambridge, Mass: Massachusetts Institute of
-Technology.
-\url{https://dspace.mit.edu/bitstream/handle/1721.1/6094/AIM-453.pdf}.
-
-\bibitem[\citeproctext]{ref-sussman_scheme_1975}
-Sussman, Gerald Jay, and Guy Lewis Steele Jr. 1975. {``Scheme: {An}
-Interpreter for Extended Lambda Calculus.''} 349. Cambridge, Mass:
-Massachusetts Institute of Technology.
-\url{https://dspace.mit.edu/bitstream/handle/1721.1/5794/AIM-349.pdf}.
-
-\bibitem[\citeproctext]{ref-swift_gullivers_2005}
-Swift, Jonathan. 2005. \emph{Gulliver's {Travels}}. Edited by Claude
-Rawson. Oxford: OUP.
-
-\bibitem[\citeproctext]{ref-tenen_plain_2017}
-Tenen, Dennis. 2017. \emph{Plain Text: The Poetics of Computation}.
-Stanford, California: Stanford University Press.
-
-\bibitem[\citeproctext]{ref-wa_thiongo_decolonising_1986}
-Thiong'o, Ngugi wa. 1986. \emph{Decolonising the {Mind}: {The}
-{Politics} of {Language} in {African} {Literature}}. Woodbridge: Boydell
-\& Brewer, Limited.
-
-\bibitem[\citeproctext]{ref-tkacz_wikipedia_2015}
-Tkacz, Nathaniel. 2015. \emph{Wikipedia and the Politics of Openness}.
-Chicago ; London: University of Chicago Press.
-
-\bibitem[\citeproctext]{ref-vee_coding_2017}
-Vee, Annette. 2017. \emph{Coding {Literacy}: {How} {Computer}
-{Programming} {Is} {Changing} {Writing}}. The MIT Press.
-\url{https://doi.org/10.7551/mitpress/10655.001.0001}.
-
-\bibitem[\citeproctext]{ref-vrandecic_capturing_2018}
-Vrandečić, Denny. 2018. {``Capturing Meaning: {Toward} an Abstract
-{Wikipedia}.''} In \emph{International {Semantic} {Web} {Conference}
-2018 - {Outrageous} {Ideas} {Track}}. Monterey, CA.
-\url{http://ceur-ws.org/Vol-2180/}.
-
-\bibitem[\citeproctext]{ref-vrandecic_collaborating_2020}
----------. 2020. {``Collaborating on the {Sum} of {All} {Knowledge}
-{Across} {Languages}.''} In \emph{Wikipedia@20: {Stories} of an
-{Incomplete} {Revolution}}, edited by Joseph Reagle and Jackie Koerner,
-175--88. Cambridge, Mass: MIT Press.
-\url{https://doi.org/10.7551/mitpress/12366.003.0016}.
-
-\bibitem[\citeproctext]{ref-vrandecic_building_2021}
----------. 2021. {``Building a Multilingual {Wikipedia}.''}
-\emph{Communications of the ACM} 64 (4): 38--41.
-\url{https://doi.org/10.1145/3425778}.
-
-\bibitem[\citeproctext]{ref-wark_hacker_2004}
-Wark, McKenzie. 2004. \emph{A {Hacker} {Manifesto}}. Cambridge, Mass:
-Harvard University Press. \url{https://doi.org/10.4159/9780674044845}.
-
+\begin{CSLReferences}{1}{1}
 \bibitem[\citeproctext]{ref-noauthor_wikifunctionsfunction_2024}
-{``Wikifunctions:{Function} Model.''} 2024. \emph{Wikifunctions}.
-\url{https://www.wikifunctions.org/w/index.php?title=Wikifunctions:Function_model&oldid=107530}.
+(2024e)
+\href{https://www.wikifunctions.org/w/index.php?title=Wikifunctions:Function_model&oldid=107530}{Wikifunctions:{Function}
+model}. Wikifunctions
 
 \bibitem[\citeproctext]{ref-noauthor_wikifunctionsvision_2023}
-{``Wikifunctions:{Vision}.''} 2023. \emph{Wikifunctions}.
-\url{https://www.wikifunctions.org/w/index.php?title=Wikifunctions:Vision&oldid=50281}.
+(2023a)
+\href{https://www.wikifunctions.org/w/index.php?title=Wikifunctions:Vision&oldid=50281}{Wikifunctions:{Vision}}.
+Wikifunctions
 
 \bibitem[\citeproctext]{ref-noauthor_wikifunctionswhat_2024}
-{``Wikifunctions:{What} {Wikifunctions} Is Not.''} 2024.
-\emph{Wikifunctions}.
-\url{https://www.wikifunctions.org/w/index.php?title=Wikifunctions:What_Wikifunctions_is_not&oldid=71136}.
+(2024d)
+\href{https://www.wikifunctions.org/w/index.php?title=Wikifunctions:What_Wikifunctions_is_not&oldid=71136}{Wikifunctions:{What}
+{Wikifunctions} is not}. Wikifunctions
+
+\bibitem[\citeproctext]{ref-noauthor_annual_2023}
+(2023b)
+\href{https://wikimediaendowment.org/wp-content/uploads/2024/04/Endowment-Annual-Report-22-23.pdf}{Annual
+{Report} 2022-23}. Wikimedia Endowment, San Francisco
+
+\bibitem[\citeproctext]{ref-noauthor_abstract_2024-2}
+(2024a)
+\href{https://meta.wikimedia.org/w/index.php?title=Abstract_Wikipedia/Architecture&oldid=26987678}{Abstract
+{Wikipedia}/{Architecture}}. Wikimedia Meta-Wiki
+
+\bibitem[\citeproctext]{ref-noauthor_abstract_2024-3}
+(2024b)
+\href{https://meta.wikimedia.org/w/index.php?title=Abstract_Wikipedia/Components&oldid=26987679}{Abstract
+{Wikipedia}/{Components}}. Wikipedia Meta-Wiki
+
+\bibitem[\citeproctext]{ref-noauthor_extensionwikilambda_2024}
+(2024c)
+\href{https://www.mediawiki.org/w/index.php?title=Extension:WikiLambda&oldid=6467929}{Extension:{WikiLambda}}.
+MediaWiki
+
+\bibitem[\citeproctext]{ref-abelson_structure_1996}
+Abelson H, Sussman GJ, Sussman J (1996) Structure and interpretation of
+computer programs, Second. MIT Press, Cambridge
+
+\bibitem[\citeproctext]{ref-avieson_two_2022}
+Avieson B (2022) Two {Wikipedias} in {Bhutan}: Problems and solutions
+for knowledge equity in the digital age. Asian Journal of Communication
+32:399--416. \url{https://doi.org/10.1080/01292986.2021.1937248}
+
+\bibitem[\citeproctext]{ref-bayer_wikimedia_2023}
+Bayer T (2023)
+\href{https://en.wikipedia.org/wiki/Wikipedia:Wikipedia_Signpost/2023-01-01/Technology_report}{Wikimedia
+{Foundation}'s {Abstract} {Wikipedia} project 'at substantial risk of
+failure'}. The Signpost
+
+\bibitem[\citeproctext]{ref-bergson_essai_1908}
+Bergson H (1908) Essai sur les données immédiates de la conscience, 6th
+edn. Alcan, Paris
+
+\bibitem[\citeproctext]{ref-blackwell_6000_2017}
+Blackwell AF (2017)
+\href{https://doi.org/10.1007/978-3-319-56291-9_5}{6,000 {Years} of
+{Programming} {Language} {Design}: {A} {Meditation} on {Eco}'s {Perfect}
+{Language}}. In: Diniz Junqueira Barbosa S, Breitman K (eds)
+Conversations {Around} {Semiotic} {Engineering}. Springer International
+Publishing, Cham, pp 31--39
+
+\bibitem[\citeproctext]{ref-blackwell_moral_2024}
+Blackwell AF (2024)
+\href{https://doi.org/10.7551/mitpress/14872.001.0001}{Moral {Codes}:
+{Designing} {Alternatives} to {AI}}. The MIT Press
+
+\bibitem[\citeproctext]{ref-blanton_abstract_2022}
+Blanton C, Massaro C, Martin D, et al (2022)
+\href{https://meta.wikimedia.org/w/index.php?title=Abstract_Wikipedia/Google.org_Fellows_evaluation_-_Answer&oldid=24262326}{Abstract
+{Wikipedia}/{Google}.org {Fellows} evaluation - {Answer}}. Wikimedia
+Meta-Wiki
+
+\bibitem[\citeproctext]{ref-carrillo_scientific_2023}
+Carrillo N, Martínez S (2023) Scientific {Inquiry}: {From} {Metaphors}
+to {Abstraction}. Perspectives on Science 31:233--261.
+\url{https://doi.org/10.1162/posc_a_00571}
+
+\bibitem[\citeproctext]{ref-church_set_1932}
+Church A (1932) A {Set} of {Postulates} for the {Foundation} of {Logic}.
+Annals of Mathematics 33:346--366. \url{https://doi.org/10.2307/1968337}
+
+\bibitem[\citeproctext]{ref-colburn_abstraction_2007}
+Colburn T, Shute G (2007) Abstraction in {Computer} {Science}. Minds and
+Machines: Journal for Artificial Intelligence, Philosophy and Cognitive
+Science 17:169--184. \url{https://doi.org/10.1007/s11023-007-9061-7}
+
+\bibitem[\citeproctext]{ref-crawford_what_2016}
+Crawford K, Gillespie T (2016) What is a flag for? {Social} media
+reporting tools and the vocabulary of complaint. New Media \& Society
+18:410--428. \url{https://doi.org/10.1177/1461444814543163}
+
+\bibitem[\citeproctext]{ref-deleuze_difference_2014}
+Deleuze G (2014) Difference and {Repetition}, 2nd edition. Bloomsbury
+Academic, London; New York
+
+\bibitem[\citeproctext]{ref-deleuze_bergsonisme_1998}
+Deleuze G (1998) Le bergsonisme, 2. ed. Presses Univ. de France, Paris
+
+\bibitem[\citeproctext]{ref-dillon_what_2023}
+Dillon S, Schaffer-Goddard J (2023) What {AI} researchers read: The role
+of literature in artificial intelligence research. Interdisciplinary
+Science Reviews 48:15--42.
+\url{https://doi.org/10.1080/03080188.2022.2079214}
+
+\bibitem[\citeproctext]{ref-dubrow_cosmopolitan_2018}
+Dubrow J (2018) Cosmopolitan {Dreams}: {The} {Making} of {Modern} {Urdu}
+{Literary} {Culture} in {Colonial} {South} {Asia}. University of Hawaii
+Press, Honolulu
+
+\bibitem[\citeproctext]{ref-eco_search_1995}
+Eco U (1995) The search for the perfect language. Blackwell, Oxford, UK
+; Cambridge, Mass., USA
+
+\bibitem[\citeproctext]{ref-ford_writing_2022}
+Ford H (2022) Writing the revolution: {Wikipedia} and the survival of
+facts in the digital age. The MIT Press, Cambridge, Massachusetts
+
+\bibitem[\citeproctext]{ref-ford_wikidata_2023}
+Ford H, Iliadis A (2023) Wikidata as {Semantic} {Infrastructure}:
+{Knowledge} {Representation}, {Data} {Labor}, and {Truth} in a
+{More}-{Than}-{Technical} {Project}. Social Media + Society
+9:20563051231195552. \url{https://doi.org/10.1177/20563051231195552}
+
+\bibitem[\citeproctext]{ref-ford_how_2024}
+Ford H, Sidoti F, Falk M, et al (2024)
+\href{https://doi.org/10.5281/zenodo.13910503}{How {Australian} places
+are represented on {Wikipedia}}. University of Technology, Sydney
+
+\bibitem[\citeproctext]{ref-foundation_first_2023}
+Foundation W (2023)
+\href{https://wikimediafoundation.org/news/2023/04/13/first-grants-announced-from-the-wikimedia-endowment/}{First
+grants announced from the {Wikimedia} {Endowment} to support technical
+innovation across {Wikipedia} and {Wikimedia} projects}. Wikimedia
+Foundation
+
+\bibitem[\citeproctext]{ref-frame_storms_2008}
+Frame J (2008) Storms will tell: Selected poems. Bloodaxe Books, Tarset,
+Northumberland
+
+\bibitem[\citeproctext]{ref-galloway_interface_2012}
+Galloway AR (2012) The interface effect. Polity, Cambridge, UK ; Malden,
+MA
+
+\bibitem[\citeproctext]{ref-gnatiuk_uneven_2021}
+Gnatiuk O, Glybovets V (2021) Uneven geographies in the various language
+editions of {Wikipedia}: The case of {Ukrainian} cities. Hungarian
+Geographical Bulletin 70:249--266.
+\url{https://doi.org/10.15201/hungeobull.70.3.4}
+
+\bibitem[\citeproctext]{ref-hakala_negotiating_2016}
+Hakala W (2016)
+\href{http://ebookcentral.proquest.com/lib/usyd/detail.action?docID=4588404}{Negotiating
+{Languages}: {Urdu}, {Hindi}, and the {Definition} of {Modern} {South}
+{Asia}}. Columbia University Press, New York, UNITED STATES
+
+\bibitem[\citeproctext]{ref-hoffmann_restrictions_2019}
+Hoffmann D (2019) Restrictions on the {Usage} of {Spatial} {Frames} of
+{Reference} in {Location} and {Orientation} {Descriptions}: {Evidence}
+from {Three} {Australian} {Languages}. Australian Journal of Linguistics
+39:1--31. \url{https://doi.org/10.1080/07268602.2019.1542927}
+
+\bibitem[\citeproctext]{ref-hua_how_2023}
+Hua M, Raley R (2023)
+\href{https://www.digitalhumanities.org/dhq/vol/17/2/000684/000684.html}{How
+to {Do} {Things} with {Deep} {Learning} {Code}}. Digital Humanities
+Quarterly 17:
+
+\bibitem[\citeproctext]{ref-jamrozik_metaphor_2016}
+Jamrozik A, McQuire M, Cardillo ER, Chatterjee A (2016) Metaphor:
+{Bridging} embodiment to abstraction. Psychonomic Bulletin \& Review
+23:1080--1089. \url{https://doi.org/10.3758/s13423-015-0861-0}
+
+\bibitem[\citeproctext]{ref-kittler_there_2014}
+Kittler FA (2014)
+\href{http://ebookcentral.proquest.com/lib/unimelb/detail.action?docID=1774246}{There
+is no software}. In: The {Truth} of the {Technological} {World}:
+{Essays} on the {Genealogy} of {Presence}. Stanford University Press,
+New York, UNITED STATES, pp 219--229
+
+\bibitem[\citeproctext]{ref-lakoff_contemporary_1993}
+Lakoff G (1993) \href{https://doi.org/10.1017/CBO9781139173865.013}{The
+contemporary theory of metaphor}. In: Ortony A (ed) Metaphor and
+{Thought}, 2nd edn. Cambridge University Press, pp 202--251
+
+\bibitem[\citeproctext]{ref-lakoff_metaphors_1980}
+Lakoff G, Johnson M (1980) Metaphors we {Live} {By}. The University of
+Chicago Press, Chicago; London
+
+\bibitem[\citeproctext]{ref-langer_philosophy_1957}
+Langer SK (1957) Philosophy in a new key; a study in the symbolism of
+reason, rite, and art., {[}3d ed.{]}. Harvard University Press,
+Cambridge
+
+\bibitem[\citeproctext]{ref-livneh_abstract_2022}
+Livneh O, Gitman A, Assaf A, Yang M (2022)
+\href{https://meta.wikimedia.org/w/index.php?title=Abstract_Wikipedia/Google.org_Fellows_evaluation&oldid=24268563}{Abstract
+{Wikipedia}/{Google}.org {Fellows} evaluation}. Wikipedia Meta-Wiki
+
+\bibitem[\citeproctext]{ref-lovelace_sketch_2021}
+Lovelace A, Menabrea LF (2021)
+\href{https://doi.org/10.7551/mitpress/12274.003.0005}{Sketch of the
+{Analytical} {Engine} (1843)}. In: Lewis H (ed) Ideas {That} {Created}
+the {Future}. The MIT Press, pp 9--26
+
+\bibitem[\citeproctext]{ref-marino_critical_2020}
+Marino MC (2020)
+\href{https://doi.org/10.7551/mitpress/12122.001.0001}{Critical {Code}
+{Studies}}. The MIT Press
+
+\bibitem[\citeproctext]{ref-massaro_function-orchestrator_2024}
+Massaro C, Vrandečić D, Smit D, et al (2024a)
+\href{https://gitlab.wikimedia.org/repos/abstract-wiki/wikifunctions/function-orchestrator/-/tree/86514fdaa663a75c9ebbda232c35e3248adbec5d}{Function-orchestrator}
+
+\bibitem[\citeproctext]{ref-massaro_function-evaluator_2024}
+Massaro C, Vrandečić D, Smit D, et al (2024b)
+\href{https://gitlab.wikimedia.org/repos/abstract-wiki/wikifunctions/function-evaluator/-/tree/dbfededdc4d83ff8175b2bab42b00327e1a4a6aa}{Function-evaluator}
+
+\bibitem[\citeproctext]{ref-ragg_pragmatic_2006}
+Ragg E (2006) \href{https://www.jstor.org/stable/44884979}{Pragmatic
+{Abstraction} vs. {Metaphor}: {Stevens}' "{The} {Pure} {Good} of
+{Theory}" and "{Macbeth}"}. The Wallace Stevens Journal 30:5--29
+
+\bibitem[\citeproctext]{ref-reddy_conduit_1993}
+Reddy MJ (1993) \href{https://doi.org/10.1017/CBO9781139173865.012}{The
+conduit metaphor: {A} case of frame conflict in our language about
+language}. In: Ortony A (ed) Metaphor and {Thought}, 2nd edn. Cambridge
+University Press, pp 164--201
+
+\bibitem[\citeproctext]{ref-rountree_nonsense_2023}
+Rountree B, Condee W (2023)
+\href{https://www.digitalhumanities.org/dhq/vol/17/2/000702/000702.html}{Nonsense
+{Code}: {A} {Nonmaterial} {Performance}}. Digital Humanities Quarterly
+17:
+
+\bibitem[\citeproctext]{ref-steele_jr_debunking_1977}
+Steele Jr. GL (1977)
+\href{https://apps.dtic.mil/sti/pdfs/ADA062381.pdf}{Debunking the
+"expensive procedure call" myth; or, procedure call implementations
+considered harmful; or, lambda: The ultimate goto}. Massachusetts
+Institute of Technology, Cambridge, Mass
+
+\bibitem[\citeproctext]{ref-steele_jr_art_1978}
+Steele Jr. GL, Sussman GJ (1978)
+\href{https://dspace.mit.edu/bitstream/handle/1721.1/6094/AIM-453.pdf}{The
+{Art} of the {Interpreter}; or, {The} {Modularity} {Complex} ({Parts}
+{Zero}, {One}, and {Two})}. Massachusetts Institute of Technology,
+Cambridge, Mass
+
+\bibitem[\citeproctext]{ref-sussman_scheme_1975}
+Sussman GJ, Steele Jr. GL (1975)
+\href{https://dspace.mit.edu/bitstream/handle/1721.1/5794/AIM-349.pdf}{Scheme:
+{An} interpreter for extended lambda calculus}. Massachusetts Institute
+of Technology, Cambridge, Mass
+
+\bibitem[\citeproctext]{ref-swift_gullivers_2005}
+Swift J (2005) Gulliver's {Travels}. OUP, Oxford
+
+\bibitem[\citeproctext]{ref-tenen_plain_2017}
+Tenen D (2017) Plain text: The poetics of computation. Stanford
+University Press, Stanford, California
+
+\bibitem[\citeproctext]{ref-wa_thiongo_decolonising_1986}
+Thiong'o N wa (1986) Decolonising the {Mind}: {The} {Politics} of
+{Language} in {African} {Literature}. Boydell \& Brewer, Limited,
+Woodbridge
+
+\bibitem[\citeproctext]{ref-tkacz_wikipedia_2015}
+Tkacz N (2015) Wikipedia and the politics of openness. University of
+Chicago Press, Chicago ; London
+
+\bibitem[\citeproctext]{ref-vee_coding_2017}
+Vee A (2017)
+\href{https://doi.org/10.7551/mitpress/10655.001.0001}{Coding
+{Literacy}: {How} {Computer} {Programming} {Is} {Changing} {Writing}}.
+The MIT Press
+
+\bibitem[\citeproctext]{ref-vrandecic_building_2021}
+Vrandečić D (2021) Building a multilingual {Wikipedia}. Communications
+of the ACM 64:38--41. \url{https://doi.org/10.1145/3425778}
+
+\bibitem[\citeproctext]{ref-vrandecic_capturing_2018}
+Vrandečić D (2018) \href{http://ceur-ws.org/Vol-2180/}{Capturing
+meaning: {Toward} an abstract {Wikipedia}}. In: International {Semantic}
+{Web} {Conference} 2018 - {Outrageous} {Ideas} {Track}. Monterey, CA
+
+\bibitem[\citeproctext]{ref-vrandecic_collaborating_2020}
+Vrandečić D (2020)
+\href{https://doi.org/10.7551/mitpress/12366.003.0016}{Collaborating on
+the {Sum} of {All} {Knowledge} {Across} {Languages}}. In: Reagle J,
+Koerner J (eds) Wikipedia@20: {Stories} of an {Incomplete} {Revolution}.
+MIT Press, Cambridge, Mass, pp 175--188
+
+\bibitem[\citeproctext]{ref-wark_hacker_2004}
+Wark M (2004) \href{https://doi.org/10.4159/9780674044845}{A {Hacker}
+{Manifesto}}. Harvard University Press, Cambridge, Mass
 
 \end{CSLReferences}
 

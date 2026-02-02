@@ -11,6 +11,7 @@ authors:
     email: michael.falk@unimelb.edu.au
     url: https://michaelfalk.io
 bibliography: references.bib
+csl: springer-basic-author-date.csl
 keywords:
   - Wikipedia
   - Wikifunctions
